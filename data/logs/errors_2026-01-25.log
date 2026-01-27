@@ -1,0 +1,53 @@
+2026-01-25 23:30:39 | ERROR    | src.utils.kalshi_client:_initialize_client:47 - Failed to initialize Kalshi client: 'ApiClient' object has no attribute 'verify_ssl'
+
+2026-01-25 23:33:41 | ERROR    | src.utils.kalshi_client:_initialize_client:47 - Failed to initialize Kalshi client: 'ApiClient' object has no attribute 'verify_ssl'
+
+2026-01-25 23:35:42 | ERROR    | src.utils.kalshi_client:_initialize_client:47 - Failed to initialize Kalshi client: 'ApiClient' object has no attribute 'verify_ssl'
+
+2026-01-25 23:35:57 | ERROR    | src.utils.kalshi_client:_initialize_client:47 - Failed to initialize Kalshi client: 'ApiClient' object has no attribute 'verify_ssl'
+
+2026-01-25 23:35:58 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'ArbitrageDetector' object has no attribute 'detect_all_arbitrage'
+
+2026-01-25 23:38:16 | ERROR    | src.utils.kalshi_client:_initialize_client:47 - Failed to initialize Kalshi client: 'ApiClient' object has no attribute 'verify_ssl'
+
+2026-01-25 23:38:32 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-25 23:38:43 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-25 23:38:56 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-25 23:38:56 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-25 23:43:47 | ERROR    | src.agents.data_qa_circuit_breaker:validate_and_check:62 - CIRCUIT BREAKER TRIGGERED: No markets fetched - data source may be down
+
+2026-01-25 23:43:47 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-25 23:43:47 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-25 23:44:42 | ERROR    | src.agents.data_qa_circuit_breaker:validate_and_check:62 - CIRCUIT BREAKER TRIGGERED: 10 markets have incomplete data
+
+2026-01-25 23:44:42 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-25 23:44:42 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-25 23:48:05 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-25 23:48:17 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-25 23:48:30 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-25 23:48:45 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-25 23:48:59 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-25 23:49:12 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-25 23:49:12 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+

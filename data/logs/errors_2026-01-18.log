@@ -1,0 +1,10 @@
+2026-01-18 21:23:42 | ERROR    | src.agents.signal_selection_agent:generate_signal:81 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+
+2026-01-18 21:23:42 | ERROR    | src.agents.signal_selection_agent:generate_signal:81 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+
+2026-01-18 21:23:42 | ERROR    | src.agents.signal_selection_agent:generate_signal:81 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+
+2026-01-18 21:23:42 | ERROR    | src.orchestrator.langgraph_flow:_record_session:419 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-18 21:23:42 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:160 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+

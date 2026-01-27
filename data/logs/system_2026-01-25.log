@@ -1,0 +1,1658 @@
+2026-01-25 23:30:39 | ERROR    | src.utils.kalshi_client:_initialize_client:47 - Failed to initialize Kalshi client: 'ApiClient' object has no attribute 'verify_ssl'
+2026-01-25 23:30:39 | INFO     | src.utils.calibration_tracker:get_calibration_factor:52 - No calibration data available, using factor 1.0
+2026-01-25 23:30:39 | INFO     | src.utils.calibration_tracker:get_calibration_factor:52 - No calibration data available, using factor 1.0
+2026-01-25 23:33:41 | ERROR    | src.utils.kalshi_client:_initialize_client:47 - Failed to initialize Kalshi client: 'ApiClient' object has no attribute 'verify_ssl'
+2026-01-25 23:33:41 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-01-25 23:35:42 | ERROR    | src.utils.kalshi_client:_initialize_client:47 - Failed to initialize Kalshi client: 'ApiClient' object has no attribute 'verify_ssl'
+2026-01-25 23:35:57 | ERROR    | src.utils.kalshi_client:_initialize_client:47 - Failed to initialize Kalshi client: 'ApiClient' object has no attribute 'verify_ssl'
+2026-01-25 23:35:58 | INFO     | src.utils.news_fetcher:__init__:25 - NewsAPI client initialized
+2026-01-25 23:35:58 | INFO     | src.utils.news_fetcher:__init__:119 - Reddit client initialized
+2026-01-25 23:35:58 | INFO     | src.utils.news_fetcher:__init__:131 - Twitter client initialized
+2026-01-25 23:35:58 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-01-25 23:35:58 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-01-25 23:35:58 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-01-25 23:35:58 | INFO     | __main__:main:70 - 
+2026-01-25 23:35:58 | INFO     | __main__:main:71 - ****************************************************************************************************
+2026-01-25 23:35:58 | INFO     | __main__:main:72 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-01-25 23:35:58 | INFO     | __main__:main:73 - ****************************************************************************************************
+2026-01-25 23:35:58 | INFO     | __main__:main:74 - 
+2026-01-25 23:35:58 | INFO     | __main__:main:75 - Configuration:
+2026-01-25 23:35:58 | INFO     | __main__:main:76 -   Trading Mode: PAPER
+2026-01-25 23:35:58 | INFO     | __main__:main:77 -   Starting Capital: $100.00
+2026-01-25 23:35:58 | INFO     | __main__:main:78 -   Risk Per Trade: 5.0%
+2026-01-25 23:35:58 | INFO     | __main__:main:79 -   LLM Model: claude-sonnet-4-20250514
+2026-01-25 23:35:58 | INFO     | __main__:main:80 -   Scheduler Interval: 15 minutes
+2026-01-25 23:35:58 | INFO     | __main__:main:81 -   Max Daily Trades: 5
+2026-01-25 23:35:58 | INFO     | __main__:main:82 -   Max Daily Loss: 15.0%
+2026-01-25 23:35:58 | INFO     | __main__:main:83 - 
+2026-01-25 23:35:58 | INFO     | __main__:main:86 - Initializing database...
+2026-01-25 23:35:58 | INFO     | __main__:main:88 - Database initialized successfully
+2026-01-25 23:35:58 | INFO     | __main__:main:89 - 
+2026-01-25 23:35:58 | INFO     | __main__:main:96 - Running initial trading cycle...
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:23 - 
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-01-25 23:35:58
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:122 - ================================================================================
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:123 - STARTING TRADING CYCLE
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:124 - ================================================================================
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:136 - Session ID: session_acef79b7
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:137 - Starting Balance: $100.00
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:138 - Open Positions: 0
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - Daily Trades: 0
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - Daily P&L: $0.00
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:184 - Node: Updating Positions
+2026-01-25 23:35:58 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-01-25 23:35:58 | INFO     | src.agents.position_manager:update_positions:49 - Found 0 open positions
+2026-01-25 23:35:58 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 0
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:189 - Node: Fetching Markets
+2026-01-25 23:35:58 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-01-25 23:35:58 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:69 - Fetched 3 markets successfully
+2026-01-25 23:35:58 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:73 - Filtered to 0 markets meeting policy criteria
+2026-01-25 23:35:58 | INFO     | src.agents.market_data_fetcher:_rank_markets:338 - Top market opportunities:
+2026-01-25 23:35:58 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Identified 0 top opportunities
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:194 - Node: Circuit Breaker
+2026-01-25 23:35:58 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-01-25 23:35:58 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:_bonding_scan_node:199 - Node: Bonding Strategy Scan
+2026-01-25 23:35:58 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:62 - ============================================================
+2026-01-25 23:35:58 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:63 - BONDING STRATEGY SCAN
+2026-01-25 23:35:58 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:64 - ============================================================
+2026-01-25 23:35:58 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:112 - Found 0 bonding opportunities
+2026-01-25 23:35:58 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:126 - ============================================================
+2026-01-25 23:35:58 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:227 - Node: Arbitrage Detection Scan
+2026-01-25 23:35:58 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'ArbitrageDetector' object has no attribute 'detect_all_arbitrage'
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:31 - 
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 0
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 0
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:35 -   Trades Executed: 0
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:36 -   Trades Blocked: 0
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:46 - ====================================================================================================
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:47 - Next cycle in 15 minutes
+2026-01-25 23:35:58 | INFO     | __main__:run_trading_cycle:48 - ====================================================================================================
+2026-01-25 23:35:58 | INFO     | __main__:main:100 - 
+2026-01-25 23:35:58 | INFO     | __main__:main:101 - Starting scheduler (runs every 15 minutes)...
+2026-01-25 23:35:58 | INFO     | __main__:main:113 - Trading system is running. Press Ctrl+C to stop.
+2026-01-25 23:35:58 | INFO     | __main__:main:114 - 
+2026-01-25 23:37:20 | INFO     | __main__:signal_handler:56 - 
+2026-01-25 23:37:20 | INFO     | __main__:signal_handler:57 - Shutdown signal received. Stopping trading system...
+2026-01-25 23:37:20 | INFO     | __main__:signal_handler:62 - Trading system stopped.
+2026-01-25 23:37:20 | INFO     | __main__:main:117 - Shutting down...
+2026-01-25 23:38:16 | ERROR    | src.utils.kalshi_client:_initialize_client:47 - Failed to initialize Kalshi client: 'ApiClient' object has no attribute 'verify_ssl'
+2026-01-25 23:38:16 | INFO     | src.utils.news_fetcher:__init__:25 - NewsAPI client initialized
+2026-01-25 23:38:16 | INFO     | src.utils.news_fetcher:__init__:119 - Reddit client initialized
+2026-01-25 23:38:16 | INFO     | src.utils.news_fetcher:__init__:131 - Twitter client initialized
+2026-01-25 23:38:16 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-01-25 23:38:16 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-01-25 23:38:16 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-01-25 23:38:16 | INFO     | __main__:main:70 - 
+2026-01-25 23:38:16 | INFO     | __main__:main:71 - ****************************************************************************************************
+2026-01-25 23:38:16 | INFO     | __main__:main:72 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-01-25 23:38:16 | INFO     | __main__:main:73 - ****************************************************************************************************
+2026-01-25 23:38:16 | INFO     | __main__:main:74 - 
+2026-01-25 23:38:16 | INFO     | __main__:main:75 - Configuration:
+2026-01-25 23:38:16 | INFO     | __main__:main:76 -   Trading Mode: PAPER
+2026-01-25 23:38:16 | INFO     | __main__:main:77 -   Starting Capital: $100.00
+2026-01-25 23:38:16 | INFO     | __main__:main:78 -   Risk Per Trade: 5.0%
+2026-01-25 23:38:16 | INFO     | __main__:main:79 -   LLM Model: claude-sonnet-4-20250514
+2026-01-25 23:38:16 | INFO     | __main__:main:80 -   Scheduler Interval: 15 minutes
+2026-01-25 23:38:16 | INFO     | __main__:main:81 -   Max Daily Trades: 5
+2026-01-25 23:38:16 | INFO     | __main__:main:82 -   Max Daily Loss: 15.0%
+2026-01-25 23:38:16 | INFO     | __main__:main:83 - 
+2026-01-25 23:38:16 | INFO     | __main__:main:86 - Initializing database...
+2026-01-25 23:38:16 | INFO     | __main__:main:88 - Database initialized successfully
+2026-01-25 23:38:16 | INFO     | __main__:main:89 - 
+2026-01-25 23:38:16 | INFO     | __main__:main:96 - Running initial trading cycle...
+2026-01-25 23:38:16 | INFO     | __main__:run_trading_cycle:23 - 
+2026-01-25 23:38:16 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-01-25 23:38:16 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-01-25 23:38:16
+2026-01-25 23:38:16 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-01-25 23:38:16 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:122 - ================================================================================
+2026-01-25 23:38:16 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:123 - STARTING TRADING CYCLE
+2026-01-25 23:38:16 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:124 - ================================================================================
+2026-01-25 23:38:16 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:136 - Session ID: session_20ad3b72
+2026-01-25 23:38:16 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:137 - Starting Balance: $100.00
+2026-01-25 23:38:16 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:138 - Open Positions: 0
+2026-01-25 23:38:16 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - Daily Trades: 0
+2026-01-25 23:38:16 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - Daily P&L: $0.00
+2026-01-25 23:38:16 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:184 - Node: Updating Positions
+2026-01-25 23:38:16 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-01-25 23:38:16 | INFO     | src.agents.position_manager:update_positions:49 - Found 0 open positions
+2026-01-25 23:38:17 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 0
+2026-01-25 23:38:17 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:189 - Node: Fetching Markets
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:69 - Fetched 3 markets successfully
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:73 - Filtered to 0 markets meeting policy criteria
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:338 - Top market opportunities:
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Identified 0 top opportunities
+2026-01-25 23:38:17 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:194 - Node: Circuit Breaker
+2026-01-25 23:38:17 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-01-25 23:38:17 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed
+2026-01-25 23:38:17 | INFO     | src.orchestrator.langgraph_flow:_bonding_scan_node:199 - Node: Bonding Strategy Scan
+2026-01-25 23:38:17 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:62 - ============================================================
+2026-01-25 23:38:17 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:63 - BONDING STRATEGY SCAN
+2026-01-25 23:38:17 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:64 - ============================================================
+2026-01-25 23:38:17 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:112 - Found 0 bonding opportunities
+2026-01-25 23:38:17 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:126 - ============================================================
+2026-01-25 23:38:17 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:227 - Node: Arbitrage Detection Scan
+2026-01-25 23:38:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:41 - ============================================================
+2026-01-25 23:38:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:42 - ARBITRAGE DETECTION SCAN
+2026-01-25 23:38:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:43 - ============================================================
+2026-01-25 23:38:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:67 - Found 0 total arbitrage opportunities
+2026-01-25 23:38:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:83 - ============================================================
+2026-01-25 23:38:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:255 - Node: Selecting Opportunity
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:338 - Top market opportunities:
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:340 -   1. PRES-2024-TRUMP - Will Donald Trump win the 2024 presidential election?... (Score: 93.6, Liquidity: $500,000)
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:340 -   2. FED-RATE-MAR24 - Will the Fed cut rates in March 2024?... (Score: 84.1, Liquidity: $200,000)
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:340 -   3. WEATHER-NYC-FEB - Will NYC get >10 inches of snow in February?... (Score: 71.9, Liquidity: $100,000)
+2026-01-25 23:38:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:272 - Selected: PRES-2024-TRUMP
+2026-01-25 23:38:17 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:281 - Node: Enriching Data
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:105 - Enriching data for PRES-2024-TRUMP: Will Donald Trump win the 2024 presidential election?
+2026-01-25 23:38:17 | INFO     | src.utils.news_fetcher:search_news:64 - Found 10 articles for query: donald trump 2024 presidential election?
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:133 - Found 10 news articles
+2026-01-25 23:38:17 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/politics: received 401 HTTP response
+2026-01-25 23:38:17 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/news: received 401 HTTP response
+2026-01-25 23:38:17 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/worldnews: received 401 HTTP response
+2026-01-25 23:38:17 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/economics: received 401 HTTP response
+2026-01-25 23:38:17 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/wallstreetbets: received 401 HTTP response
+2026-01-25 23:38:17 | INFO     | src.utils.news_fetcher:get_reddit_sentiment:176 - Found 0 Reddit posts for: donald trump 2024 presidential election?
+2026-01-25 23:38:17 | INFO     | src.utils.news_fetcher:get_twitter_sentiment:221 - Found 50 tweets for: donald trump 2024 presidential election?
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:179 - Found 50 social media posts
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:199 - News sentiment: 1.000 (10 articles)
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:216 - Social sentiment: 0.918 (50 posts)
+2026-01-25 23:38:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:236 - Combined sentiment: 0.967
+2026-01-25 23:38:17 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:295 - Node: Generating Signal
+2026-01-25 23:38:17 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for PRES-2024-TRUMP
+2026-01-25 23:38:31 | INFO     | src.agents.signal_selection_agent:generate_signal:66 - Claude analysis:
+**RECOMMENDATION:** NO_TRADE
+
+**CONFIDENCE:** 30%
+
+**EXPECTED_RETURN:** N/A
+
+**REASONING:**
+While the sentiment analysis shows strongly bullish signals (+0.97 combined sentiment), this creates a concerning disconnect with the current market pricing that implies only 46% probability for Trump winning. However, the technical indicators are entirely neutral across all metrics (RSI at 50, zero momentum, balanced order book), suggesting the market has reached an equilibrium that may accurately reflect the true uncertainty of this binary political outcome.
+
+The news landscape appears fragmented and potentially biased based on sources, making it difficult to extract reliable directional signals. More critically, political prediction markets are notoriously difficult to trade profitably due to their binary nature, high volatility around news events, and the fact that sophisticated political analysts and pollsters are likely already incorporated into the pricing. The 2% spread is reasonable but not exceptional, and with the election still months away, there's substantial time for fundamental shifts in the race.
+
+The combination of neutral technical signals, potential sentiment-pricing disconnect, and the inherently unpredictable nature of political outcomes fails to meet our minimum confidence threshold of 70% or provide a clear directional edge.
+
+**KEY_FACTORS:**
+- Strong bullish sentiment (+0.97) contrasts with neutral 46% market pricing
+- All technical indicators showing neutral/balanced signals across the board
+- High liquidity ($150k daily volume) suggests efficient price discovery
+- Significant time remaining until election allows for major developments
+
+**RISK_FACTORS:**
+- Political events are inherently binary and unpredictable
+- News cycles can create rapid, dramatic price swings
+- Sentiment may be skewed by biased news sources rather than reflecting true probability
+- Long time horizon increases uncertainty and event risk
+
+**MARKET_EDGE:**
+There is no clear quantifiable edge present - the neutral technical signals suggest the market may be efficiently pricing this highly scrutinized political outcome despite the sentiment divergence.
+2026-01-25 23:38:31 | INFO     | src.agents.signal_selection_agent:generate_signal:74 - Signal generated: NO_TRADE (Confidence: 30.0%, Expected Return: 0.0%)
+2026-01-25 23:38:31 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:396 - Signal is NO_TRADE, trying next opportunity
+2026-01-25 23:38:31 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:255 - Node: Selecting Opportunity
+2026-01-25 23:38:31 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:272 - Selected: FED-RATE-MAR24
+2026-01-25 23:38:31 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:281 - Node: Enriching Data
+2026-01-25 23:38:31 | INFO     | src.agents.market_data_fetcher:enrich_market_data:105 - Enriching data for FED-RATE-MAR24: Will the Fed cut rates in March 2024?
+2026-01-25 23:38:31 | INFO     | src.utils.news_fetcher:search_news:64 - Found 0 articles for query: rates march 2024?
+2026-01-25 23:38:31 | INFO     | src.agents.market_data_fetcher:enrich_market_data:133 - Found 0 news articles
+2026-01-25 23:38:31 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/politics: received 401 HTTP response
+2026-01-25 23:38:31 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/news: received 401 HTTP response
+2026-01-25 23:38:31 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/worldnews: received 401 HTTP response
+2026-01-25 23:38:31 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/economics: received 401 HTTP response
+2026-01-25 23:38:32 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/wallstreetbets: received 401 HTTP response
+2026-01-25 23:38:32 | INFO     | src.utils.news_fetcher:get_reddit_sentiment:176 - Found 0 Reddit posts for: rates march 2024?
+2026-01-25 23:38:32 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+2026-01-25 23:38:32 | INFO     | src.agents.market_data_fetcher:enrich_market_data:179 - Found 0 social media posts
+2026-01-25 23:38:32 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:295 - Node: Generating Signal
+2026-01-25 23:38:32 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for FED-RATE-MAR24
+2026-01-25 23:38:42 | INFO     | src.agents.signal_selection_agent:generate_signal:66 - Claude analysis:
+**RECOMMENDATION:** NO_TRADE
+
+**CONFIDENCE:** 45%
+
+**EXPECTED_RETURN:** N/A
+
+**REASONING:**
+The market presents a neutral technical profile across all indicators, with RSI at 50.0, zero momentum, and balanced order book dynamics. This suggests the market is in equilibrium without clear directional bias. The 66.5% implied probability for a Fed rate cut in March 2024 appears to be fairly priced given the lack of strong technical or sentiment signals pushing in either direction.
+
+Without recent news catalysts, social media sentiment, or compelling technical momentum, there's insufficient evidence to suggest the market is mispricing this event. The 3.0% spread is reasonable for this type of economic event market, and the decent liquidity ($80k daily volume, $200k open interest) suggests efficient price discovery. The technical analysis reveals a "wait and see" environment where neither bulls nor bears have established control.
+
+Given our trading constraints requiring 70% confidence and 15% expected returns, this market fails to meet our threshold for high-probability trades. The neutral technical setup combined with absence of fundamental catalysts suggests the market is accurately reflecting current uncertainty around Fed policy decisions.
+
+**KEY_FACTORS:**
+- All technical indicators showing neutral/balanced signals
+- Absence of recent news or fundamental catalysts
+- Fair market pricing with reasonable spreads and good liquidity
+
+**RISK_FACTORS:**
+- Sudden Fed communication could dramatically shift probabilities
+- Economic data releases could alter rate cut expectations
+- Market could remain range-bound, providing no clear trading opportunities
+
+**MARKET_EDGE:**
+There is no clear informational or technical edge present in this market at current pricing levels.
+2026-01-25 23:38:42 | INFO     | src.agents.signal_selection_agent:generate_signal:74 - Signal generated: NO_TRADE (Confidence: 45.0%, Expected Return: 0.0%)
+2026-01-25 23:38:42 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:396 - Signal is NO_TRADE, trying next opportunity
+2026-01-25 23:38:42 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:255 - Node: Selecting Opportunity
+2026-01-25 23:38:42 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:272 - Selected: WEATHER-NYC-FEB
+2026-01-25 23:38:42 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:281 - Node: Enriching Data
+2026-01-25 23:38:42 | INFO     | src.agents.market_data_fetcher:enrich_market_data:105 - Enriching data for WEATHER-NYC-FEB: Will NYC get >10 inches of snow in February?
+2026-01-25 23:38:43 | INFO     | src.utils.news_fetcher:search_news:64 - Found 0 articles for query: inches snow february?
+2026-01-25 23:38:43 | INFO     | src.agents.market_data_fetcher:enrich_market_data:133 - Found 0 news articles
+2026-01-25 23:38:43 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/politics: received 401 HTTP response
+2026-01-25 23:38:43 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/news: received 401 HTTP response
+2026-01-25 23:38:43 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/worldnews: received 401 HTTP response
+2026-01-25 23:38:43 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/economics: received 401 HTTP response
+2026-01-25 23:38:43 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/wallstreetbets: received 401 HTTP response
+2026-01-25 23:38:43 | INFO     | src.utils.news_fetcher:get_reddit_sentiment:176 - Found 0 Reddit posts for: inches snow february?
+2026-01-25 23:38:43 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+2026-01-25 23:38:43 | INFO     | src.agents.market_data_fetcher:enrich_market_data:179 - Found 0 social media posts
+2026-01-25 23:38:43 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:295 - Node: Generating Signal
+2026-01-25 23:38:43 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for WEATHER-NYC-FEB
+2026-01-25 23:38:56 | INFO     | src.agents.signal_selection_agent:generate_signal:66 - Claude analysis:
+**RECOMMENDATION:** NO_TRADE
+
+**CONFIDENCE:** 45%
+
+**EXPECTED_RETURN:** N/A
+
+**REASONING:**
+This weather prediction market lacks the fundamental data and edge identification necessary for a high-confidence trade. While the 26.5% implied probability for NYC receiving >10 inches of snow in February appears reasonable from a historical perspective (NYC averages around 7-8 inches in February, making >10 inches a less frequent but not rare occurrence), there are insufficient technical and informational signals to justify position entry.
+
+The technical indicators are entirely neutral across all metrics - RSI at 50, zero momentum, balanced order book, and unknown volume trends. More critically, there is no recent news, social sentiment data, or weather forecasting information provided that could give us an informational edge over the market. Weather markets typically require access to meteorological data, seasonal patterns, and current atmospheric conditions to identify mispricing opportunities.
+
+The very wide spread of 11.32% significantly impacts potential returns and suggests limited market maker confidence or thin liquidity despite the reported volume. Without access to current weather forecasts, seasonal comparison data, or any fundamental catalyst, this becomes essentially a coin flip that doesn't meet our minimum confidence threshold of 70%.
+
+**KEY_FACTORS:**
+- Complete absence of weather forecast data or meteorological analysis
+- All technical indicators showing neutral signals with no directional bias
+- Very wide spread (11.32%) reducing profit potential
+- No news or sentiment data to provide informational edge
+
+**RISK_FACTORS:**
+- Weather events are inherently unpredictable and can change rapidly
+- Wide spread significantly reduces profit margins on any position
+- February weather patterns can be highly variable year-to-year
+- No fundamental data available to assess current probability accuracy
+
+**MARKET_EDGE:**
+There is no identifiable edge in this market without access to weather forecasting data, historical seasonal analysis, or any fundamental information that could suggest the current 26.5% probability is mispriced.
+2026-01-25 23:38:56 | INFO     | src.agents.signal_selection_agent:generate_signal:74 - Signal generated: NO_TRADE (Confidence: 45.0%, Expected Return: 0.0%)
+2026-01-25 23:38:56 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:396 - Signal is NO_TRADE, trying next opportunity
+2026-01-25 23:38:56 | INFO     | src.orchestrator.langgraph_flow:_finalize_node:373 - Node: Finalizing
+2026-01-25 23:38:56 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+2026-01-25 23:38:56 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:149 - ================================================================================
+2026-01-25 23:38:56 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:150 - TRADING CYCLE COMPLETE
+2026-01-25 23:38:56 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+2026-01-25 23:38:56 | INFO     | __main__:run_trading_cycle:31 - 
+2026-01-25 23:38:56 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-01-25 23:38:56 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 0
+2026-01-25 23:38:56 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 0
+2026-01-25 23:38:56 | INFO     | __main__:run_trading_cycle:35 -   Trades Executed: 0
+2026-01-25 23:38:56 | INFO     | __main__:run_trading_cycle:36 -   Trades Blocked: 0
+2026-01-25 23:38:56 | INFO     | __main__:run_trading_cycle:46 - ====================================================================================================
+2026-01-25 23:38:56 | INFO     | __main__:run_trading_cycle:47 - Next cycle in 15 minutes
+2026-01-25 23:38:56 | INFO     | __main__:run_trading_cycle:48 - ====================================================================================================
+2026-01-25 23:38:56 | INFO     | __main__:main:100 - 
+2026-01-25 23:38:56 | INFO     | __main__:main:101 - Starting scheduler (runs every 15 minutes)...
+2026-01-25 23:38:56 | INFO     | __main__:main:113 - Trading system is running. Press Ctrl+C to stop.
+2026-01-25 23:38:56 | INFO     | __main__:main:114 - 
+2026-01-25 23:39:22 | INFO     | __main__:signal_handler:56 - 
+2026-01-25 23:39:22 | INFO     | __main__:signal_handler:57 - Shutdown signal received. Stopping trading system...
+2026-01-25 23:39:22 | INFO     | __main__:signal_handler:62 - Trading system stopped.
+2026-01-25 23:39:22 | INFO     | __main__:main:117 - Shutting down...
+2026-01-25 23:43:38 | INFO     | src.utils.kalshi_client:_initialize_client:59 - Kalshi client initialized in demo mode
+2026-01-25 23:43:38 | INFO     | src.utils.news_fetcher:__init__:25 - NewsAPI client initialized
+2026-01-25 23:43:38 | INFO     | src.utils.news_fetcher:__init__:119 - Reddit client initialized
+2026-01-25 23:43:38 | INFO     | src.utils.news_fetcher:__init__:131 - Twitter client initialized
+2026-01-25 23:43:38 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-01-25 23:43:38 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-01-25 23:43:38 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-01-25 23:43:38 | INFO     | src.utils.kalshi_client:get_all_markets:108 - Fetched 100 markets from Kalshi
+2026-01-25 23:43:46 | INFO     | src.utils.kalshi_client:_initialize_client:59 - Kalshi client initialized in demo mode
+2026-01-25 23:43:46 | INFO     | src.utils.news_fetcher:__init__:25 - NewsAPI client initialized
+2026-01-25 23:43:46 | INFO     | src.utils.news_fetcher:__init__:119 - Reddit client initialized
+2026-01-25 23:43:46 | INFO     | src.utils.news_fetcher:__init__:131 - Twitter client initialized
+2026-01-25 23:43:46 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-01-25 23:43:46 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-01-25 23:43:46 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-01-25 23:43:46 | INFO     | __main__:main:70 - 
+2026-01-25 23:43:46 | INFO     | __main__:main:71 - ****************************************************************************************************
+2026-01-25 23:43:46 | INFO     | __main__:main:72 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-01-25 23:43:46 | INFO     | __main__:main:73 - ****************************************************************************************************
+2026-01-25 23:43:46 | INFO     | __main__:main:74 - 
+2026-01-25 23:43:46 | INFO     | __main__:main:75 - Configuration:
+2026-01-25 23:43:46 | INFO     | __main__:main:76 -   Trading Mode: PAPER
+2026-01-25 23:43:46 | INFO     | __main__:main:77 -   Starting Capital: $100.00
+2026-01-25 23:43:46 | INFO     | __main__:main:78 -   Risk Per Trade: 5.0%
+2026-01-25 23:43:46 | INFO     | __main__:main:79 -   LLM Model: claude-sonnet-4-20250514
+2026-01-25 23:43:46 | INFO     | __main__:main:80 -   Scheduler Interval: 15 minutes
+2026-01-25 23:43:46 | INFO     | __main__:main:81 -   Max Daily Trades: 5
+2026-01-25 23:43:46 | INFO     | __main__:main:82 -   Max Daily Loss: 15.0%
+2026-01-25 23:43:46 | INFO     | __main__:main:83 - 
+2026-01-25 23:43:46 | INFO     | __main__:main:86 - Initializing database...
+2026-01-25 23:43:46 | INFO     | __main__:main:88 - Database initialized successfully
+2026-01-25 23:43:46 | INFO     | __main__:main:89 - 
+2026-01-25 23:43:46 | INFO     | __main__:main:96 - Running initial trading cycle...
+2026-01-25 23:43:46 | INFO     | __main__:run_trading_cycle:23 - 
+2026-01-25 23:43:46 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-01-25 23:43:46 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-01-25 23:43:46
+2026-01-25 23:43:46 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-01-25 23:43:46 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:122 - ================================================================================
+2026-01-25 23:43:46 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:123 - STARTING TRADING CYCLE
+2026-01-25 23:43:46 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:124 - ================================================================================
+2026-01-25 23:43:46 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:136 - Session ID: session_8024f854
+2026-01-25 23:43:46 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:137 - Starting Balance: $100.00
+2026-01-25 23:43:46 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:138 - Open Positions: 0
+2026-01-25 23:43:46 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - Daily Trades: 0
+2026-01-25 23:43:46 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - Daily P&L: $0.00
+2026-01-25 23:43:46 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:184 - Node: Updating Positions
+2026-01-25 23:43:46 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-01-25 23:43:46 | INFO     | src.agents.position_manager:update_positions:49 - Found 0 open positions
+2026-01-25 23:43:46 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 0
+2026-01-25 23:43:46 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:189 - Node: Fetching Markets
+2026-01-25 23:43:46 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-01-25 23:43:47 | INFO     | src.utils.kalshi_client:get_all_markets:108 - Fetched 200 markets from Kalshi
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 2, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 2, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 2, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...1, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...1, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...1, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 2, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 2, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...20, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 0, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2... 1, 0, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...2, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...0, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | WARNING  | src.agents.market_data_fetcher:fetch_all_markets:63 - Failed to parse market: 1 validation error for MarketData
+close_date
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2026, 2...8, 30, tzinfo=TzInfo(0)), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2026-01-25 23:43:47 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:69 - Fetched 0 markets successfully
+2026-01-25 23:43:47 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:73 - Filtered to 0 markets meeting policy criteria
+2026-01-25 23:43:47 | INFO     | src.agents.market_data_fetcher:_rank_markets:338 - Top market opportunities:
+2026-01-25 23:43:47 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Identified 0 top opportunities
+2026-01-25 23:43:47 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:194 - Node: Circuit Breaker
+2026-01-25 23:43:47 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-01-25 23:43:47 | WARNING  | src.agents.data_qa_circuit_breaker:validate_and_check:56 - Circuit breaker check failed: data_quality - No markets fetched - data source may be down
+2026-01-25 23:43:47 | ERROR    | src.agents.data_qa_circuit_breaker:validate_and_check:62 - CIRCUIT BREAKER TRIGGERED: No markets fetched - data source may be down
+2026-01-25 23:43:47 | WARNING  | src.orchestrator.langgraph_flow:_should_continue_after_circuit_breaker:380 - Circuit breaker triggered - halting trading
+2026-01-25 23:43:47 | INFO     | src.orchestrator.langgraph_flow:_finalize_node:373 - Node: Finalizing
+2026-01-25 23:43:47 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+2026-01-25 23:43:47 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:149 - ================================================================================
+2026-01-25 23:43:47 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:150 - TRADING CYCLE COMPLETE
+2026-01-25 23:43:47 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+2026-01-25 23:43:47 | INFO     | __main__:run_trading_cycle:31 - 
+2026-01-25 23:43:47 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-01-25 23:43:47 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 0
+2026-01-25 23:43:47 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 0
+2026-01-25 23:43:47 | INFO     | __main__:run_trading_cycle:35 -   Trades Executed: 0
+2026-01-25 23:43:47 | INFO     | __main__:run_trading_cycle:36 -   Trades Blocked: 0
+2026-01-25 23:43:47 | INFO     | __main__:run_trading_cycle:46 - ====================================================================================================
+2026-01-25 23:43:47 | INFO     | __main__:run_trading_cycle:47 - Next cycle in 15 minutes
+2026-01-25 23:43:47 | INFO     | __main__:run_trading_cycle:48 - ====================================================================================================
+2026-01-25 23:43:47 | INFO     | __main__:main:100 - 
+2026-01-25 23:43:47 | INFO     | __main__:main:101 - Starting scheduler (runs every 15 minutes)...
+2026-01-25 23:43:47 | INFO     | __main__:main:113 - Trading system is running. Press Ctrl+C to stop.
+2026-01-25 23:43:47 | INFO     | __main__:main:114 - 
+2026-01-25 23:44:04 | INFO     | __main__:signal_handler:56 - 
+2026-01-25 23:44:04 | INFO     | __main__:signal_handler:57 - Shutdown signal received. Stopping trading system...
+2026-01-25 23:44:04 | INFO     | __main__:signal_handler:62 - Trading system stopped.
+2026-01-25 23:44:04 | INFO     | __main__:main:117 - Shutting down...
+2026-01-25 23:44:41 | INFO     | src.utils.kalshi_client:_initialize_client:59 - Kalshi client initialized in demo mode
+2026-01-25 23:44:41 | INFO     | src.utils.news_fetcher:__init__:25 - NewsAPI client initialized
+2026-01-25 23:44:41 | INFO     | src.utils.news_fetcher:__init__:119 - Reddit client initialized
+2026-01-25 23:44:41 | INFO     | src.utils.news_fetcher:__init__:131 - Twitter client initialized
+2026-01-25 23:44:41 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-01-25 23:44:41 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-01-25 23:44:41 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-01-25 23:44:41 | INFO     | __main__:main:70 - 
+2026-01-25 23:44:41 | INFO     | __main__:main:71 - ****************************************************************************************************
+2026-01-25 23:44:41 | INFO     | __main__:main:72 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-01-25 23:44:41 | INFO     | __main__:main:73 - ****************************************************************************************************
+2026-01-25 23:44:41 | INFO     | __main__:main:74 - 
+2026-01-25 23:44:41 | INFO     | __main__:main:75 - Configuration:
+2026-01-25 23:44:41 | INFO     | __main__:main:76 -   Trading Mode: PAPER
+2026-01-25 23:44:41 | INFO     | __main__:main:77 -   Starting Capital: $100.00
+2026-01-25 23:44:41 | INFO     | __main__:main:78 -   Risk Per Trade: 5.0%
+2026-01-25 23:44:41 | INFO     | __main__:main:79 -   LLM Model: claude-sonnet-4-20250514
+2026-01-25 23:44:41 | INFO     | __main__:main:80 -   Scheduler Interval: 15 minutes
+2026-01-25 23:44:41 | INFO     | __main__:main:81 -   Max Daily Trades: 5
+2026-01-25 23:44:41 | INFO     | __main__:main:82 -   Max Daily Loss: 15.0%
+2026-01-25 23:44:41 | INFO     | __main__:main:83 - 
+2026-01-25 23:44:41 | INFO     | __main__:main:86 - Initializing database...
+2026-01-25 23:44:41 | INFO     | __main__:main:88 - Database initialized successfully
+2026-01-25 23:44:41 | INFO     | __main__:main:89 - 
+2026-01-25 23:44:41 | INFO     | __main__:main:96 - Running initial trading cycle...
+2026-01-25 23:44:41 | INFO     | __main__:run_trading_cycle:23 - 
+2026-01-25 23:44:41 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-01-25 23:44:41 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-01-25 23:44:41
+2026-01-25 23:44:41 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-01-25 23:44:41 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:122 - ================================================================================
+2026-01-25 23:44:41 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:123 - STARTING TRADING CYCLE
+2026-01-25 23:44:41 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:124 - ================================================================================
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:136 - Session ID: session_394f606f
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:137 - Starting Balance: $100.00
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:138 - Open Positions: 0
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - Daily Trades: 0
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - Daily P&L: $0.00
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:184 - Node: Updating Positions
+2026-01-25 23:44:42 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-01-25 23:44:42 | INFO     | src.agents.position_manager:update_positions:49 - Found 0 open positions
+2026-01-25 23:44:42 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 0
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:189 - Node: Fetching Markets
+2026-01-25 23:44:42 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-01-25 23:44:42 | INFO     | src.utils.kalshi_client:get_all_markets:108 - Fetched 200 markets from Kalshi
+2026-01-25 23:44:42 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 200 markets successfully
+2026-01-25 23:44:42 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 0 markets meeting policy criteria
+2026-01-25 23:44:42 | INFO     | src.agents.market_data_fetcher:_rank_markets:348 - Top market opportunities:
+2026-01-25 23:44:42 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 0 top opportunities
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:194 - Node: Circuit Breaker
+2026-01-25 23:44:42 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-01-25 23:44:42 | WARNING  | src.agents.data_qa_circuit_breaker:validate_and_check:56 - Circuit breaker check failed: data_quality - 10 markets have incomplete data
+2026-01-25 23:44:42 | ERROR    | src.agents.data_qa_circuit_breaker:validate_and_check:62 - CIRCUIT BREAKER TRIGGERED: 10 markets have incomplete data
+2026-01-25 23:44:42 | WARNING  | src.orchestrator.langgraph_flow:_should_continue_after_circuit_breaker:380 - Circuit breaker triggered - halting trading
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:_finalize_node:373 - Node: Finalizing
+2026-01-25 23:44:42 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:149 - ================================================================================
+2026-01-25 23:44:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:150 - TRADING CYCLE COMPLETE
+2026-01-25 23:44:42 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+2026-01-25 23:44:42 | INFO     | __main__:run_trading_cycle:31 - 
+2026-01-25 23:44:42 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-01-25 23:44:42 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 0
+2026-01-25 23:44:42 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 0
+2026-01-25 23:44:42 | INFO     | __main__:run_trading_cycle:35 -   Trades Executed: 0
+2026-01-25 23:44:42 | INFO     | __main__:run_trading_cycle:36 -   Trades Blocked: 0
+2026-01-25 23:44:42 | INFO     | __main__:run_trading_cycle:46 - ====================================================================================================
+2026-01-25 23:44:42 | INFO     | __main__:run_trading_cycle:47 - Next cycle in 15 minutes
+2026-01-25 23:44:42 | INFO     | __main__:run_trading_cycle:48 - ====================================================================================================
+2026-01-25 23:44:42 | INFO     | __main__:main:100 - 
+2026-01-25 23:44:42 | INFO     | __main__:main:101 - Starting scheduler (runs every 15 minutes)...
+2026-01-25 23:44:42 | INFO     | __main__:main:113 - Trading system is running. Press Ctrl+C to stop.
+2026-01-25 23:44:42 | INFO     | __main__:main:114 - 
+2026-01-25 23:44:58 | INFO     | __main__:signal_handler:56 - 
+2026-01-25 23:44:58 | INFO     | __main__:signal_handler:57 - Shutdown signal received. Stopping trading system...
+2026-01-25 23:44:58 | INFO     | __main__:signal_handler:62 - Trading system stopped.
+2026-01-25 23:44:58 | INFO     | __main__:main:117 - Shutting down...
+2026-01-25 23:45:54 | INFO     | src.utils.kalshi_client:_initialize_client:59 - Kalshi client initialized in demo mode
+2026-01-25 23:45:54 | INFO     | src.utils.news_fetcher:__init__:25 - NewsAPI client initialized
+2026-01-25 23:45:54 | INFO     | src.utils.news_fetcher:__init__:119 - Reddit client initialized
+2026-01-25 23:45:54 | INFO     | src.utils.news_fetcher:__init__:131 - Twitter client initialized
+2026-01-25 23:45:54 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-01-25 23:45:54 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-01-25 23:45:54 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-01-25 23:45:54 | INFO     | src.utils.kalshi_client:get_all_markets:108 - Fetched 200 markets from Kalshi
+2026-01-25 23:45:54 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 200 markets successfully
+2026-01-25 23:45:54 | INFO     | src.agents.market_data_fetcher:_filter_markets:321 - Filter stats: 200 total, 0 passed, filtered out: {'liquidity': 200, 'time_min': 0, 'time_max': 0, 'probability': 0, 'date_parse': 0}
+2026-01-25 23:45:54 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 0 markets meeting policy criteria
+2026-01-25 23:45:54 | INFO     | src.agents.market_data_fetcher:_rank_markets:373 - Top market opportunities:
+2026-01-25 23:45:54 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 0 top opportunities
+2026-01-25 23:46:02 | INFO     | src.utils.kalshi_client:_initialize_client:59 - Kalshi client initialized in demo mode
+2026-01-25 23:46:02 | INFO     | src.utils.kalshi_client:get_all_markets:108 - Fetched 5 markets from Kalshi
+2026-01-25 23:46:54 | INFO     | src.utils.kalshi_client:_initialize_client:59 - Kalshi client initialized in demo mode
+2026-01-25 23:46:54 | INFO     | src.utils.news_fetcher:__init__:25 - NewsAPI client initialized
+2026-01-25 23:46:54 | INFO     | src.utils.news_fetcher:__init__:119 - Reddit client initialized
+2026-01-25 23:46:54 | INFO     | src.utils.news_fetcher:__init__:131 - Twitter client initialized
+2026-01-25 23:46:54 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-01-25 23:46:54 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-01-25 23:46:54 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-01-25 23:46:54 | INFO     | src.utils.kalshi_client:get_all_markets:121 - Fetched 18 liquid markets from Kalshi (filtered from 600 total)
+2026-01-25 23:46:54 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 18 markets successfully
+2026-01-25 23:46:54 | INFO     | src.agents.market_data_fetcher:_filter_markets:321 - Filter stats: 18 total, 0 passed, filtered out: {'liquidity': 18, 'time_min': 0, 'time_max': 0, 'probability': 0, 'date_parse': 0}
+2026-01-25 23:46:54 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 0 markets meeting policy criteria
+2026-01-25 23:46:54 | INFO     | src.agents.market_data_fetcher:_rank_markets:373 - Top market opportunities:
+2026-01-25 23:46:54 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 0 top opportunities
+2026-01-25 23:47:05 | INFO     | src.utils.kalshi_client:_initialize_client:59 - Kalshi client initialized in demo mode
+2026-01-25 23:47:05 | INFO     | src.utils.kalshi_client:get_all_markets:121 - Fetched 0 liquid markets from Kalshi (filtered from 15 total)
+2026-01-25 23:47:05 | INFO     | src.utils.kalshi_client:get_all_markets:128 - No liquid markets found from Kalshi API - using mock markets
+2026-01-25 23:47:29 | INFO     | src.utils.kalshi_client:_initialize_client:59 - Kalshi client initialized in demo mode
+2026-01-25 23:47:29 | INFO     | src.utils.news_fetcher:__init__:25 - NewsAPI client initialized
+2026-01-25 23:47:29 | INFO     | src.utils.news_fetcher:__init__:119 - Reddit client initialized
+2026-01-25 23:47:29 | INFO     | src.utils.news_fetcher:__init__:131 - Twitter client initialized
+2026-01-25 23:47:29 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-01-25 23:47:29 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-01-25 23:47:29 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-01-25 23:47:30 | INFO     | src.utils.kalshi_client:get_all_markets:121 - Fetched 17 liquid markets from Kalshi (filtered from 600 total)
+2026-01-25 23:47:30 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 17 markets successfully
+2026-01-25 23:47:30 | INFO     | src.agents.market_data_fetcher:_filter_markets:321 - Filter stats: 17 total, 0 passed, filtered out: {'liquidity': 17, 'time_min': 0, 'time_max': 0, 'probability': 0, 'date_parse': 0}
+2026-01-25 23:47:30 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 0 markets meeting policy criteria
+2026-01-25 23:47:30 | INFO     | src.agents.market_data_fetcher:_rank_markets:373 - Top market opportunities:
+2026-01-25 23:47:30 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 0 top opportunities
+2026-01-25 23:47:57 | INFO     | src.utils.kalshi_client:_initialize_client:59 - Kalshi client initialized in demo mode
+2026-01-25 23:47:57 | INFO     | src.utils.news_fetcher:__init__:25 - NewsAPI client initialized
+2026-01-25 23:47:57 | INFO     | src.utils.news_fetcher:__init__:119 - Reddit client initialized
+2026-01-25 23:47:57 | INFO     | src.utils.news_fetcher:__init__:131 - Twitter client initialized
+2026-01-25 23:47:57 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-01-25 23:47:57 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-01-25 23:47:57 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-01-25 23:47:57 | INFO     | src.utils.kalshi_client:get_all_markets:122 - Fetched 0 liquid markets from Kalshi (filtered from 600 total)
+2026-01-25 23:47:57 | INFO     | src.utils.kalshi_client:get_all_markets:129 - No liquid markets found from Kalshi API - using mock markets
+2026-01-25 23:47:57 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 5 markets successfully
+2026-01-25 23:47:57 | INFO     | src.agents.market_data_fetcher:_filter_markets:321 - Filter stats: 5 total, 4 passed, filtered out: {'liquidity': 0, 'time_min': 0, 'time_max': 0, 'probability': 1, 'date_parse': 0}
+2026-01-25 23:47:57 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 4 markets meeting policy criteria
+2026-01-25 23:47:57 | INFO     | src.agents.market_data_fetcher:_rank_markets:373 - Top market opportunities:
+2026-01-25 23:47:57 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   1. SPORTS-SB-CHAMP - Will the favored team win the Super Bowl?... (Score: 90.1, Liquidity: $1,200,000)
+2026-01-25 23:47:57 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   2. POL-APPROVAL-FEB - Will presidential approval rating be above 45% in February?... (Score: 90.1, Liquidity: $400,000)
+2026-01-25 23:47:57 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   3. TECH-AAPL-EARNINGS - Will Apple beat Q1 2026 earnings estimates?... (Score: 86.0, Liquidity: $800,000)
+2026-01-25 23:47:57 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 3 top opportunities
+2026-01-25 23:48:03 | INFO     | src.utils.kalshi_client:_initialize_client:59 - Kalshi client initialized in demo mode
+2026-01-25 23:48:03 | INFO     | src.utils.news_fetcher:__init__:25 - NewsAPI client initialized
+2026-01-25 23:48:03 | INFO     | src.utils.news_fetcher:__init__:119 - Reddit client initialized
+2026-01-25 23:48:03 | INFO     | src.utils.news_fetcher:__init__:131 - Twitter client initialized
+2026-01-25 23:48:03 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-01-25 23:48:03 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-01-25 23:48:03 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-01-25 23:48:04 | INFO     | __main__:main:70 - 
+2026-01-25 23:48:04 | INFO     | __main__:main:71 - ****************************************************************************************************
+2026-01-25 23:48:04 | INFO     | __main__:main:72 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-01-25 23:48:04 | INFO     | __main__:main:73 - ****************************************************************************************************
+2026-01-25 23:48:04 | INFO     | __main__:main:74 - 
+2026-01-25 23:48:04 | INFO     | __main__:main:75 - Configuration:
+2026-01-25 23:48:04 | INFO     | __main__:main:76 -   Trading Mode: PAPER
+2026-01-25 23:48:04 | INFO     | __main__:main:77 -   Starting Capital: $100.00
+2026-01-25 23:48:04 | INFO     | __main__:main:78 -   Risk Per Trade: 5.0%
+2026-01-25 23:48:04 | INFO     | __main__:main:79 -   LLM Model: claude-sonnet-4-20250514
+2026-01-25 23:48:04 | INFO     | __main__:main:80 -   Scheduler Interval: 15 minutes
+2026-01-25 23:48:04 | INFO     | __main__:main:81 -   Max Daily Trades: 5
+2026-01-25 23:48:04 | INFO     | __main__:main:82 -   Max Daily Loss: 15.0%
+2026-01-25 23:48:04 | INFO     | __main__:main:83 - 
+2026-01-25 23:48:04 | INFO     | __main__:main:86 - Initializing database...
+2026-01-25 23:48:04 | INFO     | __main__:main:88 - Database initialized successfully
+2026-01-25 23:48:04 | INFO     | __main__:main:89 - 
+2026-01-25 23:48:04 | INFO     | __main__:main:96 - Running initial trading cycle...
+2026-01-25 23:48:04 | INFO     | __main__:run_trading_cycle:23 - 
+2026-01-25 23:48:04 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-01-25 23:48:04 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-01-25 23:48:04
+2026-01-25 23:48:04 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:122 - ================================================================================
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:123 - STARTING TRADING CYCLE
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:124 - ================================================================================
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:136 - Session ID: session_ef8c7074
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:137 - Starting Balance: $100.00
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:138 - Open Positions: 0
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - Daily Trades: 0
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - Daily P&L: $0.00
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:184 - Node: Updating Positions
+2026-01-25 23:48:04 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-01-25 23:48:04 | INFO     | src.agents.position_manager:update_positions:49 - Found 0 open positions
+2026-01-25 23:48:04 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 0
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:189 - Node: Fetching Markets
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-01-25 23:48:04 | INFO     | src.utils.kalshi_client:get_all_markets:122 - Fetched 0 liquid markets from Kalshi (filtered from 600 total)
+2026-01-25 23:48:04 | INFO     | src.utils.kalshi_client:get_all_markets:129 - No liquid markets found from Kalshi API - using mock markets
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 5 markets successfully
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_filter_markets:321 - Filter stats: 5 total, 4 passed, filtered out: {'liquidity': 0, 'time_min': 0, 'time_max': 0, 'probability': 1, 'date_parse': 0}
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 4 markets meeting policy criteria
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_rank_markets:373 - Top market opportunities:
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   1. SPORTS-SB-CHAMP - Will the favored team win the Super Bowl?... (Score: 90.1, Liquidity: $1,200,000)
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   2. POL-APPROVAL-FEB - Will presidential approval rating be above 45% in February?... (Score: 90.1, Liquidity: $400,000)
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   3. TECH-AAPL-EARNINGS - Will Apple beat Q1 2026 earnings estimates?... (Score: 86.0, Liquidity: $800,000)
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 3 top opportunities
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:194 - Node: Circuit Breaker
+2026-01-25 23:48:04 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-01-25 23:48:04 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:_bonding_scan_node:199 - Node: Bonding Strategy Scan
+2026-01-25 23:48:04 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:62 - ============================================================
+2026-01-25 23:48:04 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:63 - BONDING STRATEGY SCAN
+2026-01-25 23:48:04 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:64 - ============================================================
+2026-01-25 23:48:04 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:112 - Found 0 bonding opportunities
+2026-01-25 23:48:04 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:126 - ============================================================
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:227 - Node: Arbitrage Detection Scan
+2026-01-25 23:48:04 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:41 - ============================================================
+2026-01-25 23:48:04 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:42 - ARBITRAGE DETECTION SCAN
+2026-01-25 23:48:04 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:43 - ============================================================
+2026-01-25 23:48:04 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:67 - Found 0 total arbitrage opportunities
+2026-01-25 23:48:04 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:83 - ============================================================
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:255 - Node: Selecting Opportunity
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_rank_markets:373 - Top market opportunities:
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   1. SPORTS-SB-CHAMP - Will the favored team win the Super Bowl?... (Score: 90.1, Liquidity: $1,200,000)
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   2. POL-APPROVAL-FEB - Will presidential approval rating be above 45% in February?... (Score: 90.1, Liquidity: $400,000)
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   3. TECH-AAPL-EARNINGS - Will Apple beat Q1 2026 earnings estimates?... (Score: 86.0, Liquidity: $800,000)
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   4. WEATHER-TEMP-NYC - Will NYC average temperature be above 35F in February?... (Score: 74.9, Liquidity: $90,000)
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:_rank_markets:375 -   5. BOND-GDP-Q1-26 - Will US GDP growth be positive in Q1 2026?... (Score: 70.1, Liquidity: $150,000)
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:272 - Selected: SPORTS-SB-CHAMP
+2026-01-25 23:48:04 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:281 - Node: Enriching Data
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for SPORTS-SB-CHAMP: Will the favored team win the Super Bowl?
+2026-01-25 23:48:04 | INFO     | src.utils.news_fetcher:search_news:64 - Found 1 articles for query: favored team super bowl?
+2026-01-25 23:48:04 | INFO     | src.agents.market_data_fetcher:enrich_market_data:143 - Found 1 news articles
+2026-01-25 23:48:04 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/politics: received 401 HTTP response
+2026-01-25 23:48:04 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/news: received 401 HTTP response
+2026-01-25 23:48:04 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/worldnews: received 401 HTTP response
+2026-01-25 23:48:05 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/economics: received 401 HTTP response
+2026-01-25 23:48:05 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/wallstreetbets: received 401 HTTP response
+2026-01-25 23:48:05 | INFO     | src.utils.news_fetcher:get_reddit_sentiment:176 - Found 0 Reddit posts for: favored team super bowl?
+2026-01-25 23:48:05 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+2026-01-25 23:48:05 | INFO     | src.agents.market_data_fetcher:enrich_market_data:189 - Found 0 social media posts
+2026-01-25 23:48:05 | INFO     | src.agents.market_data_fetcher:enrich_market_data:209 - News sentiment: 1.000 (1 articles)
+2026-01-25 23:48:05 | INFO     | src.agents.market_data_fetcher:enrich_market_data:246 - Combined sentiment: 1.000
+2026-01-25 23:48:05 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:295 - Node: Generating Signal
+2026-01-25 23:48:05 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for SPORTS-SB-CHAMP
+2026-01-25 23:48:16 | INFO     | src.agents.signal_selection_agent:generate_signal:66 - Claude analysis:
+**RECOMMENDATION:** NO_TRADE
+
+**CONFIDENCE:** 45%
+
+**EXPECTED_RETURN:** N/A
+
+**REASONING:**
+While the sentiment analysis shows bullish signals (+1.00) and there's positive news coverage around coaching developments, the technical indicators present a completely neutral picture across all metrics. The RSI at 50.0, zero momentum, and neutral moving average signals suggest no directional bias from a technical perspective. More critically, the current implied probability of 56.5% for the favored team winning the Super Bowl appears reasonable given historical data - favorites have won approximately 50-60% of Super Bowls historically, making this pricing fairly efficient.
+
+The wide spread of 5.31% creates additional friction for profitability, requiring a significant move in our favor just to break even after transaction costs. The single news item about Mike Vrabel's potential record, while positive, doesn't provide compelling evidence that the market has systematically mispriced the probability of the favored team winning. The market appears to be efficiently pricing in the natural advantage that comes with being favored, without clear evidence of over or under-reaction.
+
+**KEY_FACTORS:**
+- Technical indicators showing complete neutrality across all metrics
+- Historical Super Bowl data suggests 56.5% implied probability is within reasonable range
+- Wide 5.31% spread creates significant transaction cost headwind
+- Limited news catalyst insufficient to suggest market mispricing
+
+**RISK_FACTORS:**
+- Injuries to key players could dramatically shift probabilities
+- Playoff seeding changes could affect which team is actually "favored"
+- Market sentiment could shift rapidly based on team performance in playoffs
+- Wide spread makes it difficult to exit positions profitably
+
+**MARKET_EDGE:**
+There is no clear identifiable edge in this market as the pricing appears efficient relative to historical Super Bowl outcomes and the technical signals provide no directional conviction.
+2026-01-25 23:48:16 | INFO     | src.agents.signal_selection_agent:generate_signal:74 - Signal generated: NO_TRADE (Confidence: 45.0%, Expected Return: 0.0%)
+2026-01-25 23:48:16 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:396 - Signal is NO_TRADE, trying next opportunity
+2026-01-25 23:48:16 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:255 - Node: Selecting Opportunity
+2026-01-25 23:48:16 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:272 - Selected: POL-APPROVAL-FEB
+2026-01-25 23:48:16 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:281 - Node: Enriching Data
+2026-01-25 23:48:16 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for POL-APPROVAL-FEB: Will presidential approval rating be above 45% in February?
+2026-01-25 23:48:17 | INFO     | src.utils.news_fetcher:search_news:64 - Found 0 articles for query: presidential approval rating above february?
+2026-01-25 23:48:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:143 - Found 0 news articles
+2026-01-25 23:48:17 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/politics: received 401 HTTP response
+2026-01-25 23:48:17 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/news: received 401 HTTP response
+2026-01-25 23:48:17 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/worldnews: received 401 HTTP response
+2026-01-25 23:48:17 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/economics: received 401 HTTP response
+2026-01-25 23:48:17 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/wallstreetbets: received 401 HTTP response
+2026-01-25 23:48:17 | INFO     | src.utils.news_fetcher:get_reddit_sentiment:176 - Found 0 Reddit posts for: presidential approval rating above february?
+2026-01-25 23:48:17 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+2026-01-25 23:48:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:189 - Found 0 social media posts
+2026-01-25 23:48:17 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:295 - Node: Generating Signal
+2026-01-25 23:48:17 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for POL-APPROVAL-FEB
+2026-01-25 23:48:29 | INFO     | src.agents.signal_selection_agent:generate_signal:66 - Claude analysis:
+**RECOMMENDATION:** NO_TRADE
+
+**CONFIDENCE:** 25%
+
+**EXPECTED_RETURN:** N/A
+
+**REASONING:**
+This market presents a challenging trading environment with insufficient edge to justify a position. The technical indicators are entirely neutral across all metrics - RSI at 50, zero momentum, neutral MA signals, and balanced order book dynamics. This suggests the market is in equilibrium without clear directional bias. The 6.90% spread is relatively wide, creating additional friction that would need to be overcome for profitability.
+
+Most critically, there is a complete absence of fundamental catalysts or information that could provide insight into future presidential approval movements. With no recent news, no social media activity, and neutral sentiment indicators, we lack the informational edge necessary to predict whether approval ratings will move above or below the 45% threshold by February. The current implied probability of 43.5% appears to be a reasonable baseline estimate without compelling evidence to suggest it's mispriced in either direction.
+
+The market closes in 2026, giving us time, but without clear catalysts or technical momentum, this becomes essentially a coin flip with negative expected value due to the wide spread. The prudent approach is to wait for either technical breakout signals or fundamental news that could create a directional edge.
+
+**KEY_FACTORS:**
+- All technical indicators showing neutral/balanced signals
+- Complete absence of news or social media catalysts
+- Wide 6.90% spread creating execution friction
+- Market pricing appears efficient at current levels
+
+**RISK_FACTORS:**
+- Political approval ratings are inherently volatile and unpredictable
+- Wide spread reduces profit potential and increases breakeven requirements
+- No clear fundamental drivers to analyze or predict
+- Time decay risk without clear catalysts
+
+**MARKET_EDGE:**
+There is no identifiable edge in this market - the pricing appears efficient and we lack both technical momentum and fundamental catalysts to suggest mispricing.
+2026-01-25 23:48:29 | INFO     | src.agents.signal_selection_agent:generate_signal:74 - Signal generated: NO_TRADE (Confidence: 25.0%, Expected Return: 0.0%)
+2026-01-25 23:48:29 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:396 - Signal is NO_TRADE, trying next opportunity
+2026-01-25 23:48:29 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:255 - Node: Selecting Opportunity
+2026-01-25 23:48:29 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:272 - Selected: TECH-AAPL-EARNINGS
+2026-01-25 23:48:29 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:281 - Node: Enriching Data
+2026-01-25 23:48:29 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for TECH-AAPL-EARNINGS: Will Apple beat Q1 2026 earnings estimates?
+2026-01-25 23:48:29 | INFO     | src.utils.news_fetcher:search_news:64 - Found 0 articles for query: apple beat 2026 earnings estimates?
+2026-01-25 23:48:29 | INFO     | src.agents.market_data_fetcher:enrich_market_data:143 - Found 0 news articles
+2026-01-25 23:48:29 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/politics: received 401 HTTP response
+2026-01-25 23:48:29 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/news: received 401 HTTP response
+2026-01-25 23:48:29 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/worldnews: received 401 HTTP response
+2026-01-25 23:48:30 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/economics: received 401 HTTP response
+2026-01-25 23:48:30 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/wallstreetbets: received 401 HTTP response
+2026-01-25 23:48:30 | INFO     | src.utils.news_fetcher:get_reddit_sentiment:176 - Found 0 Reddit posts for: apple beat 2026 earnings estimates?
+2026-01-25 23:48:30 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+2026-01-25 23:48:30 | INFO     | src.agents.market_data_fetcher:enrich_market_data:189 - Found 0 social media posts
+2026-01-25 23:48:30 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:295 - Node: Generating Signal
+2026-01-25 23:48:30 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for TECH-AAPL-EARNINGS
+2026-01-25 23:48:44 | INFO     | src.agents.signal_selection_agent:generate_signal:66 - Claude analysis:
+**RECOMMENDATION:** NO_TRADE
+
+**CONFIDENCE:** 45%
+
+**EXPECTED_RETURN:** N/A
+
+**REASONING:**
+This Apple Q1 2026 earnings market presents a classic case where the absence of clear signals actually IS the signal - to stay away. With all technical indicators showing neutral readings (RSI at 50, zero momentum, balanced order book), no recent news catalysts, and no social media sentiment to gauge market psychology, we're essentially trading in an information vacuum. The current 60% implied probability for Apple beating earnings appears to be based on historical priors rather than any specific fundamental or technical catalyst.
+
+The wide 6.67% spread further compounds the challenge, requiring a significant move in our favor just to break even after transaction costs. While Apple has historically been a strong earnings performer, trading 13+ months ahead of the actual earnings date means we're exposed to numerous unknown variables including broader market conditions, product cycles, competitive dynamics, and macroeconomic factors that haven't yet materialized. Without a clear informational edge or technical setup, this becomes a coin flip with unfavorable risk/reward dynamics.
+
+The high liquidity ($800K open interest, $200K daily volume) suggests this is a well-watched market where any obvious edges have likely been arbitraged away by more informed participants with superior fundamental analysis capabilities.
+
+**KEY_FACTORS:**
+- All technical indicators neutral with no directional bias
+- No recent news or catalysts to drive price movement
+- Wide spread (6.67%) creates unfavorable entry conditions
+- Extremely long time horizon (13+ months) increases uncertainty
+
+**RISK_FACTORS:**
+- Unknown macroeconomic conditions affecting tech sector by Q1 2026
+- Potential product cycle changes or competitive pressures
+- Broad market volatility could affect Apple's multiple and earnings expectations
+- Information asymmetry - institutional traders may have superior fundamental analysis
+
+**MARKET_EDGE:**
+There is no identifiable edge in this market given the neutral technical setup, lack of catalysts, and wide spreads that favor market makers over retail traders.
+2026-01-25 23:48:44 | INFO     | src.agents.signal_selection_agent:generate_signal:74 - Signal generated: NO_TRADE (Confidence: 45.0%, Expected Return: 0.0%)
+2026-01-25 23:48:44 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:396 - Signal is NO_TRADE, trying next opportunity
+2026-01-25 23:48:44 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:255 - Node: Selecting Opportunity
+2026-01-25 23:48:44 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:272 - Selected: WEATHER-TEMP-NYC
+2026-01-25 23:48:44 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:281 - Node: Enriching Data
+2026-01-25 23:48:44 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for WEATHER-TEMP-NYC: Will NYC average temperature be above 35F in February?
+2026-01-25 23:48:44 | INFO     | src.utils.news_fetcher:search_news:64 - Found 0 articles for query: average temperature above february?
+2026-01-25 23:48:44 | INFO     | src.agents.market_data_fetcher:enrich_market_data:143 - Found 0 news articles
+2026-01-25 23:48:44 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/politics: received 401 HTTP response
+2026-01-25 23:48:44 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/news: received 401 HTTP response
+2026-01-25 23:48:44 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/worldnews: received 401 HTTP response
+2026-01-25 23:48:45 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/economics: received 401 HTTP response
+2026-01-25 23:48:45 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/wallstreetbets: received 401 HTTP response
+2026-01-25 23:48:45 | INFO     | src.utils.news_fetcher:get_reddit_sentiment:176 - Found 0 Reddit posts for: average temperature above february?
+2026-01-25 23:48:45 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+2026-01-25 23:48:45 | INFO     | src.agents.market_data_fetcher:enrich_market_data:189 - Found 0 social media posts
+2026-01-25 23:48:45 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:295 - Node: Generating Signal
+2026-01-25 23:48:45 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for WEATHER-TEMP-NYC
+2026-01-25 23:48:58 | INFO     | src.agents.signal_selection_agent:generate_signal:66 - Claude analysis:
+**RECOMMENDATION:** NO_TRADE
+
+**CONFIDENCE:** 45%
+
+**EXPECTED_RETURN:** N/A
+
+**REASONING:**
+This weather prediction market lacks the fundamental edge required for a high-probability trade. The current implied probability of 73.5% for NYC's February average temperature exceeding 35°F appears reasonable given historical climate data - February temperatures in NYC typically average around 35-40°F, making this outcome fairly likely but not certain enough to justify the current pricing. The technical indicators are entirely neutral across all metrics (RSI at 50, zero momentum, balanced order book), providing no directional bias or timing advantage.
+
+The absence of any news catalysts, social sentiment data, or meaningful technical signals creates an information vacuum where we're essentially betting on weather patterns without any informational edge over the market. While the market shows healthy liquidity ($45K daily volume, $90K open interest), this suggests the pricing is likely efficient and reflects collective meteorological expectations. The 4.08% spread is reasonable but doesn't compensate for the lack of clear directional conviction.
+
+Without access to specialized weather forecasting models or unique meteorological insights that could provide an edge over the market's 73.5% implied probability, this represents a coin-flip scenario that doesn't meet our minimum confidence and expected return thresholds.
+
+**KEY_FACTORS:**
+- All technical indicators showing neutral/balanced signals
+- No news or social sentiment data to provide directional bias
+- Weather outcomes inherently difficult to predict with high confidence
+- Current pricing appears reasonable based on historical February temperatures in NYC
+
+**RISK_FACTORS:**
+- Unpredictable weather patterns and potential extreme cold snaps
+- Climate volatility making historical averages less reliable
+- No informational edge over other market participants
+- February weather in NYC can be highly variable year-to-year
+
+**MARKET_EDGE:**
+There is no identifiable edge in this market as we lack specialized meteorological forecasting capabilities that would give us an advantage over the current 73.5% implied probability.
+2026-01-25 23:48:58 | INFO     | src.agents.signal_selection_agent:generate_signal:74 - Signal generated: NO_TRADE (Confidence: 45.0%, Expected Return: 0.0%)
+2026-01-25 23:48:58 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:396 - Signal is NO_TRADE, trying next opportunity
+2026-01-25 23:48:58 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:255 - Node: Selecting Opportunity
+2026-01-25 23:48:58 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:272 - Selected: BOND-GDP-Q1-26
+2026-01-25 23:48:58 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:281 - Node: Enriching Data
+2026-01-25 23:48:58 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for BOND-GDP-Q1-26: Will US GDP growth be positive in Q1 2026?
+2026-01-25 23:48:58 | INFO     | src.utils.news_fetcher:search_news:64 - Found 0 articles for query: growth positive 2026?
+2026-01-25 23:48:58 | INFO     | src.agents.market_data_fetcher:enrich_market_data:143 - Found 0 news articles
+2026-01-25 23:48:58 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/politics: received 401 HTTP response
+2026-01-25 23:48:59 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/news: received 401 HTTP response
+2026-01-25 23:48:59 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/worldnews: received 401 HTTP response
+2026-01-25 23:48:59 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/economics: received 401 HTTP response
+2026-01-25 23:48:59 | WARNING  | src.utils.news_fetcher:get_reddit_sentiment:174 - Error searching r/wallstreetbets: received 401 HTTP response
+2026-01-25 23:48:59 | INFO     | src.utils.news_fetcher:get_reddit_sentiment:176 - Found 0 Reddit posts for: growth positive 2026?
+2026-01-25 23:48:59 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:225 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+2026-01-25 23:48:59 | INFO     | src.agents.market_data_fetcher:enrich_market_data:189 - Found 0 social media posts
+2026-01-25 23:48:59 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:295 - Node: Generating Signal
+2026-01-25 23:48:59 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for BOND-GDP-Q1-26
+2026-01-25 23:49:12 | INFO     | src.agents.signal_selection_agent:generate_signal:66 - Claude analysis:
+**RECOMMENDATION:** NO_TRADE
+
+**CONFIDENCE:** 75%
+
+**EXPECTED_RETURN:** N/A
+
+**REASONING:**
+This market presents a classic "expensive favorite" scenario where the implied probability of 96.5% for positive GDP growth leaves virtually no room for profit despite the high likelihood of the event occurring. While Q1 2026 positive GDP growth is indeed very probable given historical patterns (the US has experienced negative quarterly GDP growth only during recessions, which are relatively rare), the market pricing already reflects this reality almost perfectly.
+
+The technical indicators show a completely neutral stance across all metrics - RSI at 50, zero momentum, balanced order book, and unknown volatility regime. This suggests the market has reached an equilibrium where informed participants have already incorporated available information. The tight 1.04% spread indicates efficient price discovery, making it difficult to find mispricings. Even if we assume a 98-99% true probability of positive GDP growth, the maximum expected return on a YES position would be only 2-4%, which falls well short of our 10% minimum requirement.
+
+The risk/reward profile is fundamentally unattractive. To achieve our minimum 10% return threshold, we would need the true probability to be significantly different from the market's 96.5% assessment, but there's insufficient evidence to support such a divergence. The long time horizon until Q1 2026 also introduces additional uncertainty around potential economic shocks, policy changes, or black swan events that could impact GDP growth.
+
+**KEY_FACTORS:**
+- Extremely high implied probability (96.5%) leaves minimal upside potential
+- All technical indicators neutral, suggesting fair market pricing
+- Expected returns well below 10% minimum threshold even with optimistic assumptions
+
+**RISK_FACTORS:**
+- Long time horizon increases uncertainty and potential for unforeseen economic disruption
+- Recession risk, while low, could cause significant losses on YES position
+- Opportunity cost of capital deployment in low-return trade
+
+**MARKET_EDGE:**
+There is no clear market edge as the pricing appears efficient and the risk/reward ratio is unfavorable for meeting our return requirements.
+2026-01-25 23:49:12 | INFO     | src.agents.signal_selection_agent:generate_signal:74 - Signal generated: NO_TRADE (Confidence: 75.0%, Expected Return: 0.0%)
+2026-01-25 23:49:12 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:396 - Signal is NO_TRADE, trying next opportunity
+2026-01-25 23:49:12 | INFO     | src.orchestrator.langgraph_flow:_finalize_node:373 - Node: Finalizing
+2026-01-25 23:49:12 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+2026-01-25 23:49:12 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:149 - ================================================================================
+2026-01-25 23:49:12 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:150 - TRADING CYCLE COMPLETE
+2026-01-25 23:49:12 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+2026-01-25 23:49:12 | INFO     | __main__:run_trading_cycle:31 - 
+2026-01-25 23:49:12 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-01-25 23:49:12 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 0
+2026-01-25 23:49:12 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 0
+2026-01-25 23:49:12 | INFO     | __main__:run_trading_cycle:35 -   Trades Executed: 0
+2026-01-25 23:49:12 | INFO     | __main__:run_trading_cycle:36 -   Trades Blocked: 0
+2026-01-25 23:49:12 | INFO     | __main__:run_trading_cycle:46 - ====================================================================================================
+2026-01-25 23:49:12 | INFO     | __main__:run_trading_cycle:47 - Next cycle in 15 minutes
+2026-01-25 23:49:12 | INFO     | __main__:run_trading_cycle:48 - ====================================================================================================
+2026-01-25 23:49:12 | INFO     | __main__:main:100 - 
+2026-01-25 23:49:12 | INFO     | __main__:main:101 - Starting scheduler (runs every 15 minutes)...
+2026-01-25 23:49:12 | INFO     | __main__:main:113 - Trading system is running. Press Ctrl+C to stop.
+2026-01-25 23:49:12 | INFO     | __main__:main:114 - 
+2026-01-25 23:49:35 | INFO     | __main__:signal_handler:56 - 
+2026-01-25 23:49:35 | INFO     | __main__:signal_handler:57 - Shutdown signal received. Stopping trading system...
+2026-01-25 23:49:35 | INFO     | __main__:signal_handler:62 - Trading system stopped.
+2026-01-25 23:49:35 | INFO     | __main__:main:117 - Shutting down...

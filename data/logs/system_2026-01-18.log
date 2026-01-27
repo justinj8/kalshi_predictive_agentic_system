@@ -1,0 +1,104 @@
+2026-01-18 21:23:20 | WARNING  | src.utils.kalshi_client:_initialize_client:44 - Kalshi API keys not found - using mock mode
+2026-01-18 21:23:42 | WARNING  | src.utils.kalshi_client:_initialize_client:44 - Kalshi API keys not found - using mock mode
+2026-01-18 21:23:42 | INFO     | __main__:main:70 - 
+2026-01-18 21:23:42 | INFO     | __main__:main:71 - ****************************************************************************************************
+2026-01-18 21:23:42 | INFO     | __main__:main:72 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-01-18 21:23:42 | INFO     | __main__:main:73 - ****************************************************************************************************
+2026-01-18 21:23:42 | INFO     | __main__:main:74 - 
+2026-01-18 21:23:42 | INFO     | __main__:main:75 - Configuration:
+2026-01-18 21:23:42 | INFO     | __main__:main:76 -   Trading Mode: PAPER
+2026-01-18 21:23:42 | INFO     | __main__:main:77 -   Starting Capital: $1,000.00
+2026-01-18 21:23:42 | INFO     | __main__:main:78 -   Risk Per Trade: 5.0%
+2026-01-18 21:23:42 | INFO     | __main__:main:79 -   LLM Model: claude-3-5-sonnet-20241022
+2026-01-18 21:23:42 | INFO     | __main__:main:80 -   Scheduler Interval: 15 minutes
+2026-01-18 21:23:42 | INFO     | __main__:main:81 -   Max Daily Trades: 10
+2026-01-18 21:23:42 | INFO     | __main__:main:82 -   Max Daily Loss: 15.0%
+2026-01-18 21:23:42 | INFO     | __main__:main:83 - 
+2026-01-18 21:23:42 | INFO     | __main__:main:86 - Initializing database...
+2026-01-18 21:23:42 | INFO     | __main__:main:88 - Database initialized successfully
+2026-01-18 21:23:42 | INFO     | __main__:main:89 - 
+2026-01-18 21:23:42 | INFO     | __main__:main:96 - Running initial trading cycle...
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:23 - 
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-01-18 21:23:42
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:114 - ================================================================================
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:115 - STARTING TRADING CYCLE
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:116 - ================================================================================
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:128 - Session ID: session_9b514af9
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:129 - Starting Balance: $1000.00
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:130 - Open Positions: 0
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:131 - Daily Trades: 0
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:132 - Daily P&L: $0.00
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:168 - Node: Updating Positions
+2026-01-18 21:23:42 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-01-18 21:23:42 | INFO     | src.agents.position_manager:update_positions:49 - Found 0 open positions
+2026-01-18 21:23:42 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 0
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:173 - Node: Fetching Markets
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:36 - Fetching all open markets from Kalshi...
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:68 - Fetched 3 markets successfully
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:72 - Filtered to 0 markets meeting policy criteria
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:_rank_markets:280 - Top market opportunities:
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:78 - Identified 0 top opportunities
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:178 - Node: Circuit Breaker
+2026-01-18 21:23:42 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-01-18 21:23:42 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:183 - Node: Selecting Opportunity
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:_rank_markets:280 - Top market opportunities:
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:_rank_markets:282 -   1. PRES-2024-TRUMP - Will Donald Trump win the 2024 presidential election?... (Score: 93.6, Liquidity: $500,000)
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:_rank_markets:282 -   2. FED-RATE-MAR24 - Will the Fed cut rates in March 2024?... (Score: 84.1, Liquidity: $200,000)
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:_rank_markets:282 -   3. WEATHER-NYC-FEB - Will NYC get >10 inches of snow in February?... (Score: 71.9, Liquidity: $100,000)
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:200 - Selected: PRES-2024-TRUMP
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:209 - Node: Enriching Data
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:enrich_market_data:104 - Enriching data for PRES-2024-TRUMP: Will Donald Trump win the 2024 presidential election?
+2026-01-18 21:23:42 | WARNING  | src.utils.news_fetcher:search_news:50 - NewsAPI client not initialized, returning mock data
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:enrich_market_data:132 - Found 2 news articles
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:enrich_market_data:178 - Found 2 social media posts
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:223 - Node: Generating Signal
+2026-01-18 21:23:42 | INFO     | src.agents.signal_selection_agent:generate_signal:42 - Generating signal for PRES-2024-TRUMP
+2026-01-18 21:23:42 | ERROR    | src.agents.signal_selection_agent:generate_signal:81 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:324 - Signal is NO_TRADE, trying next opportunity
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:183 - Node: Selecting Opportunity
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:200 - Selected: FED-RATE-MAR24
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:209 - Node: Enriching Data
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:enrich_market_data:104 - Enriching data for FED-RATE-MAR24: Will the Fed cut rates in March 2024?
+2026-01-18 21:23:42 | WARNING  | src.utils.news_fetcher:search_news:50 - NewsAPI client not initialized, returning mock data
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:enrich_market_data:132 - Found 2 news articles
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:enrich_market_data:178 - Found 2 social media posts
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:223 - Node: Generating Signal
+2026-01-18 21:23:42 | INFO     | src.agents.signal_selection_agent:generate_signal:42 - Generating signal for FED-RATE-MAR24
+2026-01-18 21:23:42 | ERROR    | src.agents.signal_selection_agent:generate_signal:81 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:324 - Signal is NO_TRADE, trying next opportunity
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:183 - Node: Selecting Opportunity
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:200 - Selected: WEATHER-NYC-FEB
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:209 - Node: Enriching Data
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:enrich_market_data:104 - Enriching data for WEATHER-NYC-FEB: Will NYC get >10 inches of snow in February?
+2026-01-18 21:23:42 | WARNING  | src.utils.news_fetcher:search_news:50 - NewsAPI client not initialized, returning mock data
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:enrich_market_data:132 - Found 2 news articles
+2026-01-18 21:23:42 | INFO     | src.agents.market_data_fetcher:enrich_market_data:178 - Found 2 social media posts
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:223 - Node: Generating Signal
+2026-01-18 21:23:42 | INFO     | src.agents.signal_selection_agent:generate_signal:42 - Generating signal for WEATHER-NYC-FEB
+2026-01-18 21:23:42 | ERROR    | src.agents.signal_selection_agent:generate_signal:81 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:324 - Signal is NO_TRADE, trying next opportunity
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:_finalize_node:301 - Node: Finalizing
+2026-01-18 21:23:42 | ERROR    | src.orchestrator.langgraph_flow:_record_session:419 - Failed to record session: 'dict' object has no attribute 'timestamp'
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:141 - ================================================================================
+2026-01-18 21:23:42 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:142 - TRADING CYCLE COMPLETE
+2026-01-18 21:23:42 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:160 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:31 - 
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 0
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 0
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:35 -   Trades Executed: 0
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:36 -   Trades Blocked: 0
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:46 - ====================================================================================================
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:47 - Next cycle in 15 minutes
+2026-01-18 21:23:42 | INFO     | __main__:run_trading_cycle:48 - ====================================================================================================
+2026-01-18 21:23:42 | INFO     | __main__:main:100 - 
+2026-01-18 21:23:42 | INFO     | __main__:main:101 - Starting scheduler (runs every 15 minutes)...
+2026-01-18 21:23:42 | INFO     | __main__:main:113 - Trading system is running. Press Ctrl+C to stop.
+2026-01-18 21:23:42 | INFO     | __main__:main:114 - 
+2026-01-18 21:23:59 | INFO     | __main__:signal_handler:56 - 
+2026-01-18 21:23:59 | INFO     | __main__:signal_handler:57 - Shutdown signal received. Stopping trading system...
+2026-01-18 21:23:59 | INFO     | __main__:signal_handler:62 - Trading system stopped.
+2026-01-18 21:23:59 | INFO     | __main__:main:117 - Shutting down...

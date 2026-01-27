@@ -1,0 +1,289 @@
+================================================================================
+KALSHI PREDICTIVE MARKETS AGENTIC AI SYSTEM - ARCHITECTURE
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           15-MINUTE SCHEDULER                                │
+│                         (Automated Trading Cycles)                           │
+└────────────────────────────────┬────────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       LANGGRAPH ORCHESTRATOR                                 │
+│                   (State Machine & Flow Control)                             │
+└─────────────────────────────────┬───────────────────────────────────────────┘
+                                  │
+                                  ▼
+         ┌────────────────────────────────────────────────────┐
+         │        STEP 1: UPDATE POSITIONS                    │
+         │  ┌──────────────────────────────────────────────┐  │
+         │  │      Position Manager                        │  │
+         │  │  • Monitor all open positions                │  │
+         │  │  • Update current prices                     │  │
+         │  │  • Check stop loss / take profit             │  │
+         │  │  • Execute exits if needed                   │  │
+         │  └──────────────────────────────────────────────┘  │
+         └────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+         ┌────────────────────────────────────────────────────┐
+         │        STEP 2: FETCH MARKETS                       │
+         │  ┌──────────────────────────────────────────────┐  │
+         │  │      Market Data Fetcher                     │  │
+         │  │  • Scan all Kalshi markets                   │  │
+         │  │  • Rank by opportunity score                 │  │
+         │  │  • Select top 10 markets                     │  │
+         │  └──────────────────────────────────────────────┘  │
+         │                                                    │
+         │  Data Sources:                                     │
+         │    └─ Kalshi API (or mock data)                   │
+         └────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+         ┌────────────────────────────────────────────────────┐
+         │        STEP 3: CIRCUIT BREAKER                     │
+         │  ┌──────────────────────────────────────────────┐  │
+         │  │      Data QA & Circuit Breaker               │  │
+         │  │  • Validate data quality                     │  │
+         │  │  • Check for anomalies                       │  │
+         │  │  • Verify risk limits                        │  │
+         │  │  • HALT if unsafe                            │  │
+         │  └──────────────────────────────────────────────┘  │
+         │                                                    │
+         │  ┌─ TRIGGERED ─┐        ┌─ PASS ─┐               │
+         │  │   HALT      │        │ Continue│               │
+         │  └─────────────┘        └─────────┘               │
+         └────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+    ┌────────────────────────────────────────────────────────────┐
+    │     FOR EACH TOP OPPORTUNITY (Loop through top 10)         │
+    └────────────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+         ┌────────────────────────────────────────────────────┐
+         │        STEP 4: ENRICH DATA                         │
+         │  ┌──────────────────────────────────────────────┐  │
+         │  │      Market Data Fetcher                     │  │
+         │  │  • Fetch news articles (NewsAPI)             │  │
+         │  │  • Get Reddit discussions (Reddit API)       │  │
+         │  │  • Get tweets (Twitter API)                  │  │
+         │  │  • Calculate sentiment scores                │  │
+         │  └──────────────────────────────────────────────┘  │
+         └────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+         ┌────────────────────────────────────────────────────┐
+         │        STEP 5: GENERATE SIGNAL (AI)                │
+         │  ┌──────────────────────────────────────────────┐  │
+         │  │   🤖 Signal Selection Agent (Claude)         │  │
+         │  │  • Analyze market data                       │  │
+         │  │  • Review news sentiment                     │  │
+         │  │  • Review social sentiment                   │  │
+         │  │  • Identify edge & mispricing                │  │
+         │  │  • Decision: LONG / SHORT / NO_TRADE         │  │
+         │  │  • Confidence: 0-100%                        │  │
+         │  └──────────────────────────────────────────────┘  │
+         │                                                    │
+         │  Model: Claude 3.5 Sonnet                          │
+         │  Prompt: Comprehensive market analysis             │
+         └────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+         ┌────────────────────────────────────────────────────┐
+         │        STEP 6: CALCULATE SIZING                    │
+         │  ┌──────────────────────────────────────────────┐  │
+         │  │      Risk & Allocation Agent                 │  │
+         │  │  • Calculate position size (5% risk)         │  │
+         │  │  • Set stop loss price                       │  │
+         │  │  • Set take profit price                     │  │
+         │  │  • Calculate R/R ratio                       │  │
+         │  └──────────────────────────────────────────────┘  │
+         └────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+         ┌────────────────────────────────────────────────────┐
+         │        STEP 7: POLICY REVIEW (AI)                  │
+         │  ┌──────────────────────────────────────────────┐  │
+         │  │   🤖 Policy & Self-Critic Agent (Claude)     │  │
+         │  │  • Critical review of proposed trade         │  │
+         │  │  • Check for hidden risks                    │  │
+         │  │  • Verify alignment with policy              │  │
+         │  │  • Ask tough questions                       │  │
+         │  │  • Decision: APPROVE / BLOCK                 │  │
+         │  │  • Conservative approach                     │  │
+         │  └──────────────────────────────────────────────┘  │
+         │                                                    │
+         │  Model: Claude 3.5 Sonnet                          │
+         │  Temperature: 0.3 (more critical)                  │
+         └────────────────────────────────────────────────────┘
+                                  │
+              ┌───────────────────┴───────────────────┐
+              ▼                                       ▼
+         ┌─────────┐                            ┌─────────┐
+         │ BLOCKED │                            │APPROVED │
+         └────┬────┘                            └────┬────┘
+              │                                      │
+              │ Try next opportunity                 │
+              │                                      ▼
+              │              ┌────────────────────────────────────────────┐
+              │              │  STEP 8: EXECUTE TRADE                     │
+              │              │ ┌────────────────────────────────────────┐ │
+              │              │ │    Execution Agent                     │ │
+              │              │ │ • Place order via Kalshi API           │ │
+              │              │ │ • Paper mode: Simulate                 │ │
+              │              │ │ • Live mode: Real order                │ │
+              │              │ │ • Record in database                   │ │
+              │              │ └────────────────────────────────────────┘ │
+              │              └────────────────────────────────────────────┘
+              │                                      │
+              │                                      ▼
+              │              ┌────────────────────────────────────────────┐
+              │              │      Position Manager                      │
+              │              │  • Create new position entry               │
+              │              │  • Set stop loss & take profit             │
+              │              │  • Begin monitoring                        │
+              │              └────────────────────────────────────────────┘
+              │                                      │
+              └──────────────────────────────────────┘
+                                  │
+                                  ▼
+         ┌────────────────────────────────────────────────────┐
+         │        LOOP: Continue with next opportunity        │
+         │        Until all top 10 markets analyzed           │
+         └────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+         ┌────────────────────────────────────────────────────┐
+         │        STEP 9: FINALIZE                            │
+         │  • Record session in database                      │
+         │  • Log summary                                     │
+         │  • Update performance metrics                      │
+         └────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+         ┌────────────────────────────────────────────────────┐
+         │        Wait 15 minutes, then repeat                │
+         └────────────────────────────────────────────────────┘
+
+
+================================================================================
+DATA FLOW
+================================================================================
+
+Kalshi Markets ──┐
+News Articles ───┼─→ Market Analysis ─→ AI Signal ─→ Position Sizing ─→
+Social Media ────┘                                                        │
+                                                                          │
+                                                                          ▼
+Database ←─── Trade Execution ←─── Policy Review ←──────────────────────┘
+   │
+   ├─→ Trades Table
+   ├─→ Positions Table
+   ├─→ Sessions Table
+   └─→ Performance Metrics
+
+
+================================================================================
+AGENT INTERACTIONS
+================================================================================
+
+┌─────────────────┐
+│  Market Data    │ ──┐
+│  Fetcher        │   │
+└─────────────────┘   │
+                      ├──→ Enriched Market Data
+┌─────────────────┐   │
+│  News & Social  │ ──┘
+│  Fetchers       │
+└─────────────────┘
+                      │
+                      ▼
+              ┌──────────────────┐
+              │  Signal Agent    │
+              │  (Claude AI)     │
+              └──────┬───────────┘
+                     │ Trading Signal
+                     ▼
+              ┌──────────────────┐
+              │  Risk Agent      │
+              └──────┬───────────┘
+                     │ Position Sizing
+                     ▼
+              ┌──────────────────┐
+              │  Policy Agent    │
+              │  (Claude AI)     │
+              └──────┬───────────┘
+                     │ Approve/Block
+                     ▼
+              ┌──────────────────┐
+              │  Execution       │
+              │  Agent           │
+              └──────┬───────────┘
+                     │ Order
+                     ▼
+              ┌──────────────────┐
+              │  Position        │
+              │  Manager         │
+              └──────────────────┘
+
+
+================================================================================
+SAFETY LAYERS
+================================================================================
+
+Layer 1: Data QA & Circuit Breaker
+         └─ Validates data quality, halts if unsafe
+
+Layer 2: Signal Agent Confidence Threshold
+         └─ Must have ≥65% confidence to proceed
+
+Layer 3: Risk Management Rules
+         └─ Position sizing, limits, diversification
+
+Layer 4: Policy & Self-Critic Review
+         └─ AI critical review, blocks if uncertain
+
+Layer 5: Execution Safeguards
+         └─ Order validation, price checks
+
+Layer 6: Position Management
+         └─ Stop losses, take profits, trailing stops
+
+Layer 7: Portfolio Limits
+         └─ Daily trade limit, loss limit, position limit
+
+
+================================================================================
+KEY FEATURES
+================================================================================
+
+✓ Multi-Agent Architecture
+✓ Dual AI Review (Signal + Policy agents)
+✓ Multi-Source Analysis (Markets + News + Social)
+✓ Comprehensive Risk Management
+✓ Automated Position Monitoring
+✓ Circuit Breaker Protection
+✓ Paper Trading Mode
+✓ Full Database Persistence
+✓ Detailed Logging
+✓ Configurable Strategy
+
+
+================================================================================
+TECHNOLOGIES USED
+================================================================================
+
+• Python 3.10+
+• LangGraph (Agent orchestration)
+• Claude 3.5 Sonnet (AI decision making)
+• Anthropic API
+• Kalshi API
+• SQLAlchemy (Database ORM)
+• Pydantic (Data validation)
+• APScheduler (Job scheduling)
+• NewsAPI, Reddit API, Twitter API
+• Loguru (Logging)
+
+
+================================================================================

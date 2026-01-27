@@ -1,0 +1,197 @@
+# Trading Policy Configuration
+# This defines the rules and constraints for the trading system
+
+# Bonding Strategy Configuration (Whale Strategy)
+# Research: 90% of large whale orders are bonding trades, yielding 520%+ annual returns
+bonding_strategy:
+  # Enable/disable bonding strategy
+  enabled: true
+
+  # Capital allocation for bonding (30% of total capital for small accounts)
+  capital_allocation: 0.30
+
+  # Minimum contract price to qualify as a bond (near-certain outcomes)
+  min_price: 0.95
+
+  # Maximum days until market close (prefer quick turnover)
+  max_days_to_close: 7
+
+  # Minimum daily return required (0.7% daily = ~250% annualized)
+  min_daily_return: 0.007
+
+  # Minimum liquidity required - lowered for small positions
+  min_liquidity: 3000
+
+  # Maximum concurrent bonding positions (reduced for small capital)
+  max_concurrent_bonds: 2
+
+# Risk Management Rules
+risk_management:
+  # Maximum percentage of capital to risk per trade
+  max_risk_per_trade: 5.0
+
+  # Maximum number of concurrent positions (reduced for small capital)
+  max_concurrent_positions: 2
+
+  # Maximum daily loss before halting trading
+  max_daily_loss_percent: 15.0
+
+  # Maximum number of trades per day (reduced for small capital)
+  max_daily_trades: 5
+
+  # Minimum liquidity required (in USD) - lowered for small positions
+  min_market_liquidity: 500.0
+
+  # Maximum position concentration (% of capital in single market) - reduced for safety
+  max_position_concentration: 10.0
+
+# Signal Selection Criteria
+signal_selection:
+  # Minimum confidence score (0-100) required to take a trade
+  # Set lower for paper trading validation, increase for live trading
+  min_confidence_score: 60.0
+
+  # Minimum expected return (%) to consider a trade
+  min_expected_return: 10.0
+
+  # Maximum acceptable odds (probability threshold)
+  # Won't buy YES above this probability or NO below (1 - this)
+  max_acceptable_probability: 0.85
+
+  # Minimum acceptable odds
+  min_acceptable_probability: 0.15
+
+  # Preferred markets (prioritize these if all else equal)
+  preferred_categories:
+    - politics
+    - economics
+    - finance
+    - weather
+
+  # Time until market close requirements
+  min_time_to_close_hours: 24  # Don't trade markets closing <24h
+  max_time_to_close_days: 180  # Don't trade markets >6 months out
+
+# Position Management
+position_management:
+  # Take profit threshold (% return)
+  take_profit_percent: 50.0
+
+  # Stop loss threshold (% loss)
+  stop_loss_percent: 25.0
+
+  # Trailing stop activation (% profit before activating)
+  trailing_stop_activation: 30.0
+
+  # Trailing stop distance (% from peak)
+  trailing_stop_distance: 15.0
+
+  # Time-based exit rules
+  exit_before_close_hours: 4  # Exit positions 4 hours before market close
+
+  # Maximum holding period (days)
+  max_holding_period_days: 30
+
+# News & Data Analysis
+data_analysis:
+  # News sentiment weight in decision making (0-1)
+  news_sentiment_weight: 0.3
+
+  # Social media sentiment weight (0-1)
+  social_sentiment_weight: 0.2
+
+  # Technical/market data weight (0-1)
+  market_data_weight: 0.5
+
+  # Minimum number of news sources required
+  min_news_sources: 3
+
+  # News freshness requirement (hours)
+  news_max_age_hours: 24
+
+  # Keywords to flag for extra scrutiny
+  caution_keywords:
+    - "breaking"
+    - "unconfirmed"
+    - "rumor"
+    - "speculation"
+    - "alleged"
+
+# Circuit Breaker Conditions
+circuit_breaker:
+  # Halt trading if any of these conditions are met
+  conditions:
+    # Data quality issues
+    - name: "stale_data"
+      description: "Market data is more than 5 minutes old"
+      severity: "critical"
+
+    - name: "missing_data"
+      description: "Essential market data fields are missing"
+      severity: "critical"
+
+    - name: "price_anomaly"
+      description: "Price moved >20% in last 5 minutes without news"
+      severity: "high"
+
+    - name: "api_errors"
+      description: "Multiple consecutive API errors"
+      severity: "high"
+
+    # Risk limit breaches
+    - name: "daily_loss_limit"
+      description: "Daily loss limit exceeded"
+      severity: "critical"
+
+    - name: "daily_trade_limit"
+      description: "Daily trade count limit exceeded"
+      severity: "medium"
+
+    - name: "position_limit"
+      description: "Too many concurrent positions"
+      severity: "medium"
+
+# Policy & Self-Critic Rules
+policy_rules:
+  # Reasons to automatically reject a trade
+  auto_reject_conditions:
+    - "Insufficient liquidity in market"
+    - "Market closes in less than 24 hours"
+    - "Confidence score below minimum threshold"
+    - "Expected return below minimum threshold"
+    - "Conflicting signals from multiple data sources"
+    - "Recent news indicates high uncertainty"
+    - "Daily trade limit reached"
+    - "Daily loss limit approaching"
+
+  # Questions the self-critic should ask
+  self_critic_checklist:
+    - "Is the edge clear and well-reasoned?"
+    - "Is the risk/reward ratio favorable?"
+    - "Do we have sufficient information to make this decision?"
+    - "Are there any red flags in recent news or social sentiment?"
+    - "Does this trade align with our overall portfolio strategy?"
+    - "Is the market liquid enough for our position size?"
+    - "What could go wrong with this trade?"
+    - "Is this the best use of our capital right now?"
+
+# Logging & Monitoring
+monitoring:
+  # Metrics to track
+  key_metrics:
+    - "total_pnl"
+    - "win_rate"
+    - "average_return_per_trade"
+    - "max_drawdown"
+    - "sharpe_ratio"
+    - "number_of_trades"
+    - "average_holding_period"
+
+  # Alert conditions
+  alerts:
+    - condition: "daily_loss > 10%"
+      action: "email_notification"
+    - condition: "win_rate < 40% over 20 trades"
+      action: "pause_trading_for_review"
+    - condition: "3_consecutive_losses"
+      action: "reduce_position_size_by_50%"

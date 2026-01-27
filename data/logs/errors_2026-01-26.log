@@ -1,0 +1,665 @@
+2026-01-26 00:02:36 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:02:48 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:03:02 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:04:29 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:04:42 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:04:54 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:05:07 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:05:21 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:05:33 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 00:05:33 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 00:06:48 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:07:02 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:07:27 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:07:41 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:08:08 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:08:19 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 00:08:19 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 00:10:38 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:10:51 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:11:18 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:11:31 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:12:30 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:12:42 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:13:08 | ERROR    | src.agents.execution_agent:_record_trade:228 - Failed to record trade in database: Instance <Trade at 0x10f48e3c0> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+
+2026-01-26 00:13:08 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:13:21 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:13:47 | ERROR    | src.agents.execution_agent:_record_trade:228 - Failed to record trade in database: Instance <Trade at 0x10f4134d0> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+
+2026-01-26 00:13:47 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:244 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:14:01 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 00:14:01 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 00:20:55 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 400 Bad Request
+There were errors processing your request: Reference to invalid operator 'cashtag'. Operator is not available in current product or product packaging. Please refer to complete available operator list at http://t.co/operators. (at position 25)
+
+2026-01-26 00:24:39 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 00:24:39 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 00:24:39 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:24:53 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:25:07 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:25:20 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:25:32 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:25:45 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 00:25:45 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 00:25:55 | ERROR    | src.utils.kalshi_client:get_market:158 - Error fetching market AAPL-EARNINGS-TMW: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Mon, 26 Jan 2026 05:25:55 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 ed222808145ccddfc0cce0d0726119ee.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PHL51-P3', 'X-Amz-Cf-Id': 'UEX8eRXHCsA50zY1Fonkm0sJN5Wb5DlwQO0c9m_uoQBTVX76yM3d-g=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+
+2026-01-26 00:25:55 | ERROR    | src.utils.kalshi_client:get_market:158 - Error fetching market NFL-CHIEFS-SUN: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Mon, 26 Jan 2026 05:25:55 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 ed222808145ccddfc0cce0d0726119ee.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PHL51-P3', 'X-Amz-Cf-Id': '361S6wxcQ-Q06nClfVmXVKzDPQPKRv02VQZ8-KGh7In9Fswc6fKuPg=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+
+2026-01-26 00:25:56 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:26:08 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:26:22 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:28:25 | ERROR    | src.utils.kalshi_client:get_market:158 - Error fetching market AAPL-EARNINGS-TMW: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Mon, 26 Jan 2026 05:28:25 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 5b4b6c6517b988a4ff2c794e5583ee02.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'JFK50-P1', 'X-Amz-Cf-Id': 'OvLPmUk3_NCEn1NBflObnoF0dYlOUixhLg1JXcgj7HDVfNjQJS3SbQ=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+
+2026-01-26 00:28:25 | ERROR    | src.utils.kalshi_client:get_market:158 - Error fetching market NFL-CHIEFS-SUN: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Mon, 26 Jan 2026 05:28:25 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 5b4b6c6517b988a4ff2c794e5583ee02.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'JFK50-P1', 'X-Amz-Cf-Id': 'BRZBKCJn2-P3HKSJMjnLceiYP5x56KfoHyz9sDd5oORciI4zq1SK3g=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+
+2026-01-26 00:28:25 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:28:39 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:28:51 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:29:02 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:29:18 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:29:31 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 00:29:31 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 00:40:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 00:40:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 00:40:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 00:41:10 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:41:23 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:41:36 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 00:41:49 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 00:41:49 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 14:25:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 14:25:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 14:25:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 400 Bad Request
+There were errors processing your request: Reference to invalid operator 'cashtag'. Operator is not available in current product or product packaging. Please refer to complete available operator list at http://t.co/operators. (at position 21)
+
+2026-01-26 14:26:01 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 14:26:12 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 14:26:24 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 14:26:37 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 14:26:50 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 14:26:50 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 14:40:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 14:40:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 14:40:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 14:41:11 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 14:41:24 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 14:41:39 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 14:41:52 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 14:41:52 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 14:55:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 14:55:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 14:55:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 14:56:10 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 14:56:23 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 14:56:35 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 14:56:49 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 14:56:49 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 15:10:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 15:10:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 15:10:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:11:13 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:11:27 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:11:39 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:11:53 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 15:11:53 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 15:25:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 15:25:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 15:25:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 15:25:59 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:26:12 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 400 Bad Request
+There were errors processing your request: no viable alternative at input '<EOF>' (at position 39)
+
+2026-01-26 15:26:25 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:26:38 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:26:51 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 15:26:51 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 15:40:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 15:40:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 15:40:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 15:40:59 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:41:11 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:41:35 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:41:51 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 15:41:51 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 15:48:42 | ERROR    | src.utils.kalshi_client:get_market:158 - Error fetching market AAPL-EARNINGS-TMW: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Mon, 26 Jan 2026 20:48:42 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 0d8261bb77b212ad22381070dc87d174.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PHL51-P3', 'X-Amz-Cf-Id': 'v_90SQtN4jiWCrK9F4zq3yVoS_-nOhMLCp8cYO_yL7YCFQtoPjL2FQ=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+
+2026-01-26 15:48:42 | ERROR    | src.utils.kalshi_client:get_market:158 - Error fetching market NFL-CHIEFS-SUN: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Mon, 26 Jan 2026 20:48:42 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 0d8261bb77b212ad22381070dc87d174.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PHL51-P3', 'X-Amz-Cf-Id': 'myAsfVhK7FoZyFPld_yw1xJXQKXe0PhIpfVQSne5zs7q78xTPmdl-A=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+
+2026-01-26 15:48:43 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:48:56 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:49:10 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:49:22 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:49:36 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:49:50 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 15:49:50 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 15:51:28 | ERROR    | src.utils.kalshi_client:get_market:158 - Error fetching market AAPL-EARNINGS-TMW: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Mon, 26 Jan 2026 20:51:28 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 4d3480855260c7e16c3a1df3eafacee6.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'JFK50-P1', 'X-Amz-Cf-Id': 'oi5PAhbFVpBstw92jalGltU_UyEPUFKiT4zasU1Zk5kZw7dmQ9MwRg=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+
+2026-01-26 15:51:28 | ERROR    | src.utils.kalshi_client:get_market:158 - Error fetching market NFL-CHIEFS-SUN: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Mon, 26 Jan 2026 20:51:28 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 4d3480855260c7e16c3a1df3eafacee6.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'JFK50-P1', 'X-Amz-Cf-Id': 'twl4R0LSvWDTtOkYvv-VhuS03anbVEdILCO4U_nQ859CNJvG-CoWtA=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+
+2026-01-26 15:51:29 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:51:42 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:51:54 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:52:09 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:52:21 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:55:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 15:55:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 15:55:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:55:59 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:56:13 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:56:40 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 15:56:53 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 15:56:53 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 16:02:27 | ERROR    | src.utils.kalshi_client:get_market:318 - Error fetching market AAPL-EARNINGS-TMW: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Mon, 26 Jan 2026 21:02:27 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 aa7ca65bca4d95ba9a04dd166671496c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'JFK50-P1', 'X-Amz-Cf-Id': '0QczUWCsL86dK0VDb8w28BiVYsPJaUHMNBWusb0liZTumEcKHthsRA=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+
+2026-01-26 16:02:27 | ERROR    | src.utils.kalshi_client:get_market:318 - Error fetching market NFL-CHIEFS-SUN: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Mon, 26 Jan 2026 21:02:27 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 aa7ca65bca4d95ba9a04dd166671496c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'JFK50-P1', 'X-Amz-Cf-Id': 'SyhN4EJsfMclZ952wxRN1tn8gkWsYon_f8urOvjg4OuIQz0-hTHf3A=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+
+2026-01-26 16:02:27 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:02:40 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:02:51 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:03:04 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:03:17 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:10:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 16:10:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 16:10:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 16:11:00 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:11:14 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:11:38 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:11:51 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 16:11:51 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 16:25:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 16:25:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 16:25:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 16:26:00 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:26:13 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:26:38 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:26:50 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 16:26:50 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 16:40:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 16:40:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 16:40:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 16:41:01 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:41:15 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:41:41 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:41:55 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 16:41:55 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 16:55:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 16:55:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 16:55:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 16:55:59 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:56:12 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:56:26 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 16:56:50 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 16:56:50 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 17:10:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 17:10:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 17:10:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 17:10:58 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:11:11 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:11:24 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:11:50 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 17:11:50 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 17:25:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 17:25:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 17:25:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:25:59 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:26:11 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:26:25 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:26:52 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 17:26:52 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 17:40:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 17:40:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 17:40:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 17:41:00 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:41:13 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:41:27 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:41:52 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 17:41:52 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 17:55:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 17:55:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 17:55:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 17:56:00 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:56:13 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:56:26 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:56:37 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 17:56:51 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 17:56:51 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 18:55:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 18:55:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 18:55:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 400 Bad Request
+There were errors processing your request: Reference to invalid operator 'cashtag'. Operator is not available in current product or product packaging. Please refer to complete available operator list at http://t.co/operators. (at position 21)
+
+2026-01-26 18:56:01 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 18:56:16 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 18:56:29 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 18:56:41 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 18:56:56 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 18:56:56 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 19:10:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 19:10:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 19:10:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 19:11:11 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 19:11:23 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 19:11:36 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 19:11:50 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 19:11:50 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 19:55:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 19:55:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 19:55:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 400 Bad Request
+There were errors processing your request: Reference to invalid operator 'cashtag'. Operator is not available in current product or product packaging. Please refer to complete available operator list at http://t.co/operators. (at position 21)
+
+2026-01-26 19:56:01 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 19:56:14 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 19:56:26 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 19:56:38 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 19:56:52 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 19:56:52 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 20:10:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 20:10:45 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 20:10:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 20:11:10 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 20:11:23 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 20:11:36 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 20:11:51 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 20:11:51 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
+2026-01-26 20:25:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market AAPL-EARNINGS-TMW: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 20:25:46 | ERROR    | src.utils.kalshi_client:get_market:155 - Error fetching market NFL-CHIEFS-SUN: 'ApiClient' object has no attribute 'get_market'
+
+2026-01-26 20:25:46 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+2026-01-26 20:26:13 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 20:26:25 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 20:26:39 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 429 Too Many Requests
+Too Many Requests
+
+2026-01-26 20:26:51 | ERROR    | src.orchestrator.langgraph_flow:_record_session:491 - Failed to record session: 'dict' object has no attribute 'timestamp'
+
+2026-01-26 20:26:51 | ERROR    | src.orchestrator.langgraph_flow:run_trading_cycle:176 - Error in trading cycle: 'dict' object has no attribute 'markets_scanned'
+
