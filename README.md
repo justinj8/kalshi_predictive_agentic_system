@@ -38,7 +38,7 @@ The system follows an agentic AI design with 10 core components:
 
 1. Clone the repository:
 ```bash
-cd /Users/justinjohn/Documents/GitHub/kalshi_predictive_agentic_system
+cd /Users/...
 ```
 
 2. Create a virtual environment:
