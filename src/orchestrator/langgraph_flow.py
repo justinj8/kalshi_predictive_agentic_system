@@ -20,7 +20,7 @@ from src.agents.execution_agent import execution_agent
 from src.agents.position_manager import position_manager
 from src.agents.bonding_strategy_agent import bonding_agent
 from src.agents.arbitrage_detector import arbitrage_detector
-from src.database.models import TradingSession, get_session
+from src.database.models import TradingSession, get_session, get_db_session
 from config.settings import settings
 
 # Import metrics (optional - gracefully handle if not available)
@@ -211,7 +211,32 @@ class TradingOrchestrator:
                 "arbitrages_executed": get_state_attr(final_state, 'arbitrages_executed', 0),
                 "trades_blocked": get_state_attr(final_state, 'trades_blocked', 0),
                 "errors": get_state_attr(final_state, 'errors', []),
-                "warnings": get_state_attr(final_state, 'warnings', [])
+                "warnings": get_state_attr(final_state, 'warnings', []),
+                # Include opportunity details for summary display
+                "top_opportunities": [
+                    {
+                        "ticker": opp.market.ticker,
+                        "title": opp.market.title[:50],
+                        "sentiment": getattr(opp, 'combined_sentiment', 0),
+                        "yes_price": opp.market.yes_ask,
+                        "no_price": opp.market.no_ask,
+                        # Recommend based on price - low YES price = buy YES opportunity
+                        "recommendation": "YES" if opp.market.yes_ask < 0.50 else "NO" if opp.market.no_ask < 0.50 else "HOLD",
+                        # Estimate confidence from price edge (how far from 50%)
+                        "edge_confidence": min(90, 50 + abs(0.50 - opp.market.yes_ask) * 100)
+                    }
+                    for opp in get_state_attr(final_state, 'top_opportunities', [])
+                ],
+                "arbitrage_opportunities": [
+                    {
+                        "type": opp.type,
+                        "markets": opp.markets,
+                        "profit_pct": opp.profit_pct,
+                        "confidence": opp.confidence,
+                        "recommendation": f"Buy {opp.markets[0] if opp.markets else 'N/A'}"
+                    }
+                    for opp in get_state_attr(final_state, 'arbitrage_opportunities', [])
+                ]
             }
 
         except Exception as e:
@@ -287,7 +312,8 @@ class TradingOrchestrator:
             state.arbitrage_opportunities = [
                 ArbitrageOpportunity(
                     type=opp['type'],
-                    markets=[opp.get('market')] if opp.get('market') else [],
+                    # Extract ticker string from MarketData if present
+                    markets=[opp['market'].ticker if hasattr(opp.get('market'), 'ticker') else str(opp.get('market', ''))] if opp.get('market') else [],
                     profit_pct=opp['profit_pct'],
                     trades=opp.get('trades', []),
                     execution_complexity='low',
@@ -475,41 +501,38 @@ class TradingOrchestrator:
     def _get_open_positions_count(self) -> int:
         """Get number of open positions"""
         try:
-            session = get_session()
-            from src.database.models import Position
-            count = session.query(Position).filter(Position.is_open == True).count()
-            session.close()
-            return count
+            with get_db_session() as session:
+                from src.database.models import Position
+                count = session.query(Position).filter(Position.is_open == True).count()
+                return count
         except:
             return 0
 
     def _get_daily_trades_count(self) -> int:
         """Get number of trades today"""
         try:
-            session = get_session()
-            from src.database.models import Trade
-            from datetime import date
-            count = session.query(Trade).filter(
-                Trade.timestamp >= datetime.combine(date.today(), datetime.min.time())
-            ).count()
-            session.close()
-            return count
+            with get_db_session() as session:
+                from src.database.models import Trade
+                from datetime import date
+                count = session.query(Trade).filter(
+                    Trade.timestamp >= datetime.combine(date.today(), datetime.min.time())
+                ).count()
+                return count
         except:
             return 0
 
     def _get_daily_pnl(self) -> float:
         """Get P&L for today"""
         try:
-            session = get_session()
-            from src.database.models import Trade
-            from datetime import date
-            trades = session.query(Trade).filter(
-                Trade.timestamp >= datetime.combine(date.today(), datetime.min.time()),
-                Trade.realized_pnl.isnot(None)
-            ).all()
-            pnl = sum([t.realized_pnl for t in trades])
-            session.close()
-            return pnl
+            with get_db_session() as session:
+                from src.database.models import Trade
+                from datetime import date
+                trades = session.query(Trade).filter(
+                    Trade.timestamp >= datetime.combine(date.today(), datetime.min.time()),
+                    Trade.realized_pnl.isnot(None)
+                ).all()
+                pnl = sum([t.realized_pnl for t in trades])
+                return pnl
         except:
             return 0.0
 

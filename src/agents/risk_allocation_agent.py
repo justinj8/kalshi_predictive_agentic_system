@@ -65,9 +65,9 @@ class RiskAllocationAgent:
 
         # Use Kelly Criterion for position sizing
         # Convert confidence (0-100) to win probability (0-1)
-        # Apply calibration based on historical accuracy
+        # Apply FULL calibration with hard bounds to prevent overbetting
         from src.utils.calibration_tracker import calibration_tracker
-        calibrated_confidence = calibration_tracker.calibrate_confidence(signal.confidence)
+        calibrated_confidence = calibration_tracker.get_fully_calibrated_confidence(signal.confidence)
         win_probability = calibrated_confidence / 100.0
 
         logger.info(

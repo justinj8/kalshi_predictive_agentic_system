@@ -89,47 +89,51 @@ class ArbitrageDetector:
         markets: List[MarketData]
     ) -> List[Dict]:
         """
-        Detect within-market arbitrage where YES + NO ≠ $1.00
-
-        In theory: P(YES) + P(NO) = $1.00 always
-        In practice: Temporary mispricings occur
-
-        If YES_ASK + NO_ASK < $1.00 - fees: Buy both, guaranteed profit
-        If YES_BID + NO_BID > $1.00 + fees: Sell both, guaranteed profit
+        Detect within-market SPREAD opportunities
+        
+        NOTE: Previous implementation was conceptually WRONG!
+        On Kalshi, YES and NO are binary complements - buying both 
+        gives you exactly $1.00 payout no matter what (not arbitrage).
+        
+        TRUE within-market opportunities:
+        1. Wide spread that closes = profit
+        2. Stale bid/ask from low activity
+        
+        Real arbitrage in prediction markets requires:
+        - Cross-market temporal opportunities
+        - Cross-platform opportunities (Kalshi vs Polymarket)
+        - Related event probability inconsistencies
         """
         opportunities = []
 
         for market in markets:
-            # Calculate total cost to buy both sides
-            yes_ask = market.yes_ask
-            no_ask = market.no_ask
-            buy_both_cost = yes_ask + no_ask
-
-            # After fees
-            buy_both_cost_with_fees = buy_both_cost * (1 + self.fee_rate)
-
-            # Profit if we buy both (guaranteed $1.00 payout)
-            profit = 1.00 - buy_both_cost_with_fees
-
-            if profit > 0:
-                profit_pct = (profit / buy_both_cost_with_fees) * 100
-
-                if profit_pct >= self.min_arb_profit_pct:
+            # Calculate spread as percentage of price
+            yes_mid = (market.yes_bid + market.yes_ask) / 2
+            spread = market.yes_ask - market.yes_bid
+            spread_pct = (spread / yes_mid * 100) if yes_mid > 0 else 0
+            
+            # Look for wide spreads that might normalize
+            # This is NOT true arbitrage, but a spread capture trade
+            if spread_pct >= 8.0 and market.volume_24h > 100000:
+                # Wide spread in liquid market = possible spread capture
+                expected_profit_pct = spread_pct * 0.3  # Assume capture 30% of spread
+                
+                if expected_profit_pct >= self.min_arb_profit_pct:
                     opportunities.append({
-                        "type": "within_market",
+                        "type": "spread_capture",
                         "market": market,
-                        "description": f"{market.ticker}: Buy YES@${yes_ask:.3f} + NO@${no_ask:.3f}",
-                        "profit_pct": profit_pct,
-                        "profit_per_unit": profit,
-                        "capital_required": buy_both_cost_with_fees,
+                        "description": f"{market.ticker}: Wide {spread_pct:.1f}% spread in liquid market",
+                        "profit_pct": expected_profit_pct,
+                        "profit_per_unit": spread * 0.3,
+                        "capital_required": market.yes_ask,
                         "trades": [
-                            {"ticker": market.ticker, "side": "YES", "price": yes_ask},
-                            {"ticker": market.ticker, "side": "NO", "price": no_ask}
-                        ]
+                            {"ticker": market.ticker, "side": "YES", "price": market.yes_ask}
+                        ],
+                        "note": "NOT guaranteed arbitrage - spread capture trade"
                     })
 
         if opportunities:
-            logger.info(f"  - Within-market: {len(opportunities)} opportunities")
+            logger.info(f"  - Spread capture: {len(opportunities)} opportunities (NOT guaranteed arb)")
 
         return opportunities
 

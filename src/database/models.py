@@ -3,6 +3,7 @@ Database models for tracking trades, positions, and performance
 """
 from datetime import datetime
 from typing import Optional
+from contextlib import contextmanager
 from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, Boolean, Text, JSON
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -207,8 +208,59 @@ def init_database():
     return engine
 
 
+# Global engine and session factory (singleton pattern for efficiency)
+_engine = None
+_Session = None
+
+
+def _get_engine():
+    """Get or create the database engine (singleton)"""
+    global _engine
+    if _engine is None:
+        _engine = create_engine(settings.database_url)
+    return _engine
+
+
+def _get_session_factory():
+    """Get or create session factory (singleton)"""
+    global _Session
+    if _Session is None:
+        _Session = sessionmaker(bind=_get_engine())
+    return _Session
+
+
 def get_session():
-    """Get database session"""
-    engine = create_engine(settings.database_url)
-    Session = sessionmaker(bind=engine)
+    """
+    Get database session (legacy, for backward compatibility)
+    
+    WARNING: Caller is responsible for closing the session!
+    Prefer using get_db_session() context manager instead.
+    """
+    Session = _get_session_factory()
     return Session()
+
+
+@contextmanager
+def get_db_session():
+    """
+    Context manager for safe database sessions
+    
+    Automatically commits on success, rolls back on exception,
+    and always closes the session to prevent leaks.
+    
+    Usage:
+        with get_db_session() as session:
+            # your database operations
+            session.query(Trade).all()
+            # commits automatically on exit
+    """
+    Session = _get_session_factory()
+    session = Session()
+    try:
+        yield session
+        session.commit()
+    except Exception:
+        session.rollback()
+        raise
+    finally:
+        session.close()

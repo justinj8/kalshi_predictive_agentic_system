@@ -433,102 +433,146 @@ class KalshiClientWrapper:
 
     # Mock data methods for testing without API keys
     def _get_mock_markets(self) -> List[Dict[str, Any]]:
-        """Generate mock market data with CLEAR MISPRICINGS, TIGHT SPREADS, and SHORT HORIZONS"""
+        """
+        Generate REALISTIC mock market data for proper paper trading validation
+        
+        Key differences from previous version:
+        - Normal spreads (4-8 cents, not 2 cents)
+        - Realistic edges (3-8%, not 40%)
+        - Some markets with NO edge (test NO_TRADE logic)
+        - Varied liquidity levels
+        - Mix of categories
+        """
         from datetime import timedelta
         
-        # Generate dates relative to now - ALL WITHIN 1-5 DAYS
         now = datetime.now()
         
         return [
-            # OBVIOUS BUY YES: Apple earnings tomorrow - historically beats 85% but priced at 45%
+            # REALISTIC EDGE (5-7%): Apple earnings - priced at 58%, might be worth 65%
             {
-                "ticker": "AAPL-EARNINGS-TMW",
-                "title": "Will Apple beat earnings estimates tomorrow? Historical beat rate: 85%",
+                "ticker": "AAPL-EARNINGS-Q1",
+                "title": "Will Apple beat Q1 2026 earnings estimates?",
                 "category": "finance",
-                "yes_bid": 44,
-                "yes_ask": 46,  # Tight 2-cent spread
-                "no_bid": 54,
-                "no_ask": 56,
-                "volume_24h": 800000,
-                "open_interest": 2500000,
-                "close_date": (now + timedelta(days=1)).isoformat() + "Z",  # Tomorrow!
-                "status": "open",
-                "technical": {
-                    "rsi": 32,  # Oversold
-                    "price_change_24h": -0.08,
-                    "volume_trend": "spiking"
-                }
-            },
-            # OBVIOUS BUY YES: Chiefs game this weekend - Vegas 65% but priced at 38%
-            {
-                "ticker": "NFL-CHIEFS-SUN",
-                "title": "Will Chiefs win Sunday's playoff game? Vegas odds: 65%",
-                "category": "sports",
-                "yes_bid": 37,
-                "yes_ask": 39,  # Tight 2-cent spread
-                "no_bid": 61,
-                "no_ask": 63,
-                "volume_24h": 1200000,
-                "open_interest": 3000000,
-                "close_date": (now + timedelta(days=3)).isoformat() + "Z",  # Sunday
-                "status": "open",
-                "technical": {
-                    "rsi": 25,  # Extremely oversold!
-                    "price_change_24h": -0.15,
-                    "volume_trend": "spiking"
-                }
-            },
-            # OBVIOUS BUY YES: Fed decision Wednesday - Futures show 75% hold
-            {
-                "ticker": "FED-HOLD-WED",
-                "title": "Will Fed hold rates Wednesday? Futures pricing: 75%",
-                "category": "economics",
-                "yes_bid": 41,
-                "yes_ask": 43,  # Tight 2-cent spread
-                "no_bid": 57,
-                "no_ask": 59,
-                "volume_24h": 600000,
-                "open_interest": 1800000,
-                "close_date": (now + timedelta(days=2)).isoformat() + "Z",  # Wednesday
-                "status": "open",
-                "technical": {
-                    "rsi": 28,
-                    "price_change_24h": -0.10,
-                    "volume_trend": "increasing"
-                }
-            },
-            # BONDING: Jobs report Friday - 48 month streak
-            {
-                "ticker": "JOBS-FRI",
-                "title": "Will Friday jobs report show positive growth? 48 month streak",
-                "category": "economics",
-                "yes_bid": 90,
-                "yes_ask": 92,  # Tight 2-cent spread
-                "no_bid": 8,
-                "no_ask": 10,
-                "volume_24h": 400000,
-                "open_interest": 1200000,
-                "close_date": (now + timedelta(days=4)).isoformat() + "Z",  # Friday
+                "yes_bid": 55,  # Realistic spread
+                "yes_ask": 61,  # 6-cent spread
+                "no_bid": 39,
+                "no_ask": 45,
+                "volume_24h": 250000,
+                "open_interest": 800000,
+                "close_date": (now + timedelta(days=5)).isoformat() + "Z",
                 "status": "open"
             },
-            # BTC daily close - Already at $99,500 needing only $500 move
+            # NO EDGE: This market is fairly priced - tests NO_TRADE logic
             {
-                "ticker": "BTC-100K-TODAY",
-                "title": "Will Bitcoin close above $100K today? Current: $99,500",
-                "category": "crypto",
-                "yes_bid": 52,
-                "yes_ask": 54,  # Tight 2-cent spread
+                "ticker": "SP500-UP-WEEK",
+                "title": "Will S&P 500 close higher this week?",
+                "category": "finance",
+                "yes_bid": 48,  # Almost 50/50, no edge
+                "yes_ask": 54,
                 "no_bid": 46,
-                "no_ask": 48,
-                "volume_24h": 2000000,
-                "open_interest": 5000000,
-                "close_date": (now + timedelta(hours=12)).isoformat() + "Z",  # Today!
-                "status": "open",
-                "technical": {
-                    "rsi": 65,
-                    "price_change_24h": 0.05,
-                    "volume_trend": "strongly_increasing"
-                }
+                "no_ask": 52,
+                "volume_24h": 500000,
+                "open_interest": 1200000,
+                "close_date": (now + timedelta(days=4)).isoformat() + "Z",
+                "status": "open"
+            },
+            # SMALL EDGE (3-4%): Fed decision - consensus 70%, priced at 66%
+            {
+                "ticker": "FED-HOLD-MAR",
+                "title": "Will Fed hold rates at March meeting?",
+                "category": "economics",
+                "yes_bid": 63,
+                "yes_ask": 69,  # 6-cent spread
+                "no_bid": 31,
+                "no_ask": 37,
+                "volume_24h": 350000,
+                "open_interest": 900000,
+                "close_date": (now + timedelta(days=14)).isoformat() + "Z",
+                "status": "open"
+            },
+            # BONDING OPPORTUNITY: High probability event for consistent returns
+            {
+                "ticker": "JOBS-POSITIVE-FEB",
+                "title": "Will February jobs report show positive job growth?",
+                "category": "economics",
+                "yes_bid": 88,  # High prob but wide spread
+                "yes_ask": 94,
+                "no_bid": 6,
+                "no_ask": 12,
+                "volume_24h": 180000,
+                "open_interest": 450000,
+                "close_date": (now + timedelta(days=7)).isoformat() + "Z",
+                "status": "open"
+            },
+            # SPORTS - moderate edge available
+            {
+                "ticker": "NFL-SUPERBOWL-WINNER",
+                "title": "Will current favorite win Super Bowl 2026?",
+                "category": "sports",
+                "yes_bid": 30,
+                "yes_ask": 36,  # Vegas might say 38-40%
+                "no_bid": 64,
+                "no_ask": 70,
+                "volume_24h": 800000,
+                "open_interest": 2500000,
+                "close_date": (now + timedelta(days=10)).isoformat() + "Z",
+                "status": "open"
+            },
+            # CRYPTO - volatile, wide spread, uncertain
+            {
+                "ticker": "BTC-100K-EOM",
+                "title": "Will Bitcoin be above $100K end of month?",
+                "category": "crypto",
+                "yes_bid": 42,
+                "yes_ask": 50,  # Wide 8-cent spread (volatile market)
+                "no_bid": 50,
+                "no_ask": 58,
+                "volume_24h": 1200000,
+                "open_interest": 3500000,
+                "close_date": (now + timedelta(days=28)).isoformat() + "Z",
+                "status": "open"
+            },
+            # TEMPORAL ARB PAIR 1: Same event, different timeframes
+            {
+                "ticker": "ETH-5K-Q1",
+                "title": "Will Ethereum be above $5K by end of Q1 2026?",
+                "category": "crypto",
+                "yes_bid": 25,
+                "yes_ask": 31,
+                "no_bid": 69,
+                "no_ask": 75,
+                "volume_24h": 400000,
+                "open_interest": 1000000,
+                "close_date": (now + timedelta(days=60)).isoformat() + "Z",
+                "status": "open"
+            },
+            # TEMPORAL ARB PAIR 2: Later deadline should have >= price
+            {
+                "ticker": "ETH-5K-Q2",
+                "title": "Will Ethereum be above $5K by end of Q2 2026?",
+                "category": "crypto",
+                "yes_bid": 38,  # Higher than Q1 (correct)
+                "yes_ask": 44,
+                "no_bid": 56,
+                "no_ask": 62,
+                "volume_24h": 300000,
+                "open_interest": 750000,
+                "close_date": (now + timedelta(days=120)).isoformat() + "Z",
+                "status": "open"
+            },
+            # LOW LIQUIDITY - should be avoided
+            {
+                "ticker": "NICHE-EVENT-123",
+                "title": "Will obscure regulatory decision happen?",
+                "category": "politics",
+                "yes_bid": 35,
+                "yes_ask": 48,  # Huge 13-cent spread = low liquidity
+                "no_bid": 52,
+                "no_ask": 65,
+                "volume_24h": 15000,  # Very low volume
+                "open_interest": 50000,
+                "close_date": (now + timedelta(days=30)).isoformat() + "Z",
+                "status": "open"
             }
         ]
 

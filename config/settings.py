@@ -1,15 +1,30 @@
 """
 Configuration management for Kalshi Predictive Markets System
 """
+import os
+from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Literal
+
+
+def find_env_file():
+    """Find .env file in current dir or parent directories"""
+    current = Path.cwd()
+    # Check current directory first
+    if (current / '.env').exists():
+        return str(current / '.env')
+    # Check parent directory (common project structure)
+    if (current.parent / '.env').exists():
+        return str(current.parent / '.env')
+    # Fallback to default
+    return '.env'
 
 
 class Settings(BaseSettings):
     """System configuration loaded from environment variables"""
 
     model_config = SettingsConfigDict(
-        env_file='.env',
+        env_file=find_env_file(),
         env_file_encoding='utf-8',
         case_sensitive=False
     )

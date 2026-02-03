@@ -129,7 +129,7 @@ class BondingOpportunity(BaseModel):
 
 class ArbitrageOpportunity(BaseModel):
     """Arbitrage opportunity between related markets"""
-    type: Literal["within_market", "temporal", "complement", "category"]
+    type: Literal["within_market", "temporal", "complement", "category", "spread_capture"]
     markets: List[str]  # Tickers involved
     profit_pct: float
     trades: List[Dict[str, Any]]  # [{ticker, side, price}, ...]

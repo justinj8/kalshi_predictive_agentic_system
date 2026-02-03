@@ -260,6 +260,113 @@ class CalibrationTracker:
         )
         
         return prediction_id
+    
+    def record_outcome(
+        self,
+        ticker: str,
+        predicted_confidence: float,
+        actual_outcome: bool,
+        predicted_signal: str,
+        pnl: float
+    ):
+        """
+        Record actual outcome for a prediction (called when market resolves or position closes)
+        
+        This is CRITICAL for calibration - tracks whether our confidence was justified.
+        AI systems (including Claude) tend to be overconfident, so we need real outcome data.
+        
+        Args:
+            ticker: Market ticker
+            predicted_confidence: Original confidence score (0-100)
+            actual_outcome: True if prediction was correct (profitable)
+            predicted_signal: LONG or SHORT
+            pnl: Realized P&L
+        """
+        bucket_name = self._get_bucket_name(predicted_confidence)
+        
+        # Update the trade record with outcome if possible
+        try:
+            session = get_session()
+            
+            # Find the most recent trade for this ticker that doesn't have an outcome
+            from sqlalchemy import desc
+            trade = session.query(Trade).filter(
+                Trade.ticker == ticker,
+                Trade.signal_confidence.isnot(None)
+            ).order_by(desc(Trade.timestamp)).first()
+            
+            if trade:
+                trade.realized_pnl = pnl
+                session.commit()
+                
+                logger.info(
+                    f"Outcome recorded: {ticker} {predicted_signal} @ {predicted_confidence:.0f}% "
+                    f"-> {'WIN' if actual_outcome else 'LOSS'} (${pnl:+.2f})"
+                )
+            
+            session.close()
+            
+        except Exception as e:
+            logger.error(f"Error recording outcome: {e}")
+        
+        # Invalidate cache so next calibration uses updated data
+        self._calibration_cache = None
+        self._cache_timestamp = None
+    
+    def apply_hard_bounds(self, raw_confidence: float) -> float:
+        """
+        Apply hard bounds to prevent extreme overconfidence
+        
+        Research shows:
+        - LLMs regularly express 90%+ confidence even on uncertain predictions
+        - Even expert humans rarely have 85%+ accuracy on prediction markets
+        - Capping confidence prevents catastrophic Kelly overbetting
+        
+        Args:
+            raw_confidence: Raw confidence from LLM (0-100)
+            
+        Returns:
+            Bounded confidence (capped at 85%, floor at 30%)
+        """
+        MAX_CONFIDENCE = 85.0  # Never bet more than 85% confident
+        MIN_CONFIDENCE = 30.0  # Below 30% = no trade
+        
+        bounded = max(MIN_CONFIDENCE, min(MAX_CONFIDENCE, raw_confidence))
+        
+        if raw_confidence > MAX_CONFIDENCE:
+            logger.warning(
+                f"Confidence hard-capped: {raw_confidence:.0f}% -> {bounded:.0f}% "
+                f"(max {MAX_CONFIDENCE}% to prevent overbetting)"
+            )
+        
+        return bounded
+    
+    def get_fully_calibrated_confidence(self, raw_confidence: float) -> float:
+        """
+        Apply full calibration pipeline:
+        1. Hard bounds (prevent extreme overconfidence)
+        2. Historical calibration (adjust based on past accuracy)
+        
+        This is the main method to use for production confidence scores.
+        
+        Args:
+            raw_confidence: Raw confidence from Claude (0-100)
+            
+        Returns:
+            Fully calibrated and bounded confidence (0-100)
+        """
+        # Step 1: Apply hard bounds first
+        bounded = self.apply_hard_bounds(raw_confidence)
+        
+        # Step 2: Apply historical calibration
+        calibrated = self.calibrate_confidence(bounded)
+        
+        logger.info(
+            f"Full calibration: raw={raw_confidence:.0f}% -> "
+            f"bounded={bounded:.0f}% -> calibrated={calibrated:.0f}%"
+        )
+        
+        return calibrated
 
 
 # Global instance

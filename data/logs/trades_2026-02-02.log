@@ -1,0 +1,106 @@
+2026-02-02 22:25:59 | INFO     |   Risk Per Trade: 5.0%
+2026-02-02 22:25:59 | INFO     |   Max Daily Trades: 5
+2026-02-02 22:25:59 | INFO     | Daily Trades: 0
+2026-02-02 22:29:07 | INFO     |   Risk Per Trade: 5.0%
+2026-02-02 22:29:07 | INFO     |   Max Daily Trades: 5
+2026-02-02 22:29:07 | INFO     | Daily Trades: 0
+2026-02-02 22:29:09 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:09 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | Trades Executed: 0
+2026-02-02 22:29:10 | INFO     | Trades Blocked: 0
+2026-02-02 22:29:10 | INFO     |   Trades Executed: 0
+2026-02-02 22:29:10 | INFO     |   Trades Blocked: 0
+2026-02-02 22:32:25 | INFO     |   Risk Per Trade: 5.0%
+2026-02-02 22:32:25 | INFO     |   Max Daily Trades: 5
+2026-02-02 22:32:25 | INFO     | Daily Trades: 0
+2026-02-02 22:32:26 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | Trades Executed: 0
+2026-02-02 22:32:26 | INFO     | Trades Blocked: 0
+2026-02-02 22:32:26 | INFO     |   Trades Executed: 0
+2026-02-02 22:32:26 | INFO     |   Trades Blocked: 0
+2026-02-02 22:38:03 | INFO     |   Risk Per Trade: 5.0%
+2026-02-02 22:38:03 | INFO     |   Max Daily Trades: 5
+2026-02-02 22:38:03 | INFO     | Daily Trades: 0
+2026-02-02 22:38:03 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | Trades Executed: 0
+2026-02-02 22:38:03 | INFO     | Trades Blocked: 0
+2026-02-02 22:38:03 | INFO     |   Trades Executed: 0
+2026-02-02 22:38:03 | INFO     |   Trades Blocked: 0
+2026-02-02 22:41:17 | INFO     |   Risk Per Trade: 5.0%
+2026-02-02 22:41:17 | INFO     |   Max Daily Trades: 5
+2026-02-02 22:41:17 | INFO     | Daily Trades: 0
+2026-02-02 22:41:17 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:18 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:18 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:18 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:18 | INFO     | Trades Executed: 0
+2026-02-02 22:41:18 | INFO     | Trades Blocked: 0
+2026-02-02 22:41:18 | INFO     |   Trades Executed: 0
+2026-02-02 22:41:18 | INFO     |   Trades Blocked: 0
+2026-02-02 22:45:18 | INFO     |   Risk Per Trade: 5.0%
+2026-02-02 22:45:18 | INFO     |   Max Daily Trades: 5
+2026-02-02 22:45:18 | INFO     | Daily Trades: 0
+2026-02-02 22:45:31 | INFO     | Claude analysis:
+**RECOMMENDATION:** NO_TRADE
+
+**CONFIDENCE:** 25%
+
+**EXPECTED_RETURN:** N/A
+
+**REASONING:**
+This market presents multiple red flags that make it unsuitable for trading under our risk parameters. The most glaring issue is the extremely wide 95% bid-ask spread with zero volume and open interest, indicating a completely illiquid market where any position would be difficult to exit. The market appears to be a complex multi-leg sports betting proposition involving Kenneth Walker III and Hunter Henry with specific performance thresholds, but the exact nature of the bet is unclear from the ticker information provided.
+
+The bearish sentiment (-0.79 social, -0.39 combined) suggests negative market psychology, while technical indicators remain neutral with no meaningful momentum signals due to lack of trading activity. The market closes in February 2026, providing ample time for analysis, but without understanding the specific sports events, games, or timeframes involved, it's impossible to conduct proper fundamental analysis. The current 52.5% implied probability appears arbitrary given the lack of price discovery through actual trading.
+
+Most critically, this trade fails to meet our minimum confidence threshold of 60% and lacks the clear edge required for our trading strategy. The combination of extreme illiquidity, unclear fundamentals, and negative sentiment creates an unfavorable risk/reward profile that doesn't justify capital allocation.
+
+**KEY_FACTORS:**
+- Zero trading volume and open interest indicating complete illiquidity
+- Extremely wide 95% bid-ask spread making entry/exit costly
+- Unclear market mechanics and underlying sports events
+- Bearish sentiment across social media channels
+- Neutral technical signals with no momentum
+
+**RISK_FACTORS:**
+- Inability to exit position due to zero liquidity
+- Large spread would require significant favorable movement to profit
+- Unknown sports schedule and player availability/health
+- Potential rule changes or game cancellations over long time horizon
+- Market maker risk with such wide spreads
+
+**MARKET_EDGE:**
+There is no identifiable edge in this market due to extreme illiquidity, unclear fundamentals, and insufficient information to assess true probabilities versus market pricing.
+2026-02-02 22:45:31 | INFO     | Signal generated: NO_TRADE (Confidence: 25.0%, Expected Return: 0.0%)
+2026-02-02 22:45:31 | INFO     | Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:45:31 | INFO     | Trades Executed: 0
+2026-02-02 22:45:31 | INFO     | Trades Blocked: 0
+2026-02-02 22:45:31 | INFO     |   Trades Executed: 0
+2026-02-02 22:45:31 | INFO     |   Trades Blocked: 0

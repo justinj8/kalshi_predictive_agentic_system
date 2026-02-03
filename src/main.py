@@ -32,6 +32,28 @@ def run_trading_cycle():
         logger.info("CYCLE SUMMARY:")
         logger.info(f"  Markets Scanned: {result.get('markets_scanned', 0)}")
         logger.info(f"  Opportunities Found: {result.get('opportunities_found', 0)}")
+        
+        # List each top opportunity with recommendation
+        top_opps = result.get('top_opportunities', [])
+        if top_opps:
+            logger.info("  Top Opportunities Analyzed:")
+            for i, opp in enumerate(top_opps, 1):
+                rec = opp.get('recommendation', 'N/A')
+                conf = opp.get('edge_confidence', 0)
+                yes_price = opp.get('yes_price', 0) * 100
+                logger.info(f"    {i}. {opp.get('ticker', 'N/A')}: {opp.get('title', 'N/A')}")
+                logger.info(f"       → BUY {rec} @ {yes_price:.0f}¢ (Confidence: {conf:.0f}%)")
+        
+        # List arbitrage opportunities
+        arb_opps = result.get('arbitrage_opportunities', [])
+        if arb_opps:
+            logger.info(f"  Arbitrage Opportunities ({len(arb_opps)}):")
+            for i, opp in enumerate(arb_opps[:5], 1):  # Show top 5
+                markets = ', '.join(opp.get('markets', []))
+                conf = opp.get('confidence', 0)
+                logger.info(f"    {i}. [{opp.get('type', 'N/A')}] {markets}")
+                logger.info(f"       → {opp.get('profit_pct', 0):.2f}% profit (Confidence: {conf:.0f}%)")
+        
         logger.info(f"  Trades Executed: {result.get('trades_executed', 0)}")
         logger.info(f"  Trades Blocked: {result.get('trades_blocked', 0)}")
 

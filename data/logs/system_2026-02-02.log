@@ -1,0 +1,1213 @@
+2026-02-02 22:25:50 | WARNING  | src.utils.kalshi_client:_initialize_client:201 - Kalshi API keys not found - using mock mode
+2026-02-02 22:25:50 | INFO     | src.utils.alpha_vantage_client:__init__:23 - Alpha Vantage API key not found or invalid. Using MOCK mode.
+2026-02-02 22:25:50 | INFO     | src.utils.news_fetcher:__init__:148 - Reddit credentials not configured - using mock data
+2026-02-02 22:25:50 | INFO     | src.utils.news_fetcher:__init__:167 - Twitter credentials not configured - using mock data
+2026-02-02 22:25:53 | INFO     | src.utils.sentiment_analyzer:__init__:39 - Loading sentiment model: distilbert-base-uncased-finetuned-sst-2-english
+2026-02-02 22:25:59 | INFO     | src.utils.sentiment_analyzer:__init__:41 - Sentiment model loaded successfully
+2026-02-02 22:25:59 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-02-02 22:25:59 | INFO     | src.monitoring.metrics:__init__:258 - Trading metrics initialized
+2026-02-02 22:25:59 | INFO     | src.monitoring.health_check:__init__:59 - Health checker initialized
+2026-02-02 22:25:59 | INFO     | __main__:main:70 - 
+2026-02-02 22:25:59 | INFO     | __main__:main:71 - ****************************************************************************************************
+2026-02-02 22:25:59 | INFO     | __main__:main:72 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-02-02 22:25:59 | INFO     | __main__:main:73 - ****************************************************************************************************
+2026-02-02 22:25:59 | INFO     | __main__:main:74 - 
+2026-02-02 22:25:59 | INFO     | __main__:main:75 - Configuration:
+2026-02-02 22:25:59 | INFO     | __main__:main:76 -   Trading Mode: PAPER
+2026-02-02 22:25:59 | INFO     | __main__:main:77 -   Starting Capital: $100.00
+2026-02-02 22:25:59 | INFO     | __main__:main:78 -   Risk Per Trade: 5.0%
+2026-02-02 22:25:59 | INFO     | __main__:main:79 -   LLM Model: claude-sonnet-4-20250514
+2026-02-02 22:25:59 | INFO     | __main__:main:80 -   Scheduler Interval: 15 minutes
+2026-02-02 22:25:59 | INFO     | __main__:main:81 -   Max Daily Trades: 5
+2026-02-02 22:25:59 | INFO     | __main__:main:82 -   Max Daily Loss: 15.0%
+2026-02-02 22:25:59 | INFO     | __main__:main:83 - 
+2026-02-02 22:25:59 | INFO     | __main__:main:86 - Initializing database...
+2026-02-02 22:25:59 | INFO     | __main__:main:88 - Database initialized successfully
+2026-02-02 22:25:59 | INFO     | __main__:main:89 - 
+2026-02-02 22:25:59 | INFO     | __main__:main:96 - Running initial trading cycle...
+2026-02-02 22:25:59 | INFO     | __main__:run_trading_cycle:23 - 
+2026-02-02 22:25:59 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-02-02 22:25:59 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-02-02 22:25:59
+2026-02-02 22:25:59 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - ================================================================================
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - STARTING TRADING CYCLE
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:141 - Cycle ID: cycle_1d37f808
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:142 - ================================================================================
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:154 - Session ID: session_ae368c2a
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:155 - Starting Balance: $100.00
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:156 - Open Positions: 2
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:157 - Daily Trades: 0
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:158 - Daily P&L: $0.00
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:234 - Node: Updating Positions
+2026-02-02 22:25:59 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-02-02 22:25:59 | INFO     | src.agents.position_manager:update_positions:49 - Found 2 open positions
+2026-02-02 22:25:59 | DEBUG    | src.agents.position_manager:_update_position_price:161 - Position update: AAPL-EARNINGS-TMW @ $0.55 (P&L: $0.09, +19.6%)
+2026-02-02 22:25:59 | DEBUG    | src.agents.position_manager:_update_position_price:161 - Position update: NFL-CHIEFS-SUN @ $0.55 (P&L: $0.16, +41.0%)
+2026-02-02 22:25:59 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 2
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:239 - Node: Fetching Markets
+2026-02-02 22:25:59 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-02-02 22:25:59 | INFO     | src.utils.kalshi_client:get_all_markets:244 - No Kalshi API connection - using mock markets
+2026-02-02 22:25:59 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 9 markets successfully
+2026-02-02 22:25:59 | INFO     | src.agents.market_data_fetcher:_filter_markets:360 - Filter stats: 9 total, 8 passed, filtered out: {'liquidity': 0, 'time_min': 0, 'time_max': 0, 'probability': 1, 'date_parse': 0}
+2026-02-02 22:25:59 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 8 markets meeting policy criteria
+2026-02-02 22:25:59 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:25:59 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. SP500-UP-WEEK - Will S&P 500 close higher this week?... (Score: 87.4, Liquidity: $1,200,000)
+2026-02-02 22:25:59 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   2. AAPL-EARNINGS-Q1 - Will Apple beat Q1 2026 earnings estimates?... (Score: 83.2, Liquidity: $800,000)
+2026-02-02 22:25:59 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   3. ETH-5K-Q2 - Will Ethereum be above $5K by end of Q2 2026?... (Score: 82.6, Liquidity: $750,000)
+2026-02-02 22:25:59 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 3 top opportunities
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:244 - Node: Circuit Breaker
+2026-02-02 22:25:59 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-02-02 22:25:59 | WARNING  | src.agents.data_qa_circuit_breaker:validate_and_check:56 - Circuit breaker check failed: position_limit - Maximum concurrent positions reached (2/2)
+2026-02-02 22:25:59 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:_bonding_scan_node:249 - Node: Bonding Strategy Scan
+2026-02-02 22:25:59 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:62 - ============================================================
+2026-02-02 22:25:59 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:63 - BONDING STRATEGY SCAN
+2026-02-02 22:25:59 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:64 - ============================================================
+2026-02-02 22:25:59 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:112 - Found 0 bonding opportunities
+2026-02-02 22:25:59 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:126 - ============================================================
+2026-02-02 22:25:59 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:277 - Node: Arbitrage Detection Scan
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:41 - ============================================================
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:42 - ARBITRAGE DETECTION SCAN
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:43 - ============================================================
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:_detect_within_market_arbitrage:136 -   - Spread capture: 7 opportunities (NOT guaranteed arb)
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:67 - Found 7 total arbitrage opportunities
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:70 - 
+Top 5 Arbitrage Opportunities:
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   1. spread_capture: ETH-5K-Q1: Wide 21.4% spread in liquid market (Profit: 6.43%, Capital: $0.31)
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   2. spread_capture: NFL-SUPERBOWL-WINNER: Wide 18.2% spread in liquid market (Profit: 5.45%, Capital: $0.36)
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   3. spread_capture: BTC-100K-EOM: Wide 17.4% spread in liquid market (Profit: 5.22%, Capital: $0.50)
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   4. spread_capture: ETH-5K-Q2: Wide 14.6% spread in liquid market (Profit: 4.39%, Capital: $0.44)
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   5. spread_capture: SP500-UP-WEEK: Wide 11.8% spread in liquid market (Profit: 3.53%, Capital: $0.54)
+2026-02-02 22:25:59 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:83 - ============================================================
+2026-02-02 22:29:03 | WARNING  | src.utils.kalshi_client:_initialize_client:201 - Kalshi API keys not found - using mock mode
+2026-02-02 22:29:03 | INFO     | src.utils.alpha_vantage_client:__init__:23 - Alpha Vantage API key not found or invalid. Using MOCK mode.
+2026-02-02 22:29:03 | INFO     | src.utils.news_fetcher:__init__:148 - Reddit credentials not configured - using mock data
+2026-02-02 22:29:03 | INFO     | src.utils.news_fetcher:__init__:167 - Twitter credentials not configured - using mock data
+2026-02-02 22:29:06 | INFO     | src.utils.sentiment_analyzer:__init__:39 - Loading sentiment model: distilbert-base-uncased-finetuned-sst-2-english
+2026-02-02 22:29:07 | INFO     | src.utils.sentiment_analyzer:__init__:41 - Sentiment model loaded successfully
+2026-02-02 22:29:07 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-02-02 22:29:07 | INFO     | src.monitoring.metrics:__init__:258 - Trading metrics initialized
+2026-02-02 22:29:07 | INFO     | src.monitoring.health_check:__init__:59 - Health checker initialized
+2026-02-02 22:29:07 | INFO     | __main__:main:70 - 
+2026-02-02 22:29:07 | INFO     | __main__:main:71 - ****************************************************************************************************
+2026-02-02 22:29:07 | INFO     | __main__:main:72 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-02-02 22:29:07 | INFO     | __main__:main:73 - ****************************************************************************************************
+2026-02-02 22:29:07 | INFO     | __main__:main:74 - 
+2026-02-02 22:29:07 | INFO     | __main__:main:75 - Configuration:
+2026-02-02 22:29:07 | INFO     | __main__:main:76 -   Trading Mode: PAPER
+2026-02-02 22:29:07 | INFO     | __main__:main:77 -   Starting Capital: $100.00
+2026-02-02 22:29:07 | INFO     | __main__:main:78 -   Risk Per Trade: 5.0%
+2026-02-02 22:29:07 | INFO     | __main__:main:79 -   LLM Model: claude-sonnet-4-20250514
+2026-02-02 22:29:07 | INFO     | __main__:main:80 -   Scheduler Interval: 15 minutes
+2026-02-02 22:29:07 | INFO     | __main__:main:81 -   Max Daily Trades: 5
+2026-02-02 22:29:07 | INFO     | __main__:main:82 -   Max Daily Loss: 15.0%
+2026-02-02 22:29:07 | INFO     | __main__:main:83 - 
+2026-02-02 22:29:07 | INFO     | __main__:main:86 - Initializing database...
+2026-02-02 22:29:07 | INFO     | __main__:main:88 - Database initialized successfully
+2026-02-02 22:29:07 | INFO     | __main__:main:89 - 
+2026-02-02 22:29:07 | INFO     | __main__:main:96 - Running initial trading cycle...
+2026-02-02 22:29:07 | INFO     | __main__:run_trading_cycle:23 - 
+2026-02-02 22:29:07 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-02-02 22:29:07 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-02-02 22:29:07
+2026-02-02 22:29:07 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - ================================================================================
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - STARTING TRADING CYCLE
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:141 - Cycle ID: cycle_7a0e4c9b
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:142 - ================================================================================
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:154 - Session ID: session_a155b5bd
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:155 - Starting Balance: $100.00
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:156 - Open Positions: 2
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:157 - Daily Trades: 0
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:158 - Daily P&L: $0.00
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:234 - Node: Updating Positions
+2026-02-02 22:29:07 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-02-02 22:29:07 | INFO     | src.agents.position_manager:update_positions:49 - Found 2 open positions
+2026-02-02 22:29:07 | DEBUG    | src.agents.position_manager:_update_position_price:161 - Position update: AAPL-EARNINGS-TMW @ $0.55 (P&L: $0.09, +19.6%)
+2026-02-02 22:29:07 | DEBUG    | src.agents.position_manager:_update_position_price:161 - Position update: NFL-CHIEFS-SUN @ $0.55 (P&L: $0.16, +41.0%)
+2026-02-02 22:29:07 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 2
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:239 - Node: Fetching Markets
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-02-02 22:29:07 | INFO     | src.utils.kalshi_client:get_all_markets:244 - No Kalshi API connection - using mock markets
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 9 markets successfully
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_filter_markets:360 - Filter stats: 9 total, 8 passed, filtered out: {'liquidity': 0, 'time_min': 0, 'time_max': 0, 'probability': 1, 'date_parse': 0}
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 8 markets meeting policy criteria
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. SP500-UP-WEEK - Will S&P 500 close higher this week?... (Score: 87.4, Liquidity: $1,200,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   2. AAPL-EARNINGS-Q1 - Will Apple beat Q1 2026 earnings estimates?... (Score: 83.2, Liquidity: $800,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   3. ETH-5K-Q2 - Will Ethereum be above $5K by end of Q2 2026?... (Score: 82.6, Liquidity: $750,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 3 top opportunities
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:244 - Node: Circuit Breaker
+2026-02-02 22:29:07 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-02-02 22:29:07 | WARNING  | src.agents.data_qa_circuit_breaker:validate_and_check:56 - Circuit breaker check failed: position_limit - Maximum concurrent positions reached (2/2)
+2026-02-02 22:29:07 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:_bonding_scan_node:249 - Node: Bonding Strategy Scan
+2026-02-02 22:29:07 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:62 - ============================================================
+2026-02-02 22:29:07 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:63 - BONDING STRATEGY SCAN
+2026-02-02 22:29:07 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:64 - ============================================================
+2026-02-02 22:29:07 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:112 - Found 0 bonding opportunities
+2026-02-02 22:29:07 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:126 - ============================================================
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:277 - Node: Arbitrage Detection Scan
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:41 - ============================================================
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:42 - ARBITRAGE DETECTION SCAN
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:43 - ============================================================
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:_detect_within_market_arbitrage:136 -   - Spread capture: 7 opportunities (NOT guaranteed arb)
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:67 - Found 7 total arbitrage opportunities
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:70 - 
+Top 5 Arbitrage Opportunities:
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   1. spread_capture: ETH-5K-Q1: Wide 21.4% spread in liquid market (Profit: 6.43%, Capital: $0.31)
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   2. spread_capture: NFL-SUPERBOWL-WINNER: Wide 18.2% spread in liquid market (Profit: 5.45%, Capital: $0.36)
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   3. spread_capture: BTC-100K-EOM: Wide 17.4% spread in liquid market (Profit: 5.22%, Capital: $0.50)
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   4. spread_capture: ETH-5K-Q2: Wide 14.6% spread in liquid market (Profit: 4.39%, Capital: $0.44)
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   5. spread_capture: SP500-UP-WEEK: Wide 11.8% spread in liquid market (Profit: 3.53%, Capital: $0.54)
+2026-02-02 22:29:07 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:83 - ============================================================
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:300 - Found 7 arbitrage opportunities
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. SP500-UP-WEEK - Will S&P 500 close higher this week?... (Score: 87.4, Liquidity: $1,200,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   2. AAPL-EARNINGS-Q1 - Will Apple beat Q1 2026 earnings estimates?... (Score: 83.2, Liquidity: $800,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   3. ETH-5K-Q2 - Will Ethereum be above $5K by end of Q2 2026?... (Score: 82.6, Liquidity: $750,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   4. BTC-100K-EOM - Will Bitcoin be above $100K end of month?... (Score: 81.6, Liquidity: $3,500,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   5. FED-HOLD-MAR - Will Fed hold rates at March meeting?... (Score: 78.4, Liquidity: $900,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   6. NFL-SUPERBOWL-WINNER - Will current favorite win Super Bowl 2026?... (Score: 77.8, Liquidity: $2,500,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   7. ETH-5K-Q1 - Will Ethereum be above $5K by end of Q1 2026?... (Score: 74.8, Liquidity: $1,000,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   8. JOBS-POSITIVE-FEB - Will February jobs report show positive job growth?... (Score: 63.4, Liquidity: $450,000)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   9. NICHE-EVENT-123 - Will obscure regulatory decision happen?... (Score: 45.9, Liquidity: $50,000)
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: SP500-UP-WEEK
+2026-02-02 22:29:07 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for SP500-UP-WEEK: Will S&P 500 close higher this week?
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for SP500-UP-WEEK
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Somewhat-Bullish (0.1577)
+2026-02-02 22:29:07 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.021 (2 posts)
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.086
+2026-02-02 22:29:09 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:29:09 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for SP500-UP-WEEK
+2026-02-02 22:29:09 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:29:09 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:09 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:29:09 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: AAPL-EARNINGS-Q1
+2026-02-02 22:29:09 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for AAPL-EARNINGS-Q1: Will Apple beat Q1 2026 earnings estimates?
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for AAPL-EARNINGS-Q1
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.0903)
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.063 (2 posts)
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.029
+2026-02-02 22:29:09 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:29:09 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for AAPL-EARNINGS-Q1
+2026-02-02 22:29:09 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:29:09 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:09 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:29:09 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: ETH-5K-Q2
+2026-02-02 22:29:09 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for ETH-5K-Q2: Will Ethereum be above $5K by end of Q2 2026?
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for ETH-5K-Q2
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Somewhat-Bullish (0.1627)
+2026-02-02 22:29:09 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.031 (2 posts)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.085
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:29:10 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for ETH-5K-Q2
+2026-02-02 22:29:10 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: BTC-100K-EOM
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for BTC-100K-EOM: Will Bitcoin be above $100K end of month?
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for BTC-100K-EOM
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Bullish (0.3681)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.083 (2 posts)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.188
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:29:10 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for BTC-100K-EOM
+2026-02-02 22:29:10 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: FED-HOLD-MAR
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for FED-HOLD-MAR: Will Fed hold rates at March meeting?
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for FED-HOLD-MAR
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (-0.0396)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.036 (2 posts)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.038
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:29:10 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for FED-HOLD-MAR
+2026-02-02 22:29:10 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: NFL-SUPERBOWL-WINNER
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for NFL-SUPERBOWL-WINNER: Will current favorite win Super Bowl 2026?
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for NFL-SUPERBOWL-WINNER
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.1482)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.021 (2 posts)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.080
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:29:10 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for NFL-SUPERBOWL-WINNER
+2026-02-02 22:29:10 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: ETH-5K-Q1
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for ETH-5K-Q1: Will Ethereum be above $5K by end of Q1 2026?
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for ETH-5K-Q1
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.0433)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.031 (2 posts)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.013
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:29:10 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for ETH-5K-Q1
+2026-02-02 22:29:10 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: JOBS-POSITIVE-FEB
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for JOBS-POSITIVE-FEB: Will February jobs report show positive job growth?
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for JOBS-POSITIVE-FEB
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Somewhat-Bullish (0.1882)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: 0.030 (2 posts)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.125
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:29:10 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for JOBS-POSITIVE-FEB
+2026-02-02 22:29:10 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: NICHE-EVENT-123
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for NICHE-EVENT-123: Will obscure regulatory decision happen?
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for NICHE-EVENT-123
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (-0.0284)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.924 (2 posts)
+2026-02-02 22:29:10 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.387
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:29:10 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for NICHE-EVENT-123
+2026-02-02 22:29:10 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:_finalize_node:424 - Node: Finalizing
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:179 - ================================================================================
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:180 - TRADING CYCLE COMPLETE
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:181 - Markets Scanned: 9
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:182 - Opportunities Found: 3
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:183 - Bonding Opportunities: 0
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:184 - Arbitrage Opportunities: 7
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:185 - Trades Executed: 0
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:186 - Bonds Executed: 0
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:187 - Arbitrages Executed: 0
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:188 - Trades Blocked: 0
+2026-02-02 22:29:10 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:189 - ================================================================================
+2026-02-02 22:29:10 | INFO     | __main__:run_trading_cycle:31 - 
+2026-02-02 22:29:10 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-02-02 22:29:10 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 9
+2026-02-02 22:29:10 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 3
+2026-02-02 22:29:10 | INFO     | __main__:run_trading_cycle:35 -   Trades Executed: 0
+2026-02-02 22:29:10 | INFO     | __main__:run_trading_cycle:36 -   Trades Blocked: 0
+2026-02-02 22:29:10 | WARNING  | __main__:run_trading_cycle:44 -   Warnings: 1
+2026-02-02 22:29:10 | INFO     | __main__:run_trading_cycle:46 - ====================================================================================================
+2026-02-02 22:29:10 | INFO     | __main__:run_trading_cycle:47 - Next cycle in 15 minutes
+2026-02-02 22:29:10 | INFO     | __main__:run_trading_cycle:48 - ====================================================================================================
+2026-02-02 22:29:10 | INFO     | __main__:main:100 - 
+2026-02-02 22:29:10 | INFO     | __main__:main:101 - Starting scheduler (runs every 15 minutes)...
+2026-02-02 22:29:10 | INFO     | __main__:main:113 - Trading system is running. Press Ctrl+C to stop.
+2026-02-02 22:29:10 | INFO     | __main__:main:114 - 
+2026-02-02 22:31:22 | INFO     | __main__:signal_handler:56 - 
+2026-02-02 22:31:22 | INFO     | __main__:signal_handler:57 - Shutdown signal received. Stopping trading system...
+2026-02-02 22:31:22 | INFO     | __main__:signal_handler:62 - Trading system stopped.
+2026-02-02 22:31:22 | INFO     | __main__:main:117 - Shutting down...
+2026-02-02 22:32:21 | WARNING  | src.utils.kalshi_client:_initialize_client:201 - Kalshi API keys not found - using mock mode
+2026-02-02 22:32:21 | INFO     | src.utils.alpha_vantage_client:__init__:23 - Alpha Vantage API key not found or invalid. Using MOCK mode.
+2026-02-02 22:32:21 | INFO     | src.utils.news_fetcher:__init__:148 - Reddit credentials not configured - using mock data
+2026-02-02 22:32:21 | INFO     | src.utils.news_fetcher:__init__:167 - Twitter credentials not configured - using mock data
+2026-02-02 22:32:24 | INFO     | src.utils.sentiment_analyzer:__init__:39 - Loading sentiment model: distilbert-base-uncased-finetuned-sst-2-english
+2026-02-02 22:32:25 | INFO     | src.utils.sentiment_analyzer:__init__:41 - Sentiment model loaded successfully
+2026-02-02 22:32:25 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-02-02 22:32:25 | INFO     | src.monitoring.metrics:__init__:258 - Trading metrics initialized
+2026-02-02 22:32:25 | INFO     | src.monitoring.health_check:__init__:59 - Health checker initialized
+2026-02-02 22:32:25 | INFO     | __main__:main:70 - 
+2026-02-02 22:32:25 | INFO     | __main__:main:71 - ****************************************************************************************************
+2026-02-02 22:32:25 | INFO     | __main__:main:72 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-02-02 22:32:25 | INFO     | __main__:main:73 - ****************************************************************************************************
+2026-02-02 22:32:25 | INFO     | __main__:main:74 - 
+2026-02-02 22:32:25 | INFO     | __main__:main:75 - Configuration:
+2026-02-02 22:32:25 | INFO     | __main__:main:76 -   Trading Mode: PAPER
+2026-02-02 22:32:25 | INFO     | __main__:main:77 -   Starting Capital: $100.00
+2026-02-02 22:32:25 | INFO     | __main__:main:78 -   Risk Per Trade: 5.0%
+2026-02-02 22:32:25 | INFO     | __main__:main:79 -   LLM Model: claude-sonnet-4-20250514
+2026-02-02 22:32:25 | INFO     | __main__:main:80 -   Scheduler Interval: 15 minutes
+2026-02-02 22:32:25 | INFO     | __main__:main:81 -   Max Daily Trades: 5
+2026-02-02 22:32:25 | INFO     | __main__:main:82 -   Max Daily Loss: 15.0%
+2026-02-02 22:32:25 | INFO     | __main__:main:83 - 
+2026-02-02 22:32:25 | INFO     | __main__:main:86 - Initializing database...
+2026-02-02 22:32:25 | INFO     | __main__:main:88 - Database initialized successfully
+2026-02-02 22:32:25 | INFO     | __main__:main:89 - 
+2026-02-02 22:32:25 | INFO     | __main__:main:96 - Running initial trading cycle...
+2026-02-02 22:32:25 | INFO     | __main__:run_trading_cycle:23 - 
+2026-02-02 22:32:25 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-02-02 22:32:25 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-02-02 22:32:25
+2026-02-02 22:32:25 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - ================================================================================
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - STARTING TRADING CYCLE
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:141 - Cycle ID: cycle_3ae6a558
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:142 - ================================================================================
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:154 - Session ID: session_63c3da54
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:155 - Starting Balance: $100.00
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:156 - Open Positions: 2
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:157 - Daily Trades: 0
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:158 - Daily P&L: $0.00
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:234 - Node: Updating Positions
+2026-02-02 22:32:25 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-02-02 22:32:25 | INFO     | src.agents.position_manager:update_positions:49 - Found 2 open positions
+2026-02-02 22:32:25 | DEBUG    | src.agents.position_manager:_update_position_price:161 - Position update: AAPL-EARNINGS-TMW @ $0.55 (P&L: $0.09, +19.6%)
+2026-02-02 22:32:25 | DEBUG    | src.agents.position_manager:_update_position_price:161 - Position update: NFL-CHIEFS-SUN @ $0.55 (P&L: $0.16, +41.0%)
+2026-02-02 22:32:25 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 2
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:239 - Node: Fetching Markets
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-02-02 22:32:25 | INFO     | src.utils.kalshi_client:get_all_markets:244 - No Kalshi API connection - using mock markets
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 9 markets successfully
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_filter_markets:360 - Filter stats: 9 total, 8 passed, filtered out: {'liquidity': 0, 'time_min': 0, 'time_max': 0, 'probability': 1, 'date_parse': 0}
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 8 markets meeting policy criteria
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. SP500-UP-WEEK - Will S&P 500 close higher this week?... (Score: 87.4, Liquidity: $1,200,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   2. AAPL-EARNINGS-Q1 - Will Apple beat Q1 2026 earnings estimates?... (Score: 83.2, Liquidity: $800,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   3. ETH-5K-Q2 - Will Ethereum be above $5K by end of Q2 2026?... (Score: 82.6, Liquidity: $750,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 3 top opportunities
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:244 - Node: Circuit Breaker
+2026-02-02 22:32:25 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-02-02 22:32:25 | WARNING  | src.agents.data_qa_circuit_breaker:validate_and_check:56 - Circuit breaker check failed: position_limit - Maximum concurrent positions reached (2/2)
+2026-02-02 22:32:25 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:_bonding_scan_node:249 - Node: Bonding Strategy Scan
+2026-02-02 22:32:25 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:62 - ============================================================
+2026-02-02 22:32:25 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:63 - BONDING STRATEGY SCAN
+2026-02-02 22:32:25 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:64 - ============================================================
+2026-02-02 22:32:25 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:112 - Found 0 bonding opportunities
+2026-02-02 22:32:25 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:126 - ============================================================
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:277 - Node: Arbitrage Detection Scan
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:41 - ============================================================
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:42 - ARBITRAGE DETECTION SCAN
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:43 - ============================================================
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:_detect_within_market_arbitrage:136 -   - Spread capture: 7 opportunities (NOT guaranteed arb)
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:67 - Found 7 total arbitrage opportunities
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:70 - 
+Top 5 Arbitrage Opportunities:
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   1. spread_capture: ETH-5K-Q1: Wide 21.4% spread in liquid market (Profit: 6.43%, Capital: $0.31)
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   2. spread_capture: NFL-SUPERBOWL-WINNER: Wide 18.2% spread in liquid market (Profit: 5.45%, Capital: $0.36)
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   3. spread_capture: BTC-100K-EOM: Wide 17.4% spread in liquid market (Profit: 5.22%, Capital: $0.50)
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   4. spread_capture: ETH-5K-Q2: Wide 14.6% spread in liquid market (Profit: 4.39%, Capital: $0.44)
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   5. spread_capture: SP500-UP-WEEK: Wide 11.8% spread in liquid market (Profit: 3.53%, Capital: $0.54)
+2026-02-02 22:32:25 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:83 - ============================================================
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:300 - Found 7 arbitrage opportunities
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. SP500-UP-WEEK - Will S&P 500 close higher this week?... (Score: 87.4, Liquidity: $1,200,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   2. AAPL-EARNINGS-Q1 - Will Apple beat Q1 2026 earnings estimates?... (Score: 83.2, Liquidity: $800,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   3. ETH-5K-Q2 - Will Ethereum be above $5K by end of Q2 2026?... (Score: 82.6, Liquidity: $750,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   4. BTC-100K-EOM - Will Bitcoin be above $100K end of month?... (Score: 81.6, Liquidity: $3,500,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   5. FED-HOLD-MAR - Will Fed hold rates at March meeting?... (Score: 78.4, Liquidity: $900,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   6. NFL-SUPERBOWL-WINNER - Will current favorite win Super Bowl 2026?... (Score: 77.8, Liquidity: $2,500,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   7. ETH-5K-Q1 - Will Ethereum be above $5K by end of Q1 2026?... (Score: 74.8, Liquidity: $1,000,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   8. JOBS-POSITIVE-FEB - Will February jobs report show positive job growth?... (Score: 63.4, Liquidity: $450,000)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   9. NICHE-EVENT-123 - Will obscure regulatory decision happen?... (Score: 45.9, Liquidity: $50,000)
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: SP500-UP-WEEK
+2026-02-02 22:32:25 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for SP500-UP-WEEK: Will S&P 500 close higher this week?
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for SP500-UP-WEEK
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (-0.0927)
+2026-02-02 22:32:25 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.021 (2 posts)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.064
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:32:26 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for SP500-UP-WEEK
+2026-02-02 22:32:26 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: AAPL-EARNINGS-Q1
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for AAPL-EARNINGS-Q1: Will Apple beat Q1 2026 earnings estimates?
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for AAPL-EARNINGS-Q1
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.0606)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.063 (2 posts)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.011
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:32:26 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for AAPL-EARNINGS-Q1
+2026-02-02 22:32:26 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: ETH-5K-Q2
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for ETH-5K-Q2: Will Ethereum be above $5K by end of Q2 2026?
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for ETH-5K-Q2
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.139)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.031 (2 posts)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.071
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:32:26 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for ETH-5K-Q2
+2026-02-02 22:32:26 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: BTC-100K-EOM
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for BTC-100K-EOM: Will Bitcoin be above $100K end of month?
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for BTC-100K-EOM
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Somewhat-Bullish (0.2745)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.083 (2 posts)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.132
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:32:26 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for BTC-100K-EOM
+2026-02-02 22:32:26 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: FED-HOLD-MAR
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for FED-HOLD-MAR: Will Fed hold rates at March meeting?
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for FED-HOLD-MAR
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.0146)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.036 (2 posts)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.006
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:32:26 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for FED-HOLD-MAR
+2026-02-02 22:32:26 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: NFL-SUPERBOWL-WINNER
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for NFL-SUPERBOWL-WINNER: Will current favorite win Super Bowl 2026?
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for NFL-SUPERBOWL-WINNER
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Bullish (0.3532)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.021 (2 posts)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.203
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:32:26 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for NFL-SUPERBOWL-WINNER
+2026-02-02 22:32:26 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: ETH-5K-Q1
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for ETH-5K-Q1: Will Ethereum be above $5K by end of Q1 2026?
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for ETH-5K-Q1
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.0091)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.031 (2 posts)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.007
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:32:26 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for ETH-5K-Q1
+2026-02-02 22:32:26 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: JOBS-POSITIVE-FEB
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for JOBS-POSITIVE-FEB: Will February jobs report show positive job growth?
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for JOBS-POSITIVE-FEB
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Somewhat-Bullish (0.2465)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: 0.030 (2 posts)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.160
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:32:26 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for JOBS-POSITIVE-FEB
+2026-02-02 22:32:26 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:306 - Node: Selecting Opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:323 - Selected: NICHE-EVENT-123
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:332 - Node: Enriching Data
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for NICHE-EVENT-123: Will obscure regulatory decision happen?
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for NICHE-EVENT-123
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.1146)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.924 (2 posts)
+2026-02-02 22:32:26 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.301
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:346 - Node: Generating Signal
+2026-02-02 22:32:26 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for NICHE-EVENT-123
+2026-02-02 22:32:26 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:447 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:_finalize_node:424 - Node: Finalizing
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:179 - ================================================================================
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:180 - TRADING CYCLE COMPLETE
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:181 - Markets Scanned: 9
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:182 - Opportunities Found: 3
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:183 - Bonding Opportunities: 0
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:184 - Arbitrage Opportunities: 7
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:185 - Trades Executed: 0
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:186 - Bonds Executed: 0
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:187 - Arbitrages Executed: 0
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:188 - Trades Blocked: 0
+2026-02-02 22:32:26 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:189 - ================================================================================
+2026-02-02 22:32:26 | INFO     | __main__:run_trading_cycle:31 - 
+2026-02-02 22:32:26 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-02-02 22:32:26 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 9
+2026-02-02 22:32:26 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 3
+2026-02-02 22:32:26 | INFO     | __main__:run_trading_cycle:35 -   Trades Executed: 0
+2026-02-02 22:32:26 | INFO     | __main__:run_trading_cycle:36 -   Trades Blocked: 0
+2026-02-02 22:32:26 | WARNING  | __main__:run_trading_cycle:44 -   Warnings: 1
+2026-02-02 22:32:26 | INFO     | __main__:run_trading_cycle:46 - ====================================================================================================
+2026-02-02 22:32:26 | INFO     | __main__:run_trading_cycle:47 - Next cycle in 15 minutes
+2026-02-02 22:32:26 | INFO     | __main__:run_trading_cycle:48 - ====================================================================================================
+2026-02-02 22:32:26 | INFO     | __main__:main:100 - 
+2026-02-02 22:32:26 | INFO     | __main__:main:101 - Starting scheduler (runs every 15 minutes)...
+2026-02-02 22:32:26 | INFO     | __main__:main:113 - Trading system is running. Press Ctrl+C to stop.
+2026-02-02 22:32:26 | INFO     | __main__:main:114 - 
+2026-02-02 22:34:24 | INFO     | __main__:signal_handler:56 - 
+2026-02-02 22:34:24 | INFO     | __main__:signal_handler:57 - Shutdown signal received. Stopping trading system...
+2026-02-02 22:34:24 | INFO     | __main__:signal_handler:62 - Trading system stopped.
+2026-02-02 22:34:24 | INFO     | __main__:main:117 - Shutting down...
+2026-02-02 22:37:59 | WARNING  | src.utils.kalshi_client:_initialize_client:201 - Kalshi API keys not found - using mock mode
+2026-02-02 22:37:59 | INFO     | src.utils.alpha_vantage_client:__init__:23 - Alpha Vantage API key not found or invalid. Using MOCK mode.
+2026-02-02 22:37:59 | INFO     | src.utils.news_fetcher:__init__:148 - Reddit credentials not configured - using mock data
+2026-02-02 22:37:59 | INFO     | src.utils.news_fetcher:__init__:167 - Twitter credentials not configured - using mock data
+2026-02-02 22:38:02 | INFO     | src.utils.sentiment_analyzer:__init__:39 - Loading sentiment model: distilbert-base-uncased-finetuned-sst-2-english
+2026-02-02 22:38:03 | INFO     | src.utils.sentiment_analyzer:__init__:41 - Sentiment model loaded successfully
+2026-02-02 22:38:03 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-02-02 22:38:03 | INFO     | src.monitoring.metrics:__init__:258 - Trading metrics initialized
+2026-02-02 22:38:03 | INFO     | src.monitoring.health_check:__init__:59 - Health checker initialized
+2026-02-02 22:38:03 | INFO     | __main__:main:86 - 
+2026-02-02 22:38:03 | INFO     | __main__:main:87 - ****************************************************************************************************
+2026-02-02 22:38:03 | INFO     | __main__:main:88 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-02-02 22:38:03 | INFO     | __main__:main:89 - ****************************************************************************************************
+2026-02-02 22:38:03 | INFO     | __main__:main:90 - 
+2026-02-02 22:38:03 | INFO     | __main__:main:91 - Configuration:
+2026-02-02 22:38:03 | INFO     | __main__:main:92 -   Trading Mode: PAPER
+2026-02-02 22:38:03 | INFO     | __main__:main:93 -   Starting Capital: $100.00
+2026-02-02 22:38:03 | INFO     | __main__:main:94 -   Risk Per Trade: 5.0%
+2026-02-02 22:38:03 | INFO     | __main__:main:95 -   LLM Model: claude-sonnet-4-20250514
+2026-02-02 22:38:03 | INFO     | __main__:main:96 -   Scheduler Interval: 15 minutes
+2026-02-02 22:38:03 | INFO     | __main__:main:97 -   Max Daily Trades: 5
+2026-02-02 22:38:03 | INFO     | __main__:main:98 -   Max Daily Loss: 15.0%
+2026-02-02 22:38:03 | INFO     | __main__:main:99 - 
+2026-02-02 22:38:03 | INFO     | __main__:main:102 - Initializing database...
+2026-02-02 22:38:03 | INFO     | __main__:main:104 - Database initialized successfully
+2026-02-02 22:38:03 | INFO     | __main__:main:105 - 
+2026-02-02 22:38:03 | INFO     | __main__:main:112 - Running initial trading cycle...
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:23 - 
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-02-02 22:38:03
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - ================================================================================
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - STARTING TRADING CYCLE
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:141 - Cycle ID: cycle_9f467a1b
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:142 - ================================================================================
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:154 - Session ID: session_6e291e24
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:155 - Starting Balance: $100.00
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:156 - Open Positions: 2
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:157 - Daily Trades: 0
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:158 - Daily P&L: $0.00
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:243 - Node: Updating Positions
+2026-02-02 22:38:03 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-02-02 22:38:03 | INFO     | src.agents.position_manager:update_positions:49 - Found 2 open positions
+2026-02-02 22:38:03 | DEBUG    | src.agents.position_manager:_update_position_price:161 - Position update: AAPL-EARNINGS-TMW @ $0.55 (P&L: $0.09, +19.6%)
+2026-02-02 22:38:03 | DEBUG    | src.agents.position_manager:_update_position_price:161 - Position update: NFL-CHIEFS-SUN @ $0.55 (P&L: $0.16, +41.0%)
+2026-02-02 22:38:03 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 2
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:248 - Node: Fetching Markets
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-02-02 22:38:03 | INFO     | src.utils.kalshi_client:get_all_markets:244 - No Kalshi API connection - using mock markets
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 9 markets successfully
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_filter_markets:360 - Filter stats: 9 total, 8 passed, filtered out: {'liquidity': 0, 'time_min': 0, 'time_max': 0, 'probability': 1, 'date_parse': 0}
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 8 markets meeting policy criteria
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. SP500-UP-WEEK - Will S&P 500 close higher this week?... (Score: 87.4, Liquidity: $1,200,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   2. AAPL-EARNINGS-Q1 - Will Apple beat Q1 2026 earnings estimates?... (Score: 83.2, Liquidity: $800,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   3. ETH-5K-Q2 - Will Ethereum be above $5K by end of Q2 2026?... (Score: 82.6, Liquidity: $750,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 3 top opportunities
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:253 - Node: Circuit Breaker
+2026-02-02 22:38:03 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-02-02 22:38:03 | WARNING  | src.agents.data_qa_circuit_breaker:validate_and_check:56 - Circuit breaker check failed: position_limit - Maximum concurrent positions reached (2/2)
+2026-02-02 22:38:03 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_bonding_scan_node:258 - Node: Bonding Strategy Scan
+2026-02-02 22:38:03 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:62 - ============================================================
+2026-02-02 22:38:03 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:63 - BONDING STRATEGY SCAN
+2026-02-02 22:38:03 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:64 - ============================================================
+2026-02-02 22:38:03 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:112 - Found 0 bonding opportunities
+2026-02-02 22:38:03 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:126 - ============================================================
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:286 - Node: Arbitrage Detection Scan
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:41 - ============================================================
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:42 - ARBITRAGE DETECTION SCAN
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:43 - ============================================================
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:_detect_within_market_arbitrage:136 -   - Spread capture: 7 opportunities (NOT guaranteed arb)
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:67 - Found 7 total arbitrage opportunities
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:70 - 
+Top 5 Arbitrage Opportunities:
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   1. spread_capture: ETH-5K-Q1: Wide 21.4% spread in liquid market (Profit: 6.43%, Capital: $0.31)
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   2. spread_capture: NFL-SUPERBOWL-WINNER: Wide 18.2% spread in liquid market (Profit: 5.45%, Capital: $0.36)
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   3. spread_capture: BTC-100K-EOM: Wide 17.4% spread in liquid market (Profit: 5.22%, Capital: $0.50)
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   4. spread_capture: ETH-5K-Q2: Wide 14.6% spread in liquid market (Profit: 4.39%, Capital: $0.44)
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   5. spread_capture: SP500-UP-WEEK: Wide 11.8% spread in liquid market (Profit: 3.53%, Capital: $0.54)
+2026-02-02 22:38:03 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:83 - ============================================================
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:309 - Found 7 arbitrage opportunities
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:315 - Node: Selecting Opportunity
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. SP500-UP-WEEK - Will S&P 500 close higher this week?... (Score: 87.4, Liquidity: $1,200,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   2. AAPL-EARNINGS-Q1 - Will Apple beat Q1 2026 earnings estimates?... (Score: 83.2, Liquidity: $800,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   3. ETH-5K-Q2 - Will Ethereum be above $5K by end of Q2 2026?... (Score: 82.6, Liquidity: $750,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   4. BTC-100K-EOM - Will Bitcoin be above $100K end of month?... (Score: 81.6, Liquidity: $3,500,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   5. FED-HOLD-MAR - Will Fed hold rates at March meeting?... (Score: 78.4, Liquidity: $900,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   6. NFL-SUPERBOWL-WINNER - Will current favorite win Super Bowl 2026?... (Score: 77.8, Liquidity: $2,500,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   7. ETH-5K-Q1 - Will Ethereum be above $5K by end of Q1 2026?... (Score: 74.8, Liquidity: $1,000,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   8. JOBS-POSITIVE-FEB - Will February jobs report show positive job growth?... (Score: 63.4, Liquidity: $450,000)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   9. NICHE-EVENT-123 - Will obscure regulatory decision happen?... (Score: 45.9, Liquidity: $50,000)
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:332 - Selected: SP500-UP-WEEK
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:341 - Node: Enriching Data
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for SP500-UP-WEEK: Will S&P 500 close higher this week?
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for SP500-UP-WEEK
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.0474)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.021 (2 posts)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.020
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:355 - Node: Generating Signal
+2026-02-02 22:38:03 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for SP500-UP-WEEK
+2026-02-02 22:38:03 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:456 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:315 - Node: Selecting Opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:332 - Selected: AAPL-EARNINGS-Q1
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:341 - Node: Enriching Data
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for AAPL-EARNINGS-Q1: Will Apple beat Q1 2026 earnings estimates?
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for AAPL-EARNINGS-Q1
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.127)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.063 (2 posts)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.051
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:355 - Node: Generating Signal
+2026-02-02 22:38:03 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for AAPL-EARNINGS-Q1
+2026-02-02 22:38:03 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:456 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:315 - Node: Selecting Opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:332 - Selected: ETH-5K-Q2
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:341 - Node: Enriching Data
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for ETH-5K-Q2: Will Ethereum be above $5K by end of Q2 2026?
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for ETH-5K-Q2
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (-0.0715)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.031 (2 posts)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.055
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:355 - Node: Generating Signal
+2026-02-02 22:38:03 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for ETH-5K-Q2
+2026-02-02 22:38:03 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:456 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:315 - Node: Selecting Opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:332 - Selected: BTC-100K-EOM
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:341 - Node: Enriching Data
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for BTC-100K-EOM: Will Bitcoin be above $100K end of month?
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for BTC-100K-EOM
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Somewhat-Bearish (-0.1756)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.083 (2 posts)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.139
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:355 - Node: Generating Signal
+2026-02-02 22:38:03 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for BTC-100K-EOM
+2026-02-02 22:38:03 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:456 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:315 - Node: Selecting Opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:332 - Selected: FED-HOLD-MAR
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:341 - Node: Enriching Data
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for FED-HOLD-MAR: Will Fed hold rates at March meeting?
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for FED-HOLD-MAR
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.075)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.036 (2 posts)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.030
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:355 - Node: Generating Signal
+2026-02-02 22:38:03 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for FED-HOLD-MAR
+2026-02-02 22:38:03 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:456 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:315 - Node: Selecting Opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:332 - Selected: NFL-SUPERBOWL-WINNER
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:341 - Node: Enriching Data
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for NFL-SUPERBOWL-WINNER: Will current favorite win Super Bowl 2026?
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for NFL-SUPERBOWL-WINNER
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.0253)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.021 (2 posts)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.007
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:355 - Node: Generating Signal
+2026-02-02 22:38:03 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for NFL-SUPERBOWL-WINNER
+2026-02-02 22:38:03 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:456 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:315 - Node: Selecting Opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:332 - Selected: ETH-5K-Q1
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:341 - Node: Enriching Data
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for ETH-5K-Q1: Will Ethereum be above $5K by end of Q1 2026?
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for ETH-5K-Q1
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.0181)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.031 (2 posts)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.002
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:355 - Node: Generating Signal
+2026-02-02 22:38:03 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for ETH-5K-Q1
+2026-02-02 22:38:03 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:456 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:315 - Node: Selecting Opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:332 - Selected: JOBS-POSITIVE-FEB
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:341 - Node: Enriching Data
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for JOBS-POSITIVE-FEB: Will February jobs report show positive job growth?
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for JOBS-POSITIVE-FEB
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Somewhat-Bullish (0.2721)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: 0.030 (2 posts)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.175
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:355 - Node: Generating Signal
+2026-02-02 22:38:03 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for JOBS-POSITIVE-FEB
+2026-02-02 22:38:03 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:456 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:315 - Node: Selecting Opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:332 - Selected: NICHE-EVENT-123
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:341 - Node: Enriching Data
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for NICHE-EVENT-123: Will obscure regulatory decision happen?
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for NICHE-EVENT-123
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (-0.1051)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.924 (2 posts)
+2026-02-02 22:38:03 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.433
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:355 - Node: Generating Signal
+2026-02-02 22:38:03 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for NICHE-EVENT-123
+2026-02-02 22:38:03 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:456 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:_finalize_node:433 - Node: Finalizing
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:179 - ================================================================================
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:180 - TRADING CYCLE COMPLETE
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:181 - Markets Scanned: 9
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:182 - Opportunities Found: 3
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:183 - Bonding Opportunities: 0
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:184 - Arbitrage Opportunities: 7
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:185 - Trades Executed: 0
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:186 - Bonds Executed: 0
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:187 - Arbitrages Executed: 0
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:188 - Trades Blocked: 0
+2026-02-02 22:38:03 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:189 - ================================================================================
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:31 - 
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 9
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 3
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:46 -   Arbitrage Opportunities (7):
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:49 -     1. [spread_capture] AAPL-EARNINGS-Q1 - 3.10% profit
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:49 -     2. [spread_capture] SP500-UP-WEEK - 3.53% profit
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:49 -     3. [spread_capture] FED-HOLD-MAR - 2.73% profit
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:49 -     4. [spread_capture] NFL-SUPERBOWL-WINNER - 5.45% profit
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:49 -     5. [spread_capture] BTC-100K-EOM - 5.22% profit
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:51 -   Trades Executed: 0
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:52 -   Trades Blocked: 0
+2026-02-02 22:38:03 | WARNING  | __main__:run_trading_cycle:60 -   Warnings: 1
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:62 - ====================================================================================================
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:63 - Next cycle in 15 minutes
+2026-02-02 22:38:03 | INFO     | __main__:run_trading_cycle:64 - ====================================================================================================
+2026-02-02 22:38:03 | INFO     | __main__:main:116 - 
+2026-02-02 22:38:03 | INFO     | __main__:main:117 - Starting scheduler (runs every 15 minutes)...
+2026-02-02 22:38:03 | INFO     | __main__:main:129 - Trading system is running. Press Ctrl+C to stop.
+2026-02-02 22:38:03 | INFO     | __main__:main:130 - 
+2026-02-02 22:39:46 | INFO     | __main__:signal_handler:72 - 
+2026-02-02 22:39:46 | INFO     | __main__:signal_handler:73 - Shutdown signal received. Stopping trading system...
+2026-02-02 22:39:46 | INFO     | __main__:signal_handler:78 - Trading system stopped.
+2026-02-02 22:39:46 | INFO     | __main__:main:133 - Shutting down...
+2026-02-02 22:41:13 | WARNING  | src.utils.kalshi_client:_initialize_client:201 - Kalshi API keys not found - using mock mode
+2026-02-02 22:41:13 | INFO     | src.utils.alpha_vantage_client:__init__:23 - Alpha Vantage API key not found or invalid. Using MOCK mode.
+2026-02-02 22:41:13 | INFO     | src.utils.news_fetcher:__init__:148 - Reddit credentials not configured - using mock data
+2026-02-02 22:41:13 | INFO     | src.utils.news_fetcher:__init__:167 - Twitter credentials not configured - using mock data
+2026-02-02 22:41:16 | INFO     | src.utils.sentiment_analyzer:__init__:39 - Loading sentiment model: distilbert-base-uncased-finetuned-sst-2-english
+2026-02-02 22:41:17 | INFO     | src.utils.sentiment_analyzer:__init__:41 - Sentiment model loaded successfully
+2026-02-02 22:41:17 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-02-02 22:41:17 | INFO     | src.monitoring.metrics:__init__:258 - Trading metrics initialized
+2026-02-02 22:41:17 | INFO     | src.monitoring.health_check:__init__:59 - Health checker initialized
+2026-02-02 22:41:17 | INFO     | __main__:main:92 - 
+2026-02-02 22:41:17 | INFO     | __main__:main:93 - ****************************************************************************************************
+2026-02-02 22:41:17 | INFO     | __main__:main:94 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-02-02 22:41:17 | INFO     | __main__:main:95 - ****************************************************************************************************
+2026-02-02 22:41:17 | INFO     | __main__:main:96 - 
+2026-02-02 22:41:17 | INFO     | __main__:main:97 - Configuration:
+2026-02-02 22:41:17 | INFO     | __main__:main:98 -   Trading Mode: PAPER
+2026-02-02 22:41:17 | INFO     | __main__:main:99 -   Starting Capital: $100.00
+2026-02-02 22:41:17 | INFO     | __main__:main:100 -   Risk Per Trade: 5.0%
+2026-02-02 22:41:17 | INFO     | __main__:main:101 -   LLM Model: claude-sonnet-4-20250514
+2026-02-02 22:41:17 | INFO     | __main__:main:102 -   Scheduler Interval: 15 minutes
+2026-02-02 22:41:17 | INFO     | __main__:main:103 -   Max Daily Trades: 5
+2026-02-02 22:41:17 | INFO     | __main__:main:104 -   Max Daily Loss: 15.0%
+2026-02-02 22:41:17 | INFO     | __main__:main:105 - 
+2026-02-02 22:41:17 | INFO     | __main__:main:108 - Initializing database...
+2026-02-02 22:41:17 | INFO     | __main__:main:110 - Database initialized successfully
+2026-02-02 22:41:17 | INFO     | __main__:main:111 - 
+2026-02-02 22:41:17 | INFO     | __main__:main:118 - Running initial trading cycle...
+2026-02-02 22:41:17 | INFO     | __main__:run_trading_cycle:23 - 
+2026-02-02 22:41:17 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-02-02 22:41:17 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-02-02 22:41:17
+2026-02-02 22:41:17 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - ================================================================================
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - STARTING TRADING CYCLE
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:141 - Cycle ID: cycle_eb9402c7
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:142 - ================================================================================
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:154 - Session ID: session_e7dc3497
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:155 - Starting Balance: $100.00
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:156 - Open Positions: 2
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:157 - Daily Trades: 0
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:158 - Daily P&L: $0.00
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:259 - Node: Updating Positions
+2026-02-02 22:41:17 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-02-02 22:41:17 | INFO     | src.agents.position_manager:update_positions:49 - Found 2 open positions
+2026-02-02 22:41:17 | DEBUG    | src.agents.position_manager:_update_position_price:161 - Position update: AAPL-EARNINGS-TMW @ $0.55 (P&L: $0.09, +19.6%)
+2026-02-02 22:41:17 | DEBUG    | src.agents.position_manager:_update_position_price:161 - Position update: NFL-CHIEFS-SUN @ $0.55 (P&L: $0.16, +41.0%)
+2026-02-02 22:41:17 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 2
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:264 - Node: Fetching Markets
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-02-02 22:41:17 | INFO     | src.utils.kalshi_client:get_all_markets:244 - No Kalshi API connection - using mock markets
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 9 markets successfully
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_filter_markets:360 - Filter stats: 9 total, 8 passed, filtered out: {'liquidity': 0, 'time_min': 0, 'time_max': 0, 'probability': 1, 'date_parse': 0}
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 8 markets meeting policy criteria
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. SP500-UP-WEEK - Will S&P 500 close higher this week?... (Score: 87.4, Liquidity: $1,200,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   2. AAPL-EARNINGS-Q1 - Will Apple beat Q1 2026 earnings estimates?... (Score: 83.2, Liquidity: $800,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   3. ETH-5K-Q2 - Will Ethereum be above $5K by end of Q2 2026?... (Score: 82.6, Liquidity: $750,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 3 top opportunities
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:269 - Node: Circuit Breaker
+2026-02-02 22:41:17 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-02-02 22:41:17 | WARNING  | src.agents.data_qa_circuit_breaker:validate_and_check:56 - Circuit breaker check failed: position_limit - Maximum concurrent positions reached (2/2)
+2026-02-02 22:41:17 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_bonding_scan_node:274 - Node: Bonding Strategy Scan
+2026-02-02 22:41:17 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:62 - ============================================================
+2026-02-02 22:41:17 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:63 - BONDING STRATEGY SCAN
+2026-02-02 22:41:17 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:64 - ============================================================
+2026-02-02 22:41:17 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:112 - Found 0 bonding opportunities
+2026-02-02 22:41:17 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:126 - ============================================================
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:302 - Node: Arbitrage Detection Scan
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:41 - ============================================================
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:42 - ARBITRAGE DETECTION SCAN
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:43 - ============================================================
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:_detect_within_market_arbitrage:136 -   - Spread capture: 7 opportunities (NOT guaranteed arb)
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:67 - Found 7 total arbitrage opportunities
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:70 - 
+Top 5 Arbitrage Opportunities:
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   1. spread_capture: ETH-5K-Q1: Wide 21.4% spread in liquid market (Profit: 6.43%, Capital: $0.31)
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   2. spread_capture: NFL-SUPERBOWL-WINNER: Wide 18.2% spread in liquid market (Profit: 5.45%, Capital: $0.36)
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   3. spread_capture: BTC-100K-EOM: Wide 17.4% spread in liquid market (Profit: 5.22%, Capital: $0.50)
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   4. spread_capture: ETH-5K-Q2: Wide 14.6% spread in liquid market (Profit: 4.39%, Capital: $0.44)
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:77 -   5. spread_capture: SP500-UP-WEEK: Wide 11.8% spread in liquid market (Profit: 3.53%, Capital: $0.54)
+2026-02-02 22:41:17 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:83 - ============================================================
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:325 - Found 7 arbitrage opportunities
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:331 - Node: Selecting Opportunity
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. SP500-UP-WEEK - Will S&P 500 close higher this week?... (Score: 87.4, Liquidity: $1,200,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   2. AAPL-EARNINGS-Q1 - Will Apple beat Q1 2026 earnings estimates?... (Score: 83.2, Liquidity: $800,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   3. ETH-5K-Q2 - Will Ethereum be above $5K by end of Q2 2026?... (Score: 82.6, Liquidity: $750,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   4. BTC-100K-EOM - Will Bitcoin be above $100K end of month?... (Score: 81.6, Liquidity: $3,500,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   5. FED-HOLD-MAR - Will Fed hold rates at March meeting?... (Score: 78.4, Liquidity: $900,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   6. NFL-SUPERBOWL-WINNER - Will current favorite win Super Bowl 2026?... (Score: 77.8, Liquidity: $2,500,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   7. ETH-5K-Q1 - Will Ethereum be above $5K by end of Q1 2026?... (Score: 74.8, Liquidity: $1,000,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   8. JOBS-POSITIVE-FEB - Will February jobs report show positive job growth?... (Score: 63.4, Liquidity: $450,000)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   9. NICHE-EVENT-123 - Will obscure regulatory decision happen?... (Score: 45.9, Liquidity: $50,000)
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:348 - Selected: SP500-UP-WEEK
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:357 - Node: Enriching Data
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for SP500-UP-WEEK: Will S&P 500 close higher this week?
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for SP500-UP-WEEK
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (-0.0136)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.021 (2 posts)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.017
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:371 - Node: Generating Signal
+2026-02-02 22:41:17 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for SP500-UP-WEEK
+2026-02-02 22:41:17 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:472 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:331 - Node: Selecting Opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:348 - Selected: AAPL-EARNINGS-Q1
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:357 - Node: Enriching Data
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for AAPL-EARNINGS-Q1: Will Apple beat Q1 2026 earnings estimates?
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for AAPL-EARNINGS-Q1
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Somewhat-Bullish (0.2977)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.063 (2 posts)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.154
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:371 - Node: Generating Signal
+2026-02-02 22:41:17 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for AAPL-EARNINGS-Q1
+2026-02-02 22:41:17 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:472 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:331 - Node: Selecting Opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:348 - Selected: ETH-5K-Q2
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:357 - Node: Enriching Data
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for ETH-5K-Q2: Will Ethereum be above $5K by end of Q2 2026?
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for ETH-5K-Q2
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Bullish (0.3901)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.031 (2 posts)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.222
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:371 - Node: Generating Signal
+2026-02-02 22:41:17 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for ETH-5K-Q2
+2026-02-02 22:41:17 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:472 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:331 - Node: Selecting Opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:348 - Selected: BTC-100K-EOM
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:357 - Node: Enriching Data
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for BTC-100K-EOM: Will Bitcoin be above $100K end of month?
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for BTC-100K-EOM
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Somewhat-Bullish (0.2556)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.083 (2 posts)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.120
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:371 - Node: Generating Signal
+2026-02-02 22:41:17 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for BTC-100K-EOM
+2026-02-02 22:41:17 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:472 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:331 - Node: Selecting Opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:348 - Selected: FED-HOLD-MAR
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:357 - Node: Enriching Data
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for FED-HOLD-MAR: Will Fed hold rates at March meeting?
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for FED-HOLD-MAR
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.0209)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.036 (2 posts)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.002
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:371 - Node: Generating Signal
+2026-02-02 22:41:17 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for FED-HOLD-MAR
+2026-02-02 22:41:17 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:472 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:331 - Node: Selecting Opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:348 - Selected: NFL-SUPERBOWL-WINNER
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:357 - Node: Enriching Data
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for NFL-SUPERBOWL-WINNER: Will current favorite win Super Bowl 2026?
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for NFL-SUPERBOWL-WINNER
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Somewhat-Bullish (0.3163)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.021 (2 posts)
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.181
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:371 - Node: Generating Signal
+2026-02-02 22:41:17 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for NFL-SUPERBOWL-WINNER
+2026-02-02 22:41:17 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:472 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:331 - Node: Selecting Opportunity
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:348 - Selected: ETH-5K-Q1
+2026-02-02 22:41:17 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:357 - Node: Enriching Data
+2026-02-02 22:41:17 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for ETH-5K-Q1: Will Ethereum be above $5K by end of Q1 2026?
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for ETH-5K-Q1
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (-0.0577)
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.031 (2 posts)
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.047
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:371 - Node: Generating Signal
+2026-02-02 22:41:18 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for ETH-5K-Q1
+2026-02-02 22:41:18 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:472 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:331 - Node: Selecting Opportunity
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:348 - Selected: JOBS-POSITIVE-FEB
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:357 - Node: Enriching Data
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for JOBS-POSITIVE-FEB: Will February jobs report show positive job growth?
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for JOBS-POSITIVE-FEB
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (0.1348)
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: 0.030 (2 posts)
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: 0.093
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:371 - Node: Generating Signal
+2026-02-02 22:41:18 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for JOBS-POSITIVE-FEB
+2026-02-02 22:41:18 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:472 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:331 - Node: Selecting Opportunity
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:348 - Selected: NICHE-EVENT-123
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:357 - Node: Enriching Data
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for NICHE-EVENT-123: Will obscure regulatory decision happen?
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for NICHE-EVENT-123
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (-0.0032)
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 2 social media posts
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.924 (2 posts)
+2026-02-02 22:41:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.372
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:371 - Node: Generating Signal
+2026-02-02 22:41:18 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for NICHE-EVENT-123
+2026-02-02 22:41:18 | ERROR    | src.agents.signal_selection_agent:generate_signal:83 - Error generating signal: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:472 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:_finalize_node:449 - Node: Finalizing
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:179 - ================================================================================
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:180 - TRADING CYCLE COMPLETE
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:181 - Markets Scanned: 9
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:182 - Opportunities Found: 3
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:183 - Bonding Opportunities: 0
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:184 - Arbitrage Opportunities: 7
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:185 - Trades Executed: 0
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:186 - Bonds Executed: 0
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:187 - Arbitrages Executed: 0
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:188 - Trades Blocked: 0
+2026-02-02 22:41:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:189 - ================================================================================
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:31 - 
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 9
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 3
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:50 -   Arbitrage Opportunities (7):
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:54 -     1. [spread_capture] AAPL-EARNINGS-Q1
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:55 -        → 3.10% profit (Confidence: 81%)
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:54 -     2. [spread_capture] SP500-UP-WEEK
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:55 -        → 3.53% profit (Confidence: 85%)
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:54 -     3. [spread_capture] FED-HOLD-MAR
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:55 -        → 2.73% profit (Confidence: 77%)
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:54 -     4. [spread_capture] NFL-SUPERBOWL-WINNER
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:55 -        → 5.45% profit (Confidence: 95%)
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:54 -     5. [spread_capture] BTC-100K-EOM
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:55 -        → 5.22% profit (Confidence: 95%)
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:57 -   Trades Executed: 0
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:58 -   Trades Blocked: 0
+2026-02-02 22:41:18 | WARNING  | __main__:run_trading_cycle:66 -   Warnings: 1
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:68 - ====================================================================================================
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:69 - Next cycle in 15 minutes
+2026-02-02 22:41:18 | INFO     | __main__:run_trading_cycle:70 - ====================================================================================================
+2026-02-02 22:41:18 | INFO     | __main__:main:122 - 
+2026-02-02 22:41:18 | INFO     | __main__:main:123 - Starting scheduler (runs every 15 minutes)...
+2026-02-02 22:41:18 | INFO     | __main__:main:135 - Trading system is running. Press Ctrl+C to stop.
+2026-02-02 22:41:18 | INFO     | __main__:main:136 - 
+2026-02-02 22:42:13 | INFO     | __main__:signal_handler:78 - 
+2026-02-02 22:42:13 | INFO     | __main__:signal_handler:79 - Shutdown signal received. Stopping trading system...
+2026-02-02 22:42:13 | INFO     | __main__:signal_handler:84 - Trading system stopped.
+2026-02-02 22:42:13 | INFO     | __main__:main:139 - Shutting down...
+2026-02-02 22:45:14 | INFO     | src.utils.kalshi_client:_initialize_client:219 - Kalshi client initialized in demo mode
+2026-02-02 22:45:14 | INFO     | src.utils.alpha_vantage_client:__init__:23 - Alpha Vantage API key not found or invalid. Using MOCK mode.
+2026-02-02 22:45:14 | INFO     | src.utils.news_fetcher:__init__:26 - NewsAPI client initialized
+2026-02-02 22:45:14 | INFO     | src.utils.news_fetcher:__init__:148 - Reddit credentials not configured - using mock data
+2026-02-02 22:45:14 | INFO     | src.utils.news_fetcher:__init__:162 - Twitter client initialized successfully
+2026-02-02 22:45:17 | INFO     | src.utils.sentiment_analyzer:__init__:39 - Loading sentiment model: distilbert-base-uncased-finetuned-sst-2-english
+2026-02-02 22:45:18 | INFO     | src.utils.sentiment_analyzer:__init__:41 - Sentiment model loaded successfully
+2026-02-02 22:45:18 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-02-02 22:45:18 | INFO     | src.monitoring.metrics:__init__:258 - Trading metrics initialized
+2026-02-02 22:45:18 | INFO     | src.monitoring.health_check:__init__:59 - Health checker initialized
+2026-02-02 22:45:18 | INFO     | __main__:main:92 - 
+2026-02-02 22:45:18 | INFO     | __main__:main:93 - ****************************************************************************************************
+2026-02-02 22:45:18 | INFO     | __main__:main:94 - KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM
+2026-02-02 22:45:18 | INFO     | __main__:main:95 - ****************************************************************************************************
+2026-02-02 22:45:18 | INFO     | __main__:main:96 - 
+2026-02-02 22:45:18 | INFO     | __main__:main:97 - Configuration:
+2026-02-02 22:45:18 | INFO     | __main__:main:98 -   Trading Mode: PAPER
+2026-02-02 22:45:18 | INFO     | __main__:main:99 -   Starting Capital: $100.00
+2026-02-02 22:45:18 | INFO     | __main__:main:100 -   Risk Per Trade: 5.0%
+2026-02-02 22:45:18 | INFO     | __main__:main:101 -   LLM Model: claude-sonnet-4-20250514
+2026-02-02 22:45:18 | INFO     | __main__:main:102 -   Scheduler Interval: 15 minutes
+2026-02-02 22:45:18 | INFO     | __main__:main:103 -   Max Daily Trades: 5
+2026-02-02 22:45:18 | INFO     | __main__:main:104 -   Max Daily Loss: 15.0%
+2026-02-02 22:45:18 | INFO     | __main__:main:105 - 
+2026-02-02 22:45:18 | INFO     | __main__:main:108 - Initializing database...
+2026-02-02 22:45:18 | INFO     | __main__:main:110 - Database initialized successfully
+2026-02-02 22:45:18 | INFO     | __main__:main:111 - 
+2026-02-02 22:45:18 | INFO     | __main__:main:118 - Running initial trading cycle...
+2026-02-02 22:45:18 | INFO     | __main__:run_trading_cycle:23 - 
+2026-02-02 22:45:18 | INFO     | __main__:run_trading_cycle:24 - ====================================================================================================
+2026-02-02 22:45:18 | INFO     | __main__:run_trading_cycle:25 - TRADING CYCLE STARTED - 2026-02-02 22:45:18
+2026-02-02 22:45:18 | INFO     | __main__:run_trading_cycle:26 - ====================================================================================================
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:139 - ================================================================================
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:140 - STARTING TRADING CYCLE
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:141 - Cycle ID: cycle_aea49000
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:142 - ================================================================================
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:154 - Session ID: session_ddcc5591
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:155 - Starting Balance: $100.00
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:156 - Open Positions: 2
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:157 - Daily Trades: 0
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:158 - Daily P&L: $0.00
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:_update_positions_node:259 - Node: Updating Positions
+2026-02-02 22:45:18 | INFO     | src.agents.position_manager:update_positions:39 - Updating open positions...
+2026-02-02 22:45:18 | INFO     | src.agents.position_manager:update_positions:49 - Found 2 open positions
+2026-02-02 22:45:18 | ERROR    | src.utils.kalshi_client:get_market:318 - Error fetching market AAPL-EARNINGS-TMW: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Tue, 03 Feb 2026 03:45:18 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 ba216b84715065cc64a6c8c9b5abf790.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PHL51-P3', 'X-Amz-Cf-Id': 't_Ix_BvncEJbAIIvZ2NP-eN6gtQcOO2Lqzv1UgR8Rk1O3Bv8St72bg=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+2026-02-02 22:45:18 | WARNING  | src.agents.position_manager:_update_position_price:136 - Could not fetch market data for AAPL-EARNINGS-TMW
+2026-02-02 22:45:18 | ERROR    | src.utils.kalshi_client:get_market:318 - Error fetching market NFL-CHIEFS-SUN: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '79', 'Connection': 'keep-alive', 'Date': 'Tue, 03 Feb 2026 03:45:18 GMT', 'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none';", 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 ba216b84715065cc64a6c8c9b5abf790.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'PHL51-P3', 'X-Amz-Cf-Id': 'cI5yTE13Mn-T21IUstQXxOYjnCs7k5YQyTUtYRLLh0o5VZKtckMELg=='})
+HTTP response body: error=ErrorResponseError(code='not_found', message='not found', details=None)
+
+2026-02-02 22:45:18 | WARNING  | src.agents.position_manager:_update_position_price:136 - Could not fetch market data for NFL-CHIEFS-SUN
+2026-02-02 22:45:18 | INFO     | src.agents.position_manager:update_positions:72 - Position update complete. Open positions: 2
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:_fetch_markets_node:264 - Node: Fetching Markets
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-02-02 22:45:18 | INFO     | src.utils.kalshi_client:get_all_markets:282 - Fetched 1 liquid markets from Kalshi (filtered from 600 total)
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 1 markets successfully
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:_filter_markets:360 - Filter stats: 1 total, 0 passed, filtered out: {'liquidity': 1, 'time_min': 0, 'time_max': 0, 'probability': 0, 'date_parse': 0}
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 0 markets meeting policy criteria
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 0 top opportunities
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:_circuit_breaker_node:269 - Node: Circuit Breaker
+2026-02-02 22:45:18 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-02-02 22:45:18 | WARNING  | src.agents.data_qa_circuit_breaker:_check_market_data_validity:181 - Price anomaly in KXMVESPORTSMULTIGAMEEXTENDED-S20267E13829242D-BA4B1067208: yes+no=1.25 (should ≈1.0)
+2026-02-02 22:45:18 | WARNING  | src.agents.data_qa_circuit_breaker:validate_and_check:56 - Circuit breaker check failed: position_limit - Maximum concurrent positions reached (2/2)
+2026-02-02 22:45:18 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:_bonding_scan_node:274 - Node: Bonding Strategy Scan
+2026-02-02 22:45:18 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:62 - ============================================================
+2026-02-02 22:45:18 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:63 - BONDING STRATEGY SCAN
+2026-02-02 22:45:18 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:64 - ============================================================
+2026-02-02 22:45:18 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:112 - Found 0 bonding opportunities
+2026-02-02 22:45:18 | INFO     | src.agents.bonding_strategy_agent:scan_for_bonds:126 - ============================================================
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:_arbitrage_scan_node:302 - Node: Arbitrage Detection Scan
+2026-02-02 22:45:18 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:41 - ============================================================
+2026-02-02 22:45:18 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:42 - ARBITRAGE DETECTION SCAN
+2026-02-02 22:45:18 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:43 - ============================================================
+2026-02-02 22:45:18 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:67 - Found 0 total arbitrage opportunities
+2026-02-02 22:45:18 | INFO     | src.agents.arbitrage_detector:scan_for_arbitrage:83 - ============================================================
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:331 - Node: Selecting Opportunity
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. KXMVESPORTSMULTIGAMEEXTENDED-S20267E13829242D-BA4B1067208 - yes Kenneth Walker III,yes Hunter Henry: 2+,yes Kenneth Walk... (Score: 28.5, Liquidity: $0)
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:_select_opportunity_node:348 - Selected: KXMVESPORTSMULTIGAMEEXTENDED-S20267E13829242D-BA4B1067208
+2026-02-02 22:45:18 | INFO     | src.orchestrator.langgraph_flow:_enrich_data_node:357 - Node: Enriching Data
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:115 - Enriching data for KXMVESPORTSMULTIGAMEEXTENDED-S20267E13829242D-BA4B1067208: yes Kenneth Walker III,yes Hunter Henry: 2+,yes Kenneth Walker III: 70+
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:129 - Using Alpha Vantage data for KXMVESPORTSMULTIGAMEEXTENDED-S20267E13829242D-BA4B1067208
+2026-02-02 22:45:18 | INFO     | src.agents.market_data_fetcher:enrich_market_data:157 - Alpha Vantage Sentiment: Neutral (-0.1211)
+2026-02-02 22:45:19 | ERROR    | src.utils.news_fetcher:get_twitter_sentiment:259 - Error fetching Twitter data: 400 Bad Request
+There were errors processing your request: no viable alternative at input '<EOF>' (at position 37)
+2026-02-02 22:45:19 | INFO     | src.agents.market_data_fetcher:enrich_market_data:228 - Found 1 social media posts
+2026-02-02 22:45:19 | INFO     | src.agents.market_data_fetcher:enrich_market_data:265 - Social sentiment: -0.789 (1 posts)
+2026-02-02 22:45:19 | INFO     | src.agents.market_data_fetcher:enrich_market_data:285 - Combined sentiment: -0.388
+2026-02-02 22:45:19 | INFO     | src.orchestrator.langgraph_flow:_generate_signal_node:371 - Node: Generating Signal
+2026-02-02 22:45:19 | INFO     | src.agents.signal_selection_agent:generate_signal:44 - Generating signal for KXMVESPORTSMULTIGAMEEXTENDED-S20267E13829242D-BA4B1067208
+2026-02-02 22:45:31 | INFO     | src.agents.signal_selection_agent:generate_signal:66 - Claude analysis:
+**RECOMMENDATION:** NO_TRADE
+
+**CONFIDENCE:** 25%
+
+**EXPECTED_RETURN:** N/A
+
+**REASONING:**
+This market presents multiple red flags that make it unsuitable for trading under our risk parameters. The most glaring issue is the extremely wide 95% bid-ask spread with zero volume and open interest, indicating a completely illiquid market where any position would be difficult to exit. The market appears to be a complex multi-leg sports betting proposition involving Kenneth Walker III and Hunter Henry with specific performance thresholds, but the exact nature of the bet is unclear from the ticker information provided.
+
+The bearish sentiment (-0.79 social, -0.39 combined) suggests negative market psychology, while technical indicators remain neutral with no meaningful momentum signals due to lack of trading activity. The market closes in February 2026, providing ample time for analysis, but without understanding the specific sports events, games, or timeframes involved, it's impossible to conduct proper fundamental analysis. The current 52.5% implied probability appears arbitrary given the lack of price discovery through actual trading.
+
+Most critically, this trade fails to meet our minimum confidence threshold of 60% and lacks the clear edge required for our trading strategy. The combination of extreme illiquidity, unclear fundamentals, and negative sentiment creates an unfavorable risk/reward profile that doesn't justify capital allocation.
+
+**KEY_FACTORS:**
+- Zero trading volume and open interest indicating complete illiquidity
+- Extremely wide 95% bid-ask spread making entry/exit costly
+- Unclear market mechanics and underlying sports events
+- Bearish sentiment across social media channels
+- Neutral technical signals with no momentum
+
+**RISK_FACTORS:**
+- Inability to exit position due to zero liquidity
+- Large spread would require significant favorable movement to profit
+- Unknown sports schedule and player availability/health
+- Potential rule changes or game cancellations over long time horizon
+- Market maker risk with such wide spreads
+
+**MARKET_EDGE:**
+There is no identifiable edge in this market due to extreme illiquidity, unclear fundamentals, and insufficient information to assess true probabilities versus market pricing.
+2026-02-02 22:45:31 | INFO     | src.agents.signal_selection_agent:generate_signal:74 - Signal generated: NO_TRADE (Confidence: 25.0%, Expected Return: 0.0%)
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:_should_trade_signal:472 - Signal is NO_TRADE, trying next opportunity
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:_finalize_node:449 - Node: Finalizing
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:179 - ================================================================================
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:180 - TRADING CYCLE COMPLETE
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:181 - Markets Scanned: 1
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:182 - Opportunities Found: 0
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:183 - Bonding Opportunities: 0
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:184 - Arbitrage Opportunities: 0
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:185 - Trades Executed: 0
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:186 - Bonds Executed: 0
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:187 - Arbitrages Executed: 0
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:188 - Trades Blocked: 0
+2026-02-02 22:45:31 | INFO     | src.orchestrator.langgraph_flow:run_trading_cycle:189 - ================================================================================
+2026-02-02 22:45:31 | INFO     | __main__:run_trading_cycle:31 - 
+2026-02-02 22:45:31 | INFO     | __main__:run_trading_cycle:32 - CYCLE SUMMARY:
+2026-02-02 22:45:31 | INFO     | __main__:run_trading_cycle:33 -   Markets Scanned: 1
+2026-02-02 22:45:31 | INFO     | __main__:run_trading_cycle:34 -   Opportunities Found: 0
+2026-02-02 22:45:31 | INFO     | __main__:run_trading_cycle:57 -   Trades Executed: 0
+2026-02-02 22:45:31 | INFO     | __main__:run_trading_cycle:58 -   Trades Blocked: 0
+2026-02-02 22:45:31 | WARNING  | __main__:run_trading_cycle:66 -   Warnings: 1
+2026-02-02 22:45:31 | INFO     | __main__:run_trading_cycle:68 - ====================================================================================================
+2026-02-02 22:45:31 | INFO     | __main__:run_trading_cycle:69 - Next cycle in 15 minutes
+2026-02-02 22:45:31 | INFO     | __main__:run_trading_cycle:70 - ====================================================================================================
+2026-02-02 22:45:31 | INFO     | __main__:main:122 - 
+2026-02-02 22:45:31 | INFO     | __main__:main:123 - Starting scheduler (runs every 15 minutes)...
+2026-02-02 22:45:31 | INFO     | __main__:main:135 - Trading system is running. Press Ctrl+C to stop.
+2026-02-02 22:45:31 | INFO     | __main__:main:136 - 
+2026-02-02 22:45:51 | INFO     | __main__:signal_handler:78 - 
+2026-02-02 22:45:51 | INFO     | __main__:signal_handler:79 - Shutdown signal received. Stopping trading system...
+2026-02-02 22:45:51 | INFO     | __main__:signal_handler:84 - Trading system stopped.
+2026-02-02 22:45:51 | INFO     | __main__:main:139 - Shutting down...
