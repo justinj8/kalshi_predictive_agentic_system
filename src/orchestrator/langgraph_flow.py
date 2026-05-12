@@ -20,8 +20,24 @@ from src.agents.execution_agent import execution_agent
 from src.agents.position_manager import position_manager
 from src.agents.bonding_strategy_agent import bonding_agent
 from src.agents.arbitrage_detector import arbitrage_detector
-from src.database.models import TradingSession, get_session, get_db_session
+from src.database.models import TradingSession, DecisionAudit, get_session, get_db_session
 from config.settings import settings
+
+# Agentic core — optional; importable even when the API key is absent.
+from src.agents.agentic import research_agent as _research_mod
+from src.agents.agentic import judge_agent as _judge_mod
+from src.agents.agentic import calibration_agent as _calib_mod
+from src.agents.agentic import memory_agent as _mem_mod
+from src.agents.agentic import reflection_agent as _reflect_mod
+from src.agents.agentic.cross_market_scout import run_scout as _run_scout
+from src.agents.agentic.debate import bull_agent as _bull_mod
+from src.agents.agentic.debate import bear_agent as _bear_mod
+from src.agents.agentic.debate import red_team_agent as _red_team_mod
+from src.orchestrator.state_models import (
+    DebateTranscript,
+    JudgeDecision,
+    TradingSignal,
+)
 
 # Import metrics (optional - gracefully handle if not available)
 try:
@@ -52,6 +68,7 @@ class TradingOrchestrator:
         workflow.add_node("circuit_breaker", self._circuit_breaker_node)
         workflow.add_node("bonding_scan", self._bonding_scan_node)
         workflow.add_node("arbitrage_scan", self._arbitrage_scan_node)
+        workflow.add_node("cross_market_scout", self._cross_market_scout_node)
         workflow.add_node("select_opportunity", self._select_opportunity_node)
         workflow.add_node("enrich_data", self._enrich_data_node)
         workflow.add_node("generate_signal", self._generate_signal_node)
@@ -77,9 +94,10 @@ class TradingOrchestrator:
             }
         )
 
-        # Bonding and arbitrage scans run in sequence
+        # Bonding and arbitrage scans run in sequence, then cross-market scout
         workflow.add_edge("bonding_scan", "arbitrage_scan")
-        workflow.add_edge("arbitrage_scan", "select_opportunity")
+        workflow.add_edge("arbitrage_scan", "cross_market_scout")
+        workflow.add_edge("cross_market_scout", "select_opportunity")
 
         # Opportunity selection
         workflow.add_conditional_edges(
@@ -367,14 +385,187 @@ class TradingOrchestrator:
         return state
 
     def _generate_signal_node(self, state: TradingState) -> TradingState:
-        """Generate trading signal"""
+        """Generate trading signal.
+
+        When `settings.agentic_decision_path` is True (default), runs the full
+        multi-agent core: memory_recall -> research -> debate (bull/bear/red_team)
+        -> calibration -> judge, and persists a DecisionAudit. Otherwise falls
+        back to the legacy single-shot signal_agent.
+        """
         logger.info("Node: Generating Signal")
 
-        if state.current_market:
+        if not state.current_market:
+            return state
+
+        if settings.agentic_decision_path:
+            self._run_agentic_decision(state)
+            # Optional shadow run of legacy pipeline for comparison.
+            if settings.shadow_legacy:
+                try:
+                    legacy_signal = signal_agent.generate_signal(state.current_market, state)
+                    state.legacy_signal_shadow = legacy_signal
+                except Exception as exc:
+                    logger.warning(f"Legacy shadow signal failed: {exc}")
+        else:
+            # Pure legacy path.
+            state.decision_path = "legacy"
             signal = signal_agent.generate_signal(state.current_market, state)
             state.trading_signal = signal
 
         return state
+
+    # ----- Agentic decision core --------------------------------------------------
+
+    def _run_agentic_decision(self, state: TradingState) -> None:
+        """Multi-agent analysis & decision (mutates state in-place)."""
+        ma = state.current_market
+        ticker = ma.market.ticker
+        logger.info(f"  [Agentic] ticker={ticker}")
+
+        # 1. Memory recall
+        try:
+            state.recalled_lessons = _mem_mod.recall_for_market(ma)
+        except Exception as exc:
+            logger.warning(f"  [Agentic] memory recall failed: {exc}")
+            state.recalled_lessons = []
+
+        # 2. Research (tool-use loop)
+        try:
+            pack = _research_mod.research_agent.run(ma, state.recalled_lessons)
+        except Exception as exc:
+            logger.error(f"  [Agentic] research failed: {exc}", exc_info=True)
+            pack = None
+        state.evidence_pack = pack
+
+        if pack is None:
+            state.trading_signal = self._no_trade_signal(ticker, "Research failed.")
+            self._persist_audit(state, calibrated={}, transcript=None, judge=None)
+            return
+
+        # 3. Debate — Bull / Bear / Red-Team in parallel via threads
+        transcript = self._run_debate(pack, state.recalled_lessons)
+        state.debate_transcript = transcript
+
+        # 4. Calibration
+        try:
+            calibrated = _calib_mod.calibrate(pack, transcript)
+            state.calibrated_probability = calibrated.get("calibrated_probability")
+        except Exception as exc:
+            logger.warning(f"  [Agentic] calibration failed: {exc}")
+            calibrated = {"calibrated_probability": 0.5}
+            state.calibrated_probability = 0.5
+
+        # 5. Judge (Opus + extended thinking)
+        try:
+            decision: JudgeDecision = _judge_mod.judge_agent.run(
+                market_analysis=ma,
+                pack=pack,
+                transcript=transcript,
+                calibrated=calibrated,
+                recalled_lessons=state.recalled_lessons,
+                state=state,
+            )
+        except Exception as exc:
+            logger.error(f"  [Agentic] judge failed: {exc}", exc_info=True)
+            state.trading_signal = self._no_trade_signal(ticker, f"Judge failed: {exc}")
+            self._persist_audit(state, calibrated=calibrated, transcript=transcript, judge=None)
+            return
+
+        state.judge_decision = decision
+        state.trading_signal = self._judge_to_signal(decision, ma)
+
+        # 6. Persist audit
+        self._persist_audit(state, calibrated=calibrated, transcript=transcript, judge=decision)
+
+    def _run_debate(self, pack, recalled_lessons) -> DebateTranscript:
+        """Run Bull / Bear / Red-Team concurrently."""
+        from concurrent.futures import ThreadPoolExecutor
+
+        transcript = DebateTranscript(ticker=pack.ticker)
+        if not settings.enable_debate:
+            return transcript
+
+        with ThreadPoolExecutor(max_workers=3) as ex:
+            f_bull = ex.submit(_bull_mod.run_bull, pack)
+            f_bear = ex.submit(_bear_mod.run_bear, pack)
+            f_red = ex.submit(_red_team_mod.run_red_team, pack, recalled_lessons)
+
+            try:
+                transcript.bull = f_bull.result()
+            except Exception as exc:
+                logger.warning(f"  [Agentic] bull agent failed: {exc}")
+            try:
+                transcript.bear = f_bear.result()
+            except Exception as exc:
+                logger.warning(f"  [Agentic] bear agent failed: {exc}")
+            try:
+                transcript.red_team = f_red.result()
+            except Exception as exc:
+                logger.warning(f"  [Agentic] red-team agent failed: {exc}")
+
+        return transcript
+
+    @staticmethod
+    def _no_trade_signal(ticker: str, reason: str) -> TradingSignal:
+        return TradingSignal(
+            ticker=ticker,
+            signal="NO_TRADE",
+            confidence=0,
+            expected_return=0,
+            reasoning=reason,
+            key_factors=[],
+            risk_factors=[reason],
+            market_edge="None",
+        )
+
+    @staticmethod
+    def _judge_to_signal(decision: JudgeDecision, ma) -> TradingSignal:
+        return TradingSignal(
+            ticker=decision.ticker,
+            signal=decision.signal,
+            confidence=decision.confidence,
+            expected_return=decision.expected_return_pct,
+            reasoning=decision.reasoning,
+            key_factors=decision.key_factors,
+            risk_factors=decision.risk_factors,
+            market_edge=decision.market_edge,
+        )
+
+    def _persist_audit(self, state: TradingState, *, calibrated, transcript, judge) -> None:
+        """Persist a DecisionAudit row for forensic review and shadow comparison."""
+        try:
+            with get_db_session() as session:
+                row = DecisionAudit(
+                    session_id=state.session_id,
+                    ticker=state.current_market.market.ticker if state.current_market else "",
+                    decision_path=state.decision_path,
+                    evidence_pack=state.evidence_pack.dict() if state.evidence_pack else None,
+                    debate_transcript=transcript.dict() if transcript else None,
+                    calibrated_probability=state.calibrated_probability,
+                    recalled_lesson_ids=[l.id for l in state.recalled_lessons],
+                    judge_decision=judge.dict() if judge else None,
+                    legacy_signal=(
+                        state.legacy_signal_shadow.dict()
+                        if state.legacy_signal_shadow
+                        else None
+                    ),
+                    thinking_tokens_used=(judge.thinking_tokens_used if judge else 0),
+                    outcome_label="open",
+                )
+                session.add(row)
+        except Exception as exc:
+            logger.warning(f"Failed to persist DecisionAudit: {exc}")
+
+    # ------------------------------------------------------------------------------
+
+    def _cross_market_scout_node(self, state: TradingState) -> TradingState:
+        """Scout related markets + complement arbitrage opportunities."""
+        logger.info("Node: Cross-Market Scout")
+        try:
+            return _run_scout(state)
+        except Exception as exc:
+            logger.warning(f"Cross-market scout failed: {exc}")
+            return state
 
     def _calculate_sizing_node(self, state: TradingState) -> TradingState:
         """Calculate position sizing"""
@@ -391,18 +582,45 @@ class TradingOrchestrator:
         return state
 
     def _policy_review_node(self, state: TradingState) -> TradingState:
-        """Policy review and approval"""
-        logger.info("Node: Policy Review")
+        """Final policy gate.
 
-        if state.trading_signal and state.position_sizing and state.current_market:
+        Under the agentic decision path the JudgeAgent has already done the
+        deep self-critique, so this node enforces only the deterministic rule
+        checks (liquidity, daily caps, confidence floor, etc.). Under the
+        legacy path we delegate to the full single-shot policy_agent.
+        """
+        logger.info("Node: Policy Gate")
+
+        if not (state.trading_signal and state.position_sizing and state.current_market):
+            return state
+
+        if settings.agentic_decision_path:
+            ok, reason = policy_agent._rule_based_checks(
+                state.trading_signal,
+                state.position_sizing,
+                state.current_market,
+                state,
+            )
+            from src.orchestrator.state_models import PolicyDecision
+            state.policy_decision = PolicyDecision(
+                ticker=state.trading_signal.ticker,
+                decision="APPROVE" if ok else "BLOCK",
+                confidence=100.0 if ok else 100.0,
+                reasoning=reason,
+                concerns=[] if ok else [reason],
+                checklist_results={},
+                final_notes="Agentic path: deterministic gate after Judge.",
+            )
+            if not ok:
+                state.trades_blocked += 1
+        else:
             decision = policy_agent.review_trade(
                 state.trading_signal,
                 state.position_sizing,
                 state.current_market,
-                state
+                state,
             )
             state.policy_decision = decision
-
             if decision.decision == "BLOCK":
                 state.trades_blocked += 1
 
@@ -445,8 +663,24 @@ class TradingOrchestrator:
         return state
 
     def _finalize_node(self, state: TradingState) -> TradingState:
-        """Finalize the trading cycle"""
+        """Finalize the trading cycle.
+
+        Includes the post-cycle ReflectionAgent sweep: any positions closed
+        during the cycle get a lesson written to the memory store.
+        """
         logger.info("Node: Finalizing")
+
+        # Mirror decision_path onto state for session-row stamping below.
+        state.decision_path = "agentic_v1" if settings.agentic_decision_path else "legacy"
+
+        if settings.enable_memory and settings.agentic_decision_path:
+            try:
+                written = _reflect_mod.reflect_on_closed_positions(state)
+                if written:
+                    logger.info(f"Reflection wrote {written} new lesson(s) to memory.")
+            except Exception as exc:
+                logger.warning(f"Reflection sweep failed: {exc}")
+
         return state
 
     # Conditional edge functions
@@ -582,7 +816,8 @@ class TradingOrchestrator:
                 circuit_breaker_reason=cb_reason,
                 opportunities_analyzed=opp_tickers,
                 execution_log=f"Executed {get_attr('trades_executed', 0)} trades, blocked {get_attr('trades_blocked', 0)}",
-                errors="\\n".join(get_attr('errors', [])) if get_attr('errors') else None
+                errors="\\n".join(get_attr('errors', [])) if get_attr('errors') else None,
+                decision_path=get_attr('decision_path', 'agentic_v1'),
             )
 
             session_db.add(trading_session)
