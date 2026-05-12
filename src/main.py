@@ -2,13 +2,13 @@
 Main entry point for the Kalshi Predictive Markets Trading System
 Runs the trading system on a 15-minute schedule
 """
+import argparse
 import sys
 import signal
 from datetime import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from src.utils.logger import get_logger
-from src.orchestrator.langgraph_flow import orchestrator
 from src.database.models import init_database
 from config.settings import settings
 
@@ -18,12 +18,47 @@ logger = get_logger(__name__)
 scheduler = None
 
 
+def _parse_args():
+    p = argparse.ArgumentParser(
+        description="Kalshi Predictive Markets Agentic AI Trading System"
+    )
+    p.add_argument(
+        "--paper",
+        action="store_true",
+        help="Force TRADING_MODE=paper (overrides .env).",
+    )
+    p.add_argument(
+        "--once",
+        action="store_true",
+        help="Run a single trading cycle and exit (no scheduler).",
+    )
+    p.add_argument(
+        "--legacy",
+        action="store_true",
+        help="Disable agentic decision path and use the legacy single-shot pipeline.",
+    )
+    p.add_argument(
+        "--shadow",
+        action="store_true",
+        help="Run legacy pipeline alongside agentic for shadow comparison.",
+    )
+    p.add_argument(
+        "--no-shadow",
+        action="store_true",
+        help="Disable shadow legacy run (overrides config / --shadow).",
+    )
+    return p.parse_args()
+
+
 def run_trading_cycle():
     """Run one trading cycle"""
     logger.info("")
     logger.info("=" * 100)
     logger.info(f"TRADING CYCLE STARTED - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("=" * 100)
+
+    # Import here so CLI flags can mutate settings before orchestrator/agents init.
+    from src.orchestrator.langgraph_flow import orchestrator
 
     try:
         result = orchestrator.run_trading_cycle()
@@ -89,6 +124,21 @@ def main():
     """Main entry point"""
     global scheduler
 
+    args = _parse_args()
+
+    # Apply CLI overrides BEFORE importing the orchestrator (so settings reads them).
+    if args.paper:
+        settings.trading_mode = "paper"
+    if args.legacy:
+        settings.agentic_decision_path = False
+    if args.shadow:
+        settings.shadow_legacy = True
+    if args.no_shadow:
+        settings.shadow_legacy = False
+
+    # Defer orchestrator import until after settings overrides.
+    from src.orchestrator.langgraph_flow import orchestrator  # noqa: F401
+
     logger.info("")
     logger.info("*" * 100)
     logger.info("KALSHI PREDICTIVE MARKETS AGENTIC AI TRADING SYSTEM")
@@ -98,7 +148,15 @@ def main():
     logger.info(f"  Trading Mode: {settings.trading_mode.upper()}")
     logger.info(f"  Starting Capital: ${settings.starting_capital:,.2f}")
     logger.info(f"  Risk Per Trade: {settings.risk_per_trade_percent}%")
-    logger.info(f"  LLM Model: {settings.llm_model}")
+    logger.info(f"  Decision Path: {'agentic_v1' if settings.agentic_decision_path else 'legacy'}")
+    logger.info(f"  Shadow Legacy: {settings.shadow_legacy}")
+    logger.info(f"  Judge Model: {settings.judge_model}")
+    logger.info(f"  Specialist Model: {settings.specialist_model}")
+    logger.info(f"  Cheap Model: {settings.cheap_model}")
+    logger.info(f"  Web Search Enabled: {settings.enable_web_search}")
+    logger.info(f"  Debate Enabled: {settings.enable_debate}")
+    logger.info(f"  Memory Enabled: {settings.enable_memory}")
+    logger.info(f"  Extended Thinking: {settings.enable_extended_thinking}")
     logger.info(f"  Scheduler Interval: {settings.scheduler_interval_minutes} minutes")
     logger.info(f"  Max Daily Trades: {settings.max_daily_trades}")
     logger.info(f"  Max Daily Loss: {settings.max_daily_loss_percent}%")
@@ -117,6 +175,10 @@ def main():
     # Run first cycle immediately
     logger.info("Running initial trading cycle...")
     run_trading_cycle()
+
+    if args.once:
+        logger.info("--once specified; exiting after one cycle.")
+        return
 
     # Set up scheduler
     logger.info("")

@@ -59,10 +59,36 @@ class Settings(BaseSettings):
     scheduler_interval_minutes: int = 15
     database_url: str = "sqlite:///data/trades.db"
 
-    # LLM Configuration
-    llm_model: str = "claude-sonnet-4-20250514"  # Updated to latest model
+    # LLM Configuration (legacy single-shot agents)
+    # NOTE: prefer the agentic core models below; this is kept for back-compat.
+    llm_model: str = "claude-sonnet-4-6"
     llm_temperature: float = 0.7
     llm_max_tokens: int = 4000
+
+    # Agentic core model assignments
+    judge_model: str = "claude-opus-4-7"               # Final adjudication
+    specialist_model: str = "claude-sonnet-4-6"         # Research / debate / reflection
+    cheap_model: str = "claude-haiku-4-5-20251001"      # Scout / calibration narrative
+
+    # Agentic core feature flags
+    agentic_decision_path: bool = True   # Use multi-agent core; False = legacy
+    shadow_legacy: bool = True           # Also run legacy in shadow mode for comparison
+    enable_web_search: bool = True       # Anthropic web_search server tool
+    enable_debate: bool = True           # Bull/Bear/Red-Team parallel debate
+    enable_memory: bool = True           # Memory + reflection loop
+    enable_extended_thinking: bool = True  # Judge uses extended thinking
+    enable_cross_market_scout: bool = True
+
+    # Agentic budgets
+    max_research_iterations: int = 8
+    judge_thinking_budget_tokens: int = 10000
+    research_max_tokens: int = 12000
+    debate_max_tokens: int = 4000
+    judge_max_tokens: int = 16000
+
+    # Memory subsystem
+    embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+    memory_recall_top_k: int = 5
 
     # Circuit Breaker Limits (adjusted for $100 capital)
     max_daily_trades: int = 5

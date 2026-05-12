@@ -52,6 +52,8 @@ class MarketAnalysis(BaseModel):
     social_sentiment: Optional[float] = None  # -1 to 1
     combined_sentiment: Optional[float] = None
     technical_indicators: Dict[str, Any] = Field(default_factory=dict)  # RSI, momentum, volatility, etc.
+    # Related markets surfaced by CrossMarketScout (ticker + cosine similarity)
+    related_tickers: List[Dict[str, Any]] = Field(default_factory=list)
 
 
 class TradingSignal(BaseModel):
@@ -137,6 +139,82 @@ class ArbitrageOpportunity(BaseModel):
     confidence: float
 
 
+# ---------------------------------------------------------------------------
+# Agentic core types (EvidencePack, DebateTranscript, JudgeDecision, LessonRef)
+# ---------------------------------------------------------------------------
+
+
+class EvidencePack(BaseModel):
+    """Structured evidence assembled by ResearchAgent's tool-loop.
+
+    The agent calls `submit_evidence` exactly once to populate this object.
+    All downstream agents (debate, calibration, judge) read from it.
+    """
+    ticker: str
+    summary: str  # 2-4 sentence executive summary
+    bull_case_points: List[str] = Field(default_factory=list)
+    bear_case_points: List[str] = Field(default_factory=list)
+    base_rate_pct: Optional[float] = None  # Historical / reference probability
+    market_implied_pct: Optional[float] = None  # From current pricing
+    edge_estimate_pct: Optional[float] = None  # base_rate - market_implied
+    catalysts: List[str] = Field(default_factory=list)
+    risk_flags: List[str] = Field(default_factory=list)
+    news_highlights: List[Dict[str, Any]] = Field(default_factory=list)
+    web_findings: List[Dict[str, Any]] = Field(default_factory=list)
+    technical_summary: Dict[str, Any] = Field(default_factory=dict)
+    related_markets: List[Dict[str, Any]] = Field(default_factory=list)
+    confidence_in_evidence: float = Field(default=0.5, ge=0, le=1)
+    iterations_used: int = 0
+    tool_calls_used: int = 0
+
+
+class DebateTurn(BaseModel):
+    """A single agent's argument in the debate."""
+    role: Literal["bull", "bear", "red_team"]
+    stance: Literal["LONG", "SHORT", "NO_TRADE", "BLOCK", "PROCEED"]
+    probability_estimate: float = Field(ge=0, le=1)
+    argument: str
+    key_points: List[str] = Field(default_factory=list)
+    counters: List[str] = Field(default_factory=list)
+
+
+class DebateTranscript(BaseModel):
+    """Full transcript of the parallel Bull / Bear / Red-Team debate."""
+    ticker: str
+    bull: Optional[DebateTurn] = None
+    bear: Optional[DebateTurn] = None
+    red_team: Optional[DebateTurn] = None
+
+
+class LessonRef(BaseModel):
+    """Lightweight reference to a Lesson row recalled from memory."""
+    id: int
+    similarity: float = Field(ge=0, le=1)
+    lesson_type: str
+    snippet: str
+    outcome_pnl: Optional[float] = None
+    ticker: Optional[str] = None
+    category: Optional[str] = None
+
+
+class JudgeDecision(BaseModel):
+    """Structured output emitted by JudgeAgent via the emit_trading_signal tool."""
+    ticker: str
+    signal: Literal["LONG", "SHORT", "NO_TRADE"]
+    confidence: float = Field(ge=0, le=100)
+    calibrated_probability: float = Field(ge=0, le=1)
+    expected_return_pct: float
+    kelly_fraction: float = Field(ge=0, le=0.25)
+    reasoning: str
+    key_factors: List[str] = Field(default_factory=list)
+    risk_factors: List[str] = Field(default_factory=list)
+    market_edge: str
+    invalidation_conditions: List[str] = Field(default_factory=list)
+    lessons_applied: List[int] = Field(default_factory=list)
+    debate_winner: Literal["bull", "bear", "mixed", "none"] = "none"
+    thinking_tokens_used: int = 0
+
+
 class TradingState(BaseModel):
     """
     Main state object that flows through the LangGraph pipeline
@@ -163,6 +241,16 @@ class TradingState(BaseModel):
     position_sizing: Optional[PositionSizing] = None
     policy_decision: Optional[PolicyDecision] = None
     execution_result: Optional[ExecutionResult] = None
+
+    # Agentic core outputs (per current_market)
+    evidence_pack: Optional[EvidencePack] = None
+    debate_transcript: Optional[DebateTranscript] = None
+    calibrated_probability: Optional[float] = None
+    recalled_lessons: List[LessonRef] = Field(default_factory=list)
+    judge_decision: Optional[JudgeDecision] = None
+    legacy_signal_shadow: Optional[TradingSignal] = None
+    decision_path: Literal["legacy", "agentic_v1"] = "agentic_v1"
+    tool_call_log: List[Dict[str, Any]] = Field(default_factory=list)
 
     # New strategy opportunities
     bonding_opportunities: List[BondingOpportunity] = Field(default_factory=list)

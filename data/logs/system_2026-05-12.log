@@ -1,0 +1,52 @@
+2026-05-12 16:12:08 | WARNING  | src.utils.kalshi_client:<module>:28 - kalshi_python not available, using mock mode
+2026-05-12 16:12:08 | WARNING  | src.utils.kalshi_client:_initialize_client:197 - Kalshi API not available - using mock mode
+2026-05-12 16:12:08 | INFO     | src.utils.alpha_vantage_client:__init__:23 - Alpha Vantage API key not found or invalid. Using MOCK mode.
+2026-05-12 16:12:08 | INFO     | src.utils.news_fetcher:__init__:148 - Reddit credentials not configured - using mock data
+2026-05-12 16:12:08 | INFO     | src.utils.news_fetcher:__init__:167 - Twitter credentials not configured - using mock data
+2026-05-12 16:12:08 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-05-12 16:12:08 | INFO     | src.utils.kelly_calculator:calculate_position_size:115 - Kelly capped: 16.7% → 10.0%
+2026-05-12 16:12:08 | INFO     | src.utils.kelly_calculator:calculate_position_size:143 - Kelly sizing: 60% confidence @ $0.40 → 250 contracts ($100.00, 10.0% of capital)
+2026-05-12 16:12:08 | INFO     | src.utils.kelly_calculator:calculate_position_size:102 - No edge detected: Kelly=0.000 (p=0.50, b=1.00)
+2026-05-12 16:12:28 | WARNING  | src.utils.kalshi_client:<module>:28 - kalshi_python not available, using mock mode
+2026-05-12 16:12:28 | WARNING  | src.utils.kalshi_client:_initialize_client:197 - Kalshi API not available - using mock mode
+2026-05-12 16:12:28 | INFO     | src.utils.alpha_vantage_client:__init__:23 - Alpha Vantage API key not found or invalid. Using MOCK mode.
+2026-05-12 16:12:28 | INFO     | src.utils.news_fetcher:__init__:148 - Reddit credentials not configured - using mock data
+2026-05-12 16:12:28 | INFO     | src.utils.news_fetcher:__init__:167 - Twitter credentials not configured - using mock data
+2026-05-12 16:12:28 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-05-12 16:12:28 | INFO     | src.utils.kelly_calculator:calculate_position_size:115 - Kelly capped: 16.7% → 10.0%
+2026-05-12 16:12:28 | INFO     | src.utils.kelly_calculator:calculate_position_size:143 - Kelly sizing: 60% confidence @ $0.40 → 250 contracts ($100.00, 10.0% of capital)
+2026-05-12 16:12:28 | INFO     | src.utils.kelly_calculator:calculate_position_size:102 - No edge detected: Kelly=0.000 (p=0.50, b=1.00)
+2026-05-12 16:12:33 | WARNING  | src.utils.kalshi_client:<module>:28 - kalshi_python not available, using mock mode
+2026-05-12 16:12:33 | WARNING  | src.utils.kalshi_client:_initialize_client:197 - Kalshi API not available - using mock mode
+2026-05-12 16:12:33 | INFO     | src.utils.alpha_vantage_client:__init__:23 - Alpha Vantage API key not found or invalid. Using MOCK mode.
+2026-05-12 16:12:33 | INFO     | src.utils.news_fetcher:__init__:148 - Reddit credentials not configured - using mock data
+2026-05-12 16:12:33 | INFO     | src.utils.news_fetcher:__init__:167 - Twitter credentials not configured - using mock data
+2026-05-12 16:12:33 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-05-12 16:12:33 | INFO     | src.utils.kelly_calculator:calculate_position_size:115 - Kelly capped: 16.7% → 10.0%
+2026-05-12 16:12:33 | INFO     | src.utils.kelly_calculator:calculate_position_size:143 - Kelly sizing: 60% confidence @ $0.40 → 250 contracts ($100.00, 10.0% of capital)
+2026-05-12 16:12:33 | INFO     | src.utils.kelly_calculator:calculate_position_size:102 - No edge detected: Kelly=0.000 (p=0.50, b=1.00)
+2026-05-12 16:12:33 | INFO     | src.utils.kelly_calculator:calculate_position_size:115 - Kelly capped: 40.0% → 10.0%
+2026-05-12 16:12:33 | INFO     | src.utils.kelly_calculator:calculate_position_size:143 - Kelly sizing: 90% confidence @ $0.50 → 2000 contracts ($1000.00, 10.0% of capital)
+2026-05-12 16:12:33 | INFO     | src.utils.kelly_calculator:calculate_position_size:102 - No edge detected: Kelly=-0.500 (p=0.40, b=0.67)
+2026-05-12 16:12:33 | INFO     | src.utils.kelly_calculator:calculate_position_size:115 - Kelly capped: 25.0% → 10.0%
+2026-05-12 16:12:33 | INFO     | src.utils.kelly_calculator:calculate_position_size:143 - Kelly sizing: 75% confidence @ $0.50 → 2000 contracts ($1000.00, 10.0% of capital)
+2026-05-12 16:12:33 | INFO     | src.utils.kelly_calculator:calculate_position_size:143 - Kelly sizing: 55% confidence @ $0.50 → 1000 contracts ($500.00, 5.0% of capital)
+2026-05-12 16:12:33 | WARNING  | src.utils.calibration_tracker:apply_hard_bounds:337 - Confidence hard-capped: 95% -> 85% (max 85.0% to prevent overbetting)
+2026-05-12 16:12:33 | INFO     | src.utils.edge_decay_tracker:record_edge:106 - Edge recorded: TEST-123 LONG - Fair: 65% vs Market: 55% (Edge: 10.0%)
+2026-05-12 16:12:33 | INFO     | src.utils.edge_decay_tracker:record_edge:106 - Edge recorded: TEST-456 LONG - Fair: 65% vs Market: 55% (Edge: 10.0%)
+2026-05-12 16:12:33 | INFO     | src.utils.external_odds_comparison:analyze_edge:185 - EDGE CONFIRMED: We estimate 70% vs polymarket at 50%. Edge: +20.0% - proceed with trade.
+2026-05-12 16:12:33 | INFO     | src.utils.external_odds_comparison:analyze_edge:185 - NO EDGE: Our estimate (62%) matches polymarket (60%). Edge too small (+2.0%) - skip to avoid fee drag.
+2026-05-12 16:12:34 | WARNING  | src.utils.sentiment_analyzer:<module>:18 - Transformers library not available. Using simple sentiment analysis.
+2026-05-12 16:12:34 | INFO     | src.utils.sentiment_analyzer:__init__:46 - Using simple sentiment analysis (no transformers)
+2026-05-12 16:12:35 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:37 - Fetching all open markets from Kalshi...
+2026-05-12 16:12:35 | INFO     | src.utils.kalshi_client:get_all_markets:244 - No Kalshi API connection - using mock markets
+2026-05-12 16:12:35 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:79 - Fetched 9 markets successfully
+2026-05-12 16:12:35 | INFO     | src.agents.market_data_fetcher:_filter_markets:360 - Filter stats: 9 total, 8 passed, filtered out: {'liquidity': 0, 'time_min': 0, 'time_max': 0, 'probability': 1, 'date_parse': 0}
+2026-05-12 16:12:35 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:83 - Filtered to 8 markets meeting policy criteria
+2026-05-12 16:12:35 | INFO     | src.agents.market_data_fetcher:_rank_markets:412 - Top market opportunities:
+2026-05-12 16:12:35 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   1. SP500-UP-WEEK - Will S&P 500 close higher this week?... (Score: 87.4, Liquidity: $1,200,000)
+2026-05-12 16:12:35 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   2. AAPL-EARNINGS-Q1 - Will Apple beat Q1 2026 earnings estimates?... (Score: 83.2, Liquidity: $800,000)
+2026-05-12 16:12:35 | INFO     | src.agents.market_data_fetcher:_rank_markets:414 -   3. ETH-5K-Q2 - Will Ethereum be above $5K by end of Q2 2026?... (Score: 82.6, Liquidity: $750,000)
+2026-05-12 16:12:35 | INFO     | src.agents.market_data_fetcher:fetch_all_markets:89 - Identified 3 top opportunities
+2026-05-12 16:12:35 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:36 - Running Data QA & Circuit Breaker checks...
+2026-05-12 16:12:35 | INFO     | src.agents.data_qa_circuit_breaker:validate_and_check:69 - ✓ All circuit breaker checks passed

@@ -4,7 +4,7 @@ Database models for tracking trades, positions, and performance
 from datetime import datetime
 from typing import Optional
 from contextlib import contextmanager
-from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, Boolean, Text, JSON
+from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, Boolean, Text, JSON, LargeBinary, Index
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from config.settings import settings
@@ -50,6 +50,9 @@ class Trade(Base):
     unrealized_pnl = Column(Float, default=0.0)
     realized_pnl = Column(Float)
     pnl_percent = Column(Float)
+
+    # Decision provenance ("legacy" single-shot vs "agentic_v1" multi-agent)
+    decision_path = Column(String(32), default="agentic_v1")
 
     def __repr__(self):
         return f"<Trade {self.ticker} {self.side} {self.quantity}@${self.price:.2f}>"
@@ -158,8 +161,90 @@ class TradingSession(Base):
     execution_log = Column(Text)
     errors = Column(Text)
 
+    # Which decision pipeline produced this session's trades
+    decision_path = Column(String(32), default="agentic_v1")
+
     def __repr__(self):
         return f"<TradingSession @ {self.timestamp}>"
+
+
+class Lesson(Base):
+    """Lessons learned from closed positions and judge audits.
+
+    Written by ReflectionAgent (post-trade) and retrieved by MemoryAgent
+    via cosine similarity over the embedding column.
+    """
+    __tablename__ = "lessons"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    trade_id = Column(Integer)  # FK Trade.id, nullable for synthesized lessons
+    position_id = Column(String(100))
+    ticker = Column(String(50))
+    category = Column(String(50))
+
+    decision_path = Column(String(32), default="agentic_v1")
+    lesson_type = Column(String(32))  # win_pattern | loss_pattern | calibration | data_quality | edge_decay
+    source_agent = Column(String(64))
+
+    text = Column(Text, nullable=False)
+    structured = Column(JSON)  # {prob_pred, prob_actual, side, pnl_pct, drivers: [...]}
+    outcome_pnl = Column(Float)
+
+    # 384-dim float32 vector packed as bytes; MiniLM-L6-v2 default.
+    embedding = Column(LargeBinary)
+
+    def __repr__(self):
+        return f"<Lesson {self.lesson_type} {self.ticker} pnl={self.outcome_pnl}>"
+
+
+Index("ix_lessons_ticker_category", Lesson.ticker, Lesson.category)
+Index("ix_lessons_created_at", Lesson.created_at)
+
+
+class DecisionAudit(Base):
+    """Per-opportunity audit of the agentic decision pipeline.
+
+    One row per judged opportunity (regardless of execution outcome). Used for
+    shadow-mode comparison and for forensic review of disagreement cases.
+    """
+    __tablename__ = "decision_audits"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    session_id = Column(String(64))
+    cycle_id = Column(String(64))
+    ticker = Column(String(50), nullable=False)
+
+    decision_path = Column(String(32), default="agentic_v1")
+
+    evidence_pack = Column(JSON)
+    debate_transcript = Column(JSON)
+    calibrated_probability = Column(Float)
+    recalled_lesson_ids = Column(JSON)
+    judge_decision = Column(JSON)
+
+    # Shadow-mode legacy comparison (single-shot pipeline output, no execution)
+    legacy_signal = Column(JSON)
+
+    # Cost / telemetry
+    thinking_tokens_used = Column(Integer, default=0)
+    input_tokens = Column(Integer, default=0)
+    output_tokens = Column(Integer, default=0)
+    tool_calls = Column(JSON)
+
+    # Outcome linkage (filled in by ReflectionAgent on close)
+    final_pnl = Column(Float)
+    outcome_label = Column(String(32))  # win | loss | scratch | open
+
+    def __repr__(self):
+        return f"<DecisionAudit {self.ticker} path={self.decision_path}>"
+
+
+Index("ix_decision_audits_session", DecisionAudit.session_id)
+Index("ix_decision_audits_ticker", DecisionAudit.ticker)
 
 
 class PerformanceMetrics(Base):

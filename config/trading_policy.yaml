@@ -195,3 +195,34 @@ monitoring:
       action: "pause_trading_for_review"
     - condition: "3_consecutive_losses"
       action: "reduce_position_size_by_50%"
+
+# Agentic Core Configuration
+# Controls the multi-agent analysis & decision pipeline.
+agentic:
+  # Research agent tool-loop budget
+  research_max_iters: 8
+
+  # Debate / red-team requirements
+  debate_required: true
+  red_team_required: true
+
+  # Minimum edge (calibrated_probability vs market-implied) to permit a trade.
+  # Below this the Judge should emit NO_TRADE.
+  min_calibrated_prob_edge: 0.05
+
+  # Memory subsystem
+  memory_enabled: true
+  memory_recall_top_k: 5
+  reflection_after_close: true
+
+  # Cross-market scout
+  cross_market_scout_enabled: true
+  related_market_similarity_threshold: 0.78
+
+  # Validation gate (paper -> live promotion thresholds)
+  validation_gate:
+    min_cycles: 200
+    min_closed_trades_per_path: 50
+    require_non_inferior_brier: true
+    require_positive_pnl_vs_legacy: true
+    significance_p_value: 0.10
