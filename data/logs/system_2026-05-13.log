@@ -1,0 +1,9 @@
+2026-05-13 19:46:56 | WARNING  | src.utils.kalshi_client:<module>:28 - kalshi_python not available, using mock mode
+2026-05-13 19:46:56 | WARNING  | src.utils.kalshi_client:_initialize_client:197 - Kalshi API not available - using mock mode
+2026-05-13 19:46:56 | INFO     | src.utils.alpha_vantage_client:__init__:23 - Alpha Vantage API key not found or invalid. Using MOCK mode.
+2026-05-13 19:46:56 | INFO     | src.utils.news_fetcher:__init__:148 - Reddit credentials not configured - using mock data
+2026-05-13 19:46:56 | INFO     | src.utils.news_fetcher:__init__:167 - Twitter credentials not configured - using mock data
+2026-05-13 19:46:57 | INFO     | src.utils.kelly_calculator:__init__:38 - Kelly Calculator initialized: 0.5x Kelly, max 10.0% per position
+2026-05-13 19:46:57 | INFO     | src.utils.kelly_calculator:calculate_position_size:115 - Kelly capped: 16.7% → 10.0%
+2026-05-13 19:46:57 | INFO     | src.utils.kelly_calculator:calculate_position_size:143 - Kelly sizing: 60% confidence @ $0.40 → 250 contracts ($100.00, 10.0% of capital)
+2026-05-13 19:46:57 | INFO     | src.utils.kelly_calculator:calculate_position_size:102 - No edge detected: Kelly=0.000 (p=0.50, b=1.00)
