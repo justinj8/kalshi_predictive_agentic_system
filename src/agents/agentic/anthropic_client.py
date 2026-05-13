@@ -297,6 +297,13 @@ def run_agent(
         if final_tool_name and result.final_tool_use is not None:
             break
 
+        # `pause_turn`: server-side tool (e.g. web_search) is still working and
+        # Claude wants to continue the SAME turn. Re-call the API with the
+        # existing messages — do NOT inject a synthetic user nudge here, since
+        # that would interrupt the paused turn and lose in-flight server work.
+        if result.stop_reason == "pause_turn" and iteration < max_iterations:
+            continue
+
         # No client tool_use blocks. Decide whether to keep iterating.
         if not tool_use_blocks:
             # If we still owe a final tool, don't truncate just because a turn
