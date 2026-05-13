@@ -20,6 +20,7 @@ from src.orchestrator.state_models import (
     TradingState,
 )
 from src.agents.agentic.memory_store import memory_store
+from src.agents.market_data_fetcher import market_data_fetcher
 from config.settings import settings
 
 logger = get_logger(__name__)
@@ -47,6 +48,20 @@ def run_scout(state: TradingState) -> TradingState:
     markets = state.all_markets or []
     if not markets:
         return state
+
+    # Pre-populate top_opportunities so the scout has something to annotate.
+    # The orchestrator's _select_opportunity_node would otherwise be the first
+    # place top_opportunities is filled, meaning the scout would iterate an
+    # empty list every cycle.
+    if not state.top_opportunities:
+        try:
+            top_markets = market_data_fetcher._rank_markets(markets, top_n=10)
+            state.top_opportunities = [
+                MarketAnalysis(market=m) for m in top_markets
+            ]
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(f"Scout pre-ranking failed: {exc}")
+            return state
 
     # Embed every market once.
     try:
