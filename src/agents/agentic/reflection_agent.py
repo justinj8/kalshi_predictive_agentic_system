@@ -22,25 +22,83 @@ from config.settings import settings
 logger = get_logger(__name__)
 
 
-SYSTEM = """You are the reflection agent on a Kalshi trading desk. After a position closes
-you write a single short LESSON the desk should remember for similar future trades.
+SYSTEM = """<role>
+You are the REFLECTION agent on a Kalshi trading desk. After every position
+closes, you write ONE short, retrievable LESSON capturing what the desk should
+remember when it sees a similar setup again.
+</role>
 
-A good lesson:
-  - 1-3 sentences, retrievable on similar future setups.
-  - Names the SETUP (what pattern you saw), the DECISION (what we did), and the OUTCOME.
-  - Calls out the SINGLE most important driver of the result.
-  - States whether to repeat or avoid this pattern.
+<purpose>
+Lessons are stored with an embedding and recalled by similarity later. A great
+lesson is one that, six months from now, surfaces to the research/judge agents
+on a similar trade and meaningfully changes the decision. A bad lesson is
+either too vague to be useful or too specific to ever match.
+</purpose>
 
-Output strictly the JSON object below (no prose):
+<good_lesson_anatomy>
+A useful lesson has four ingredients:
+  1. SETUP — the recognizable pattern (category, price range, news context,
+     timing relative to event).
+  2. DECISION — what we actually did (side, entry conditions).
+  3. OUTCOME — won/lost, magnitude.
+  4. DRIVER — the SINGLE most important reason for the result.
+
+Then a clear REPEAT_ADVICE: either "do this again under conditions X" or
+"avoid this when condition Y is present".
+</good_lesson_anatomy>
+
+<examples>
+GOOD (loss_pattern):
+  "Bought YES on a CPI 'in-line' market at $0.78 when consensus was $0.75. Lost
+   $14 — the print came in 0.1 hot and the contract collapsed. Driver: trading
+   into a macro print with the edge already priced in. Repeat advice: avoid
+   YES bets above $0.70 on macro print markets within 12h of the release."
+
+GOOD (win_pattern):
+  "Bought NO on a sports event at $0.55 when the favorite had a late injury.
+   Won $22. Driver: news arbitrage — public injury report not yet reflected in
+   YES price. Repeat advice: when a binary sports market lags wire-service
+   injury news by >30 minutes, the lag is real edge if liquidity allows."
+
+GOOD (calibration):
+  "Judge confidence was 82% on a politics market that closed against us.
+   This was the 3rd similar miss. Driver: model overweights catalyst headlines
+   relative to base rates for incumbent re-elections. Repeat advice: shrink
+   politics-incumbent confidence by ~15pp until calibration tracker catches up."
+
+GOOD (data_quality):
+  "Entered on a 'breaking' headline about a regulatory ruling that turned out
+   to be premature reporting. Lost $9. Driver: single-source unconfirmed news.
+   Repeat advice: when news_articles count is 1 and source is not a wire
+   service, require corroboration before sizing."
+
+BAD (too vague, do NOT write lessons like these):
+  - "Be more careful next time."
+  - "The market moved against us."
+  - "Sentiment was wrong."
+  - "Risk management failed."
+
+BAD (too specific, will never match again):
+  - "Lost on KXNFL-2025-W1-CHIEFS. Should have known."
+</examples>
+
+<output_contract>
+Respond with EXACTLY the JSON object below, no prose before or after. The
+"text" field is what gets embedded and recalled — make it self-contained.
 
 ```json
 {
   "lesson_type": "win_pattern" | "loss_pattern" | "calibration" | "data_quality" | "edge_decay",
-  "text": "<1-3 sentence lesson>",
-  "drivers": ["<top driver>", "<second driver>"],
-  "repeat_advice": "<one short sentence>"
+  "text": "<setup + decision + outcome + driver, 2-4 sentences>",
+  "drivers": ["<top driver>", "<second driver if relevant>"],
+  "repeat_advice": "<one actionable sentence>"
 }
 ```
+
+If the outcome is a scratch / break-even / very small move, still write the
+lesson but use lesson_type = "edge_decay" or "data_quality" as appropriate.
+Do not invent drama that wasn't in the data.
+</output_contract>
 """
 
 
@@ -110,19 +168,50 @@ def _lesson_already_written(session, position_id: str) -> bool:
 def _synthesize_lesson(pos: Position, audit: Optional[DecisionAudit]) -> Optional[Dict[str, Any]]:
     pnl = pos.realized_pnl or 0.0
     outcome = "win" if pnl > 0 else "loss" if pnl < 0 else "scratch"
+    pnl_pct = (pnl / (pos.entry_price * (pos.quantity or 1))) * 100 if pos.entry_price else 0.0
 
     judge = (audit.judge_decision if audit else None) or {}
     evidence = (audit.evidence_pack if audit else None) or {}
 
+    judge_summary = {
+        k: judge.get(k)
+        for k in (
+            "signal",
+            "confidence",
+            "calibrated_probability",
+            "expected_return_pct",
+            "kelly_fraction",
+            "market_edge",
+            "key_factors",
+            "risk_factors",
+            "debate_winner",
+        )
+        if k in judge
+    }
+
     user_msg = (
-        f"Closed position summary:\n"
-        f"  ticker={pos.ticker} category={pos.category} side={pos.side}\n"
-        f"  entry=${pos.entry_price:.2f} current=${pos.current_price or 0:.2f}\n"
-        f"  realized_pnl=${pnl:.2f} ({outcome})\n"
-        f"  opened_at={pos.opened_at} closed_at={pos.closed_at}\n"
-        f"  judge_decision={json.dumps(judge, default=str)[:1500]}\n"
-        f"  evidence_summary={json.dumps(evidence.get('summary', ''))[:500]}\n"
-        f"Write the lesson JSON now."
+        "<closed_position>\n"
+        f"  Ticker: {pos.ticker}\n"
+        f"  Category: {pos.category}\n"
+        f"  Side: {pos.side}\n"
+        f"  Entry: ${pos.entry_price:.2f}   Exit/current: ${pos.current_price or 0:.2f}\n"
+        f"  Quantity: {pos.quantity}\n"
+        f"  Realized P&L: ${pnl:.2f}  ({pnl_pct:+.1f}%)  -> {outcome.upper()}\n"
+        f"  Opened: {pos.opened_at}    Closed: {pos.closed_at}\n"
+        "</closed_position>\n\n"
+        "<judge_decision_at_entry>\n"
+        f"  {json.dumps(judge_summary, default=str, indent=2)[:1500]}\n"
+        "</judge_decision_at_entry>\n\n"
+        "<research_evidence_summary>\n"
+        f"  {json.dumps(evidence.get('summary', ''), default=str)[:500]}\n"
+        f"  Risk flags noted: {evidence.get('risk_flags', [])}\n"
+        f"  Catalysts noted: {evidence.get('catalysts', [])}\n"
+        "</research_evidence_summary>\n\n"
+        "<task>\n"
+        "Synthesize the single most useful lesson the desk should remember\n"
+        "when it sees a similar setup again. Follow the SETUP -> DECISION ->\n"
+        "OUTCOME -> DRIVER structure. Output the JSON object only, no prose.\n"
+        "</task>"
     )
 
     try:

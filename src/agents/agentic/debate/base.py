@@ -15,25 +15,36 @@ logger = get_logger(__name__)
 
 
 def _evidence_to_text(pack: EvidencePack) -> str:
+    """Render an EvidencePack as a compact XML-tagged block for debate agents."""
     bits = [
-        f"Ticker: {pack.ticker}",
-        f"Summary: {pack.summary}",
-        f"Market-implied: {pack.market_implied_pct}%",
-        f"Base rate: {pack.base_rate_pct}%",
-        f"Estimated edge: {pack.edge_estimate_pct}%",
-        f"Researcher confidence in evidence: {pack.confidence_in_evidence:.2f}",
+        "<evidence_pack>",
+        f"  Ticker: {pack.ticker}",
+        f"  Summary: {pack.summary}",
+        f"  Market-implied p(YES): {pack.market_implied_pct}%",
+        f"  Researcher base rate: {pack.base_rate_pct}%",
+        f"  Researcher edge estimate: {pack.edge_estimate_pct}%",
+        f"  Researcher confidence: {pack.confidence_in_evidence:.2f}",
         "",
-        "Bull case points:",
-        *[f"  - {p}" for p in pack.bull_case_points],
-        "Bear case points:",
-        *[f"  - {p}" for p in pack.bear_case_points],
-        "Catalysts: " + "; ".join(pack.catalysts),
-        "Risk flags: " + "; ".join(pack.risk_flags),
+        "  <bull_case_points>",
+        *[f"    - {p}" for p in pack.bull_case_points],
+        "  </bull_case_points>",
+        "  <bear_case_points>",
+        *[f"    - {p}" for p in pack.bear_case_points],
+        "  </bear_case_points>",
+        "  <catalysts>" + "; ".join(pack.catalysts) + "</catalysts>",
+        "  <risk_flags>" + "; ".join(pack.risk_flags) + "</risk_flags>",
     ]
     if pack.news_highlights:
-        bits.append("News highlights:")
+        bits.append("  <news_highlights>")
         for n in pack.news_highlights[:5]:
-            bits.append(f"  - {n}")
+            bits.append(f"    - {n}")
+        bits.append("  </news_highlights>")
+    if pack.related_markets:
+        bits.append("  <related_markets>")
+        for r in pack.related_markets[:5]:
+            bits.append(f"    - {r}")
+        bits.append("  </related_markets>")
+    bits.append("</evidence_pack>")
     return "\n".join(bits)
 
 
@@ -72,22 +83,39 @@ def run_debate_role(
     if recalled_lessons:
         lines = []
         for l in recalled_lessons[:5]:
-            lines.append(f"- [{l.lesson_type} sim={l.similarity:.2f}] {l.snippet[:200]}")
-        lessons_block = "\n\nRELEVANT PAST LESSONS:\n" + "\n".join(lines)
+            outcome = (
+                f"won ${l.outcome_pnl:.2f}" if (l.outcome_pnl or 0) > 0
+                else f"lost ${abs(l.outcome_pnl):.2f}" if (l.outcome_pnl or 0) < 0
+                else "open/scratch"
+            )
+            lines.append(
+                f"  - [{l.lesson_type}, sim={l.similarity:.2f}, {outcome}] {l.snippet[:200]}"
+            )
+        lessons_block = (
+            "\n\n<past_lessons_for_similar_setups>\n"
+            + "\n".join(lines)
+            + "\n</past_lessons_for_similar_setups>"
+        )
 
     user = (
-        f"EVIDENCE PACK:\n{_evidence_to_text(pack)}{lessons_block}\n\n"
-        "Write your argument, then end your response with a JSON object on its own line, "
-        "wrapped in ```json fences, with this exact schema:\n\n"
+        f"{_evidence_to_text(pack)}{lessons_block}\n\n"
+        "<task>\n"
+        "Write your argument as 1-2 focused paragraphs. Anchor every claim in the\n"
+        "evidence pack or past lessons. Do not invent facts.\n\n"
+        "Then end your response with a JSON object inside ```json fences. The JSON\n"
+        "must be valid and exactly match this schema (no extra fields):\n\n"
         "```json\n"
         "{\n"
         '  "stance": "LONG" | "SHORT" | "NO_TRADE" | "BLOCK" | "PROCEED",\n'
-        '  "probability_estimate": <0..1>,\n'
-        '  "argument": "<one paragraph>",\n'
-        '  "key_points": ["...", "..."],\n'
-        '  "counters": ["...", "..."]\n'
+        '  "probability_estimate": <number between 0.0 and 1.0, your honest p(YES)>,\n'
+        '  "argument": "<your strongest 2-3 sentence case>",\n'
+        '  "key_points": ["<concrete point 1>", "<concrete point 2>", ...],\n'
+        '  "counters": ["<strongest opposing arg + how you address it>", ...]\n'
         "}\n"
-        "```\n"
+        "```\n\n"
+        "Reminder: NO_TRADE is the correct stance when the evidence does not\n"
+        "support YOUR assigned role. Do not fabricate edge.\n"
+        "</task>"
     )
 
     tools = None
