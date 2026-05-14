@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Props {
   onDone: () => void;
@@ -11,27 +11,54 @@ interface Props {
  * telemetry vitals snap into place, and then the HUD takes over.
  *
  * Total runtime ~4.2s. Calls onDone() at the end.
+ *
+ * Implementation note: `onDone` is stored in a ref and the phase-advancing
+ * effect has an EMPTY dependency array. Otherwise — because the parent
+ * re-renders frequently (telemetry polling, age ticker) — a new inline
+ * `onDone` arrow each render would invalidate the effect and cancel the
+ * pending phase timers before they fire, leaving the intro frozen on phase 1
+ * (a red horizon line with corner brackets and nothing else).
  */
 export function IntroSequence({ onDone }: Props) {
   const [phase, setPhase] = useState<0 | 1 | 2 | 3 | 4>(0);
 
+  // Keep the latest onDone in a ref so the timer effect's deps stay stable.
+  const onDoneRef = useRef(onDone);
+  useEffect(() => {
+    onDoneRef.current = onDone;
+  }, [onDone]);
+
+  // Single source of truth for the phase timeline. Runs once on mount.
   useEffect(() => {
     const t1 = setTimeout(() => setPhase(1), 350);
     const t2 = setTimeout(() => setPhase(2), 1300);
     const t3 = setTimeout(() => setPhase(3), 2300);
     const t4 = setTimeout(() => setPhase(4), 3500);
-    const t5 = setTimeout(() => onDone(), 4200);
+    const t5 = setTimeout(() => onDoneRef.current(), 4200);
     return () => [t1, t2, t3, t4, t5].forEach(clearTimeout);
-  }, [onDone]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Defensive escape hatches: click anywhere or press Escape / Space / Enter
+  // to skip straight to the dashboard. Useful if anything ever stalls again.
+  useEffect(() => {
+    const skip = () => onDoneRef.current();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" || e.key === " " || e.key === "Enter") skip();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-ink-950 overflow-hidden"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-ink-950 overflow-hidden cursor-pointer"
       initial={{ opacity: 1 }}
       animate={{ opacity: phase >= 4 ? 0 : 1 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
+      onClick={() => onDoneRef.current()}
       onAnimationComplete={() => {
-        if (phase >= 4) onDone();
+        if (phase >= 4) onDoneRef.current();
       }}
     >
       {/* Letterbox bars */}
@@ -171,6 +198,16 @@ export function IntroSequence({ onDone }: Props) {
           transition={{ duration: 0.5, delay: 0.05 * i, ease: "easeOut" }}
         />
       ))}
+
+      {/* Skip hint */}
+      <motion.div
+        className="absolute bottom-3 inset-x-0 text-center hud-label text-f1-chalk/40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: phase >= 1 ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+      >
+        CLICK · SPACE · ESC&nbsp;&nbsp;TO ENTER PIT
+      </motion.div>
     </motion.div>
   );
 }

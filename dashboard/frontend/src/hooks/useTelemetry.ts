@@ -31,9 +31,11 @@ export function useTelemetry(intervalMs = 2500): State {
 
     pull();
     const id = setInterval(pull, intervalMs);
+    // 1 Hz is enough to drive the "stale feed" indicator without forcing the
+    // whole app to re-render four times a second.
     const aid = setInterval(
       () => setAgeMs(Date.now() - lastFetchRef.current),
-      250,
+      1000,
     );
     return () => {
       cancelled = true;
