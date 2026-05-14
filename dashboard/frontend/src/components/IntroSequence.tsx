@@ -1,46 +1,57 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { IntroCircuit } from "./IntroCircuit";
+import { IntroParticles } from "./IntroParticles";
+import { F1Car } from "./F1Car";
+import { useIntroAsset } from "../hooks/useIntroAsset";
 
 interface Props {
   onDone: () => void;
 }
 
 /**
- * Cinematic intro sequence inspired by the F1 movie opening: a single horizon
- * line opens into a widescreen black frame, the system identifier types in,
- * telemetry vitals snap into place, and then the HUD takes over.
+ * Cinematic intro inspired by the F1-movie Silverstone opening:
  *
- * Total runtime ~4.2s. Calls onDone() at the end.
+ *   phase 0  black + letterbox close-in
+ *   phase 1  wide circuit establishing shot, Ferrari idling on the line
+ *   phase 2  the Ferrari LAUNCHES — drives across frame, camera tracks &
+ *            pushes in, tyre smoke + sparks + speed streaks build
+ *   phase 3  speed peak → whip-blur → KALSHI · PIT WALL title slams in
+ *   phase 4  telemetry vitals snap into place
+ *   phase 5  grade deepens, fade to the live HUD
  *
- * Implementation note: `onDone` is stored in a ref and the phase-advancing
- * effect has an EMPTY dependency array. Otherwise — because the parent
- * re-renders frequently (telemetry polling, age ticker) — a new inline
- * `onDone` arrow each render would invalidate the effect and cancel the
- * pending phase timers before they fire, leaving the intro frozen on phase 1
- * (a red horizon line with corner brackets and nothing else).
+ * If a real hero asset exists at /public/intro/hero.{mp4,webm,jpg,png} it is
+ * composited as the photoreal hero layer in place of the built 2.5D circuit
+ * (see useIntroAsset). Total runtime ~6s; click / Space / Esc skips.
+ *
+ * `onDone` is stored in a ref so the phase-timer effect can keep an EMPTY
+ * dependency array — otherwise frequent parent re-renders would replace the
+ * callback and cancel the pending phase timers, freezing the intro.
  */
 export function IntroSequence({ onDone }: Props) {
-  const [phase, setPhase] = useState<0 | 1 | 2 | 3 | 4>(0);
+  const [phase, setPhase] = useState<0 | 1 | 2 | 3 | 4 | 5>(0);
+  const { asset } = useIntroAsset();
 
-  // Keep the latest onDone in a ref so the timer effect's deps stay stable.
   const onDoneRef = useRef(onDone);
   useEffect(() => {
     onDoneRef.current = onDone;
   }, [onDone]);
 
-  // Single source of truth for the phase timeline. Runs once on mount.
+  // Phase timeline. Runs once on mount.
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 350);
-    const t2 = setTimeout(() => setPhase(2), 1300);
-    const t3 = setTimeout(() => setPhase(3), 2300);
-    const t4 = setTimeout(() => setPhase(4), 3500);
-    const t5 = setTimeout(() => onDoneRef.current(), 4200);
-    return () => [t1, t2, t3, t4, t5].forEach(clearTimeout);
+    const timers = [
+      setTimeout(() => setPhase(1), 450),
+      setTimeout(() => setPhase(2), 1900),
+      setTimeout(() => setPhase(3), 3400),
+      setTimeout(() => setPhase(4), 4500),
+      setTimeout(() => setPhase(5), 5500),
+      setTimeout(() => onDoneRef.current(), 6100),
+    ];
+    return () => timers.forEach(clearTimeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Defensive escape hatches: click anywhere or press Escape / Space / Enter
-  // to skip straight to the dashboard. Useful if anything ever stalls again.
+  // Click / Space / Esc / Enter skips straight to the dashboard.
   useEffect(() => {
     const skip = () => onDoneRef.current();
     const onKey = (e: KeyboardEvent) => {
@@ -50,69 +61,186 @@ export function IntroSequence({ onDone }: Props) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Derived motion drivers.
+  const launching = phase >= 2;
+  const drive = phase >= 3 ? 1 : phase === 2 ? 0.55 : 0;
+  const intensity = phase >= 3 ? 1 : phase === 2 ? 0.7 : 0.06;
+  const titleIn = phase >= 3;
+  const vitalsIn = phase >= 4;
+  const fading = phase >= 5;
+
+  // Subtle hand-held camera shake while the car is on the move.
+  const shake = useMemo(() => {
+    if (!launching || fading) return { x: 0, y: 0 };
+    return { x: [0, -3, 2, -2, 1, 0], y: [0, 2, -2, 1, -1, 0] };
+  }, [launching, fading]);
+
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-ink-950 overflow-hidden cursor-pointer"
+      className="fixed inset-0 z-[100] overflow-hidden bg-black cursor-pointer select-none"
       initial={{ opacity: 1 }}
-      animate={{ opacity: phase >= 4 ? 0 : 1 }}
+      animate={{ opacity: fading ? 0 : 1 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
       onClick={() => onDoneRef.current()}
       onAnimationComplete={() => {
-        if (phase >= 4) onDoneRef.current();
+        if (fading) onDoneRef.current();
       }}
     >
-      {/* Letterbox bars */}
+      {/* ===== CAMERA RIG (everything that shakes / pushes in) ===== */}
       <motion.div
-        className="absolute inset-x-0 top-0 bg-black"
-        initial={{ height: "50%" }}
-        animate={{ height: phase >= 4 ? "0%" : "12%" }}
-        transition={{ duration: 1.0, ease: [0.83, 0, 0.17, 1] }}
-      />
-      <motion.div
-        className="absolute inset-x-0 bottom-0 bg-black"
-        initial={{ height: "50%" }}
-        animate={{ height: phase >= 4 ? "0%" : "12%" }}
-        transition={{ duration: 1.0, ease: [0.83, 0, 0.17, 1] }}
-      />
-
-      {/* Red horizon line */}
-      <motion.div
-        className="absolute left-0 right-0 mx-auto h-[2px] bg-f1-red shadow-[0_0_30px_0_rgba(225,6,0,0.9)]"
-        style={{ top: "50%" }}
-        initial={{ width: "0%", opacity: 0 }}
+        className="absolute inset-0"
         animate={{
-          width: phase >= 1 ? (phase >= 3 ? "100%" : "70%") : "0%",
-          opacity: phase >= 1 ? 1 : 0,
+          scale: launching ? 1.12 : 1.02,
+          x: shake.x,
+          y: shake.y,
         }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-      />
+        transition={{
+          scale: { duration: 2.4, ease: [0.16, 1, 0.3, 1] },
+          x: { duration: 0.5, repeat: launching && !fading ? Infinity : 0 },
+          y: { duration: 0.5, repeat: launching && !fading ? Infinity : 0 },
+        }}
+      >
+        {/* --- HERO LAYER: real asset if present, else built circuit --- */}
+        <motion.div
+          className="absolute inset-0"
+          initial={{ opacity: 0, scale: 1.06 }}
+          animate={{ opacity: phase >= 1 ? 1 : 0, scale: 1 }}
+          transition={{ duration: 1.0, ease: "easeOut" }}
+        >
+          {asset.kind === "video" && (
+            <video
+              src={asset.src}
+              className="absolute inset-0 h-full w-full object-cover"
+              autoPlay
+              muted
+              playsInline
+              loop
+            />
+          )}
+          {asset.kind === "image" && (
+            <motion.img
+              src={asset.src}
+              className="absolute inset-0 h-full w-full object-cover"
+              initial={{ scale: 1.0 }}
+              animate={{ scale: 1.14 }}
+              transition={{ duration: 6, ease: "linear" }}
+            />
+          )}
+          {asset.kind === "none" && <IntroCircuit drive={drive} />}
+        </motion.div>
 
-      {/* Speedlines flying past */}
-      {phase >= 2 && (
-        <div className="speedlines absolute inset-y-1/2 left-0 right-0 h-24">
-          {[...Array(7)].map((_, i) => (
-            <span
-              key={i}
+        {/* --- THE FERRARI (only on the built scene) --- */}
+        {asset.kind === "none" && (
+          <motion.div
+            className="absolute"
+            style={{ width: "46vw", bottom: "21%" }}
+            initial={{ x: "-22vw", scale: 0.62, opacity: 0 }}
+            animate={{
+              x: launching ? "128vw" : "4vw",
+              scale: launching ? 1.05 : 0.66,
+              opacity: phase >= 1 ? 1 : 0,
+            }}
+            transition={{
+              x: {
+                duration: launching ? 1.9 : 0.9,
+                ease: launching ? [0.42, 0, 0.78, 1] : "easeOut",
+              },
+              scale: { duration: launching ? 1.9 : 0.9, ease: "easeOut" },
+              opacity: { duration: 0.5 },
+            }}
+          >
+            {/* body bob/shake under load */}
+            <motion.div
+              animate={
+                launching && !fading
+                  ? { y: [0, -3, 2, -1, 0], rotate: [0, -0.6, 0.4, -0.3, 0] }
+                  : { y: 0, rotate: 0 }
+              }
+              transition={{ duration: 0.32, repeat: launching && !fading ? Infinity : 0 }}
+            >
+              <F1Car intensity={intensity} className="w-full h-auto" />
+            </motion.div>
+            {/* motion-blur smear that grows with launch */}
+            <motion.div
+              className="absolute inset-0 -z-10"
+              animate={{ opacity: launching ? 0.5 : 0 }}
+              transition={{ duration: 0.6 }}
               style={{
-                top: `${i * 4 - 8}px`,
-                animationDelay: `${i * 0.18}s`,
+                background:
+                  "linear-gradient(90deg, rgba(229,16,9,0.0) 0%, rgba(20,20,24,0.55) 60%, rgba(229,16,9,0.0) 100%)",
+                filter: "blur(14px)",
               }}
             />
-          ))}
-        </div>
-      )}
+          </motion.div>
+        )}
 
-      {/* Center identifier */}
-      <div className="relative z-10 flex flex-col items-center gap-3">
+        {/* --- PARTICLE LAYER (smoke / sparks / streaks) --- */}
+        <IntroParticles intensity={intensity} carX={0.42} carY={0.78} />
+
+        {/* --- SPEED BLUR on the whip transition into the title --- */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: phase === 3 ? [0, 0.85, 0] : 0 }}
+          transition={{ duration: 0.7, times: [0, 0.4, 1] }}
+          style={{
+            background:
+              "repeating-linear-gradient(90deg, rgba(255,255,255,0.0) 0px, rgba(255,255,255,0.18) 2px, rgba(255,255,255,0.0) 7px)",
+          }}
+        />
+      </motion.div>
+
+      {/* ===== CINEMATIC GRADE ===== */}
+      {/* film grain */}
+      <div className="intro-grain absolute inset-0 pointer-events-none opacity-[0.07]" />
+      {/* naturalistic LUT-ish wash: cool shadows, warm highlight bloom */}
+      <div
+        className="absolute inset-0 pointer-events-none mix-blend-soft-light"
+        style={{
+          background:
+            "radial-gradient(120% 90% at 70% 18%, rgba(255,236,200,0.28), rgba(255,236,200,0) 55%), linear-gradient(180deg, rgba(40,60,80,0.22), rgba(10,12,18,0.42))",
+        }}
+      />
+      {/* vignette */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(130% 100% at 50% 46%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.62) 100%)",
+        }}
+      />
+      {/* grade deepens toward the HUD handoff */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none bg-ink-950"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: titleIn ? (fading ? 0.96 : 0.55) : 0 }}
+        transition={{ duration: 0.9, ease: "easeInOut" }}
+      />
+
+      {/* ===== LETTERBOX ===== */}
+      <motion.div
+        className="absolute inset-x-0 top-0 bg-black z-20"
+        initial={{ height: "50%" }}
+        animate={{ height: fading ? "0%" : "11%" }}
+        transition={{ duration: 1.0, ease: [0.83, 0, 0.17, 1] }}
+      />
+      <motion.div
+        className="absolute inset-x-0 bottom-0 bg-black z-20"
+        initial={{ height: "50%" }}
+        animate={{ height: fading ? "0%" : "11%" }}
+        transition={{ duration: 1.0, ease: [0.83, 0, 0.17, 1] }}
+      />
+
+      {/* ===== TITLE ===== */}
+      <div className="absolute inset-0 z-30 flex flex-col items-center justify-center pointer-events-none">
         <AnimatePresence>
-          {phase >= 2 && (
+          {titleIn && (
             <motion.div
-              key="badge"
+              key="title"
               className="flex items-center gap-3"
-              initial={{ y: -12, opacity: 0 }}
+              initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.4 }}
             >
               <span className="rec-dot" />
               <span className="hud-label tracking-[0.5em] text-f1-red">
@@ -124,34 +252,33 @@ export function IntroSequence({ onDone }: Props) {
 
         <motion.div
           className="text-center"
-          initial={{ opacity: 0, scale: 0.94, filter: "blur(8px)" }}
+          initial={{ opacity: 0, x: 120, filter: "blur(22px)" }}
           animate={{
-            opacity: phase >= 2 ? 1 : 0,
-            scale: phase >= 2 ? 1 : 0.94,
-            filter: phase >= 2 ? "blur(0px)" : "blur(8px)",
+            opacity: titleIn ? 1 : 0,
+            x: titleIn ? 0 : 120,
+            filter: titleIn ? "blur(0px)" : "blur(22px)",
           }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="font-display text-[clamp(48px,9vw,168px)] leading-[0.85] tracking-tight text-f1-chalk uppercase">
+          <h1 className="font-display text-[clamp(48px,9vw,168px)] leading-[0.85] tracking-tight uppercase">
             <span className="text-glow-red text-f1-red">KALSHI</span>{" "}
             <span className="text-glow-mint">PIT&nbsp;WALL</span>
           </h1>
-          <div className="hud-label mt-3 text-f1-chalk/70">
-            AGENTIC TRADING TELEMETRY · V1.0 · OPUS&nbsp;4.7 / SONNET&nbsp;4.6 /
-            HAIKU&nbsp;4.5
+          <div className="hud-label mt-3 text-f1-chalk/75">
+            AGENTIC TRADING TELEMETRY · SCUDERIA EDITION · OPUS&nbsp;4.7 /
+            SONNET&nbsp;4.6 / HAIKU&nbsp;4.5
           </div>
         </motion.div>
 
-        {/* Vitals strip */}
         <AnimatePresence>
-          {phase >= 3 && (
+          {vitalsIn && (
             <motion.div
               key="vitals"
-              className="mt-10 flex items-stretch gap-5"
+              className="mt-10 flex items-stretch gap-4"
               initial={{ y: 18, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.45 }}
+              transition={{ duration: 0.4 }}
             >
               {[
                 ["JUDGE", "OPUS 4.7"],
@@ -162,7 +289,7 @@ export function IntroSequence({ onDone }: Props) {
               ].map(([label, value], i) => (
                 <motion.div
                   key={label}
-                  className="hud-panel px-4 py-3 min-w-[150px]"
+                  className="hud-panel px-4 py-3 min-w-[148px]"
                   initial={{ y: 12, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
@@ -178,32 +305,40 @@ export function IntroSequence({ onDone }: Props) {
         </AnimatePresence>
       </div>
 
-      {/* Corner brackets */}
+      {/* ===== HUD CHROME ===== */}
       {(
         [
-          ["top-8 left-8", "border-t-2 border-l-2"],
-          ["top-8 right-8", "border-t-2 border-r-2"],
-          ["bottom-8 left-8", "border-b-2 border-l-2"],
-          ["bottom-8 right-8", "border-b-2 border-r-2"],
+          ["top-[12%] left-8", "border-t-2 border-l-2"],
+          ["top-[12%] right-8", "border-t-2 border-r-2"],
+          ["bottom-[12%] left-8", "border-b-2 border-l-2"],
+          ["bottom-[12%] right-8", "border-b-2 border-r-2"],
         ] as const
       ).map(([pos, dir], i) => (
         <motion.div
           key={pos}
-          className={`absolute ${pos} h-7 w-7 ${dir} border-f1-red`}
+          className={`absolute ${pos} h-7 w-7 ${dir} border-f1-red z-30`}
           initial={{ opacity: 0, scale: 0.5 }}
-          animate={{
-            opacity: phase >= 1 ? 1 : 0,
-            scale: phase >= 1 ? 1 : 0.5,
-          }}
-          transition={{ duration: 0.5, delay: 0.05 * i, ease: "easeOut" }}
+          animate={{ opacity: phase >= 1 && !fading ? 1 : 0, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.05 * i }}
         />
       ))}
 
-      {/* Skip hint */}
+      {/* shooting status, like a viewfinder */}
       <motion.div
-        className="absolute bottom-3 inset-x-0 text-center hud-label text-f1-chalk/40"
+        className="absolute top-[12%] left-1/2 -translate-x-1/2 mt-3 flex items-center gap-2 z-30"
         initial={{ opacity: 0 }}
-        animate={{ opacity: phase >= 1 ? 1 : 0 }}
+        animate={{ opacity: phase >= 1 && !titleIn ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <span className="rec-dot" />
+        <span className="hud-label text-f1-red">REC · CIRCUIT FEED</span>
+      </motion.div>
+
+      {/* skip hint */}
+      <motion.div
+        className="absolute bottom-[12%] inset-x-0 text-center hud-label text-f1-chalk/45 z-30 mb-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: phase >= 1 && !fading ? 1 : 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
         CLICK · SPACE · ESC&nbsp;&nbsp;TO ENTER PIT

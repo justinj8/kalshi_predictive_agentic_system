@@ -219,3 +219,21 @@ body {
   background: #e10600;
   animation: pulseRed 1.6s ease-in-out infinite;
 }
+
+/* ---------- Cinematic film grain (intro) ---------- */
+/* Fractal-noise SVG tile, animated by nudging the background position so the
+   grain shimmers like real film stock. */
+.intro-grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+  animation: grainShift 0.5s steps(4) infinite;
+  will-change: background-position;
+}
+
+@keyframes grainShift {
+  0% { background-position: 0 0; }
+  25% { background-position: -40px 30px; }
+  50% { background-position: 30px -40px; }
+  75% { background-position: -30px -30px; }
+  100% { background-position: 40px 40px; }
+}
