@@ -211,13 +211,16 @@ def run_agent(
 
         # On the LAST allowed iteration, if we have a required final tool and
         # haven't seen it yet, force Claude to call it via tool_choice.
+        # NOTE: Anthropic rejects forced tool_choice in the same request as
+        # extended thinking, so we must drop thinking on the forced-final call.
         tool_choice: Optional[Dict[str, Any]] = None
-        if (
+        forced_final_call = (
             final_tool_name
             and tools_param
             and iteration == max_iterations
             and result.final_tool_use is None
-        ):
+        )
+        if forced_final_call:
             tool_choice = {"type": "tool", "name": final_tool_name}
 
         create_kwargs: Dict[str, Any] = {
@@ -231,7 +234,13 @@ def run_agent(
             create_kwargs["tools"] = tools_param
         if tool_choice:
             create_kwargs["tool_choice"] = tool_choice
-        if thinking_budget_tokens and thinking_budget_tokens > 0:
+        # Extended thinking is incompatible with forced tool_choice; gate it off
+        # on the forced-final iteration so the request doesn't 400.
+        if (
+            thinking_budget_tokens
+            and thinking_budget_tokens > 0
+            and not forced_final_call
+        ):
             create_kwargs["thinking"] = {
                 "type": "enabled",
                 "budget_tokens": thinking_budget_tokens,
@@ -255,8 +264,13 @@ def run_agent(
                 getattr(usage, "cache_creation_input_tokens", 0) or 0
             )
 
-        # Collect tool_use blocks from the assistant turn.
+        # Collect blocks from the assistant turn. We distinguish:
+        #   tool_use         -> client-side tool calls we must execute
+        #   server_tool_use  -> server-handled tool calls (e.g. web_search);
+        #                       the result is already in the same response,
+        #                       so we don't need to feed anything back.
         tool_use_blocks: List[Dict[str, Any]] = []
+        server_tool_use_blocks: List[Dict[str, Any]] = []
         assistant_blocks: List[Dict[str, Any]] = []
         for block in response.content:
             btype = getattr(block, "type", None)
@@ -269,6 +283,8 @@ def run_agent(
                 result.all_tool_uses.append(tu)
                 if final_tool_name and tu.get("name") == final_tool_name:
                     result.final_tool_use = tu
+            elif btype == "server_tool_use":
+                server_tool_use_blocks.append(_block_to_dict(block))
             assistant_blocks.append(_block_to_dict(block))
 
         # Append the assistant message (raw blocks - includes any thinking/text/tool_use).
@@ -281,8 +297,32 @@ def run_agent(
         if final_tool_name and result.final_tool_use is not None:
             break
 
-        # No tool calls -> Claude is done speaking. Terminate.
+        # `pause_turn`: server-side tool (e.g. web_search) is still working and
+        # Claude wants to continue the SAME turn. Re-call the API with the
+        # existing messages — do NOT inject a synthetic user nudge here, since
+        # that would interrupt the paused turn and lose in-flight server work.
+        if result.stop_reason == "pause_turn" and iteration < max_iterations:
+            continue
+
+        # No client tool_use blocks. Decide whether to keep iterating.
         if not tool_use_blocks:
+            # If we still owe a final tool, don't truncate just because a turn
+            # only had text or only had server_tool_use (e.g. web_search). Nudge
+            # Claude to call the final tool and loop. Stop only if we've also
+            # run out of iterations or are not awaiting a final tool.
+            if (
+                final_tool_name
+                and result.final_tool_use is None
+                and iteration < max_iterations
+            ):
+                nudge = (
+                    f"You have not yet called `{final_tool_name}`. "
+                    "If you have gathered enough information, call it now with the "
+                    "structured payload to deliver your final output. If you need more "
+                    "tool calls first, make them now."
+                )
+                working_messages.append({"role": "user", "content": nudge})
+                continue
             break
 
         # Otherwise: execute each local tool call and feed results back.
