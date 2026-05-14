@@ -86,14 +86,15 @@ class PositionManager:
         quantity: int,
         entry_price: float,
         stop_loss: float,
-        take_profit: float
+        take_profit: float,
+        position_id: str = None,
     ) -> Position:
         """Create a new position in the database"""
 
         try:
             session = get_session()
 
-            position_id = f"pos_{uuid.uuid4().hex[:12]}"
+            position_id = position_id or f"pos_{uuid.uuid4().hex[:12]}"
 
             position = Position(
                 position_id=position_id,
@@ -239,7 +240,8 @@ class PositionManager:
                     side=side,
                     quantity=position.quantity,
                     price=int(position.current_price * 100),
-                    order_type="market"
+                    order_type="market",
+                    action="sell",
                 )
                 order_id = order.get("order_id") if order else None
                 filled = order is not None

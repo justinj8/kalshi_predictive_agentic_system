@@ -56,27 +56,28 @@ class ExecutionAgent:
         # Determine side and price
         if signal.signal == "LONG":
             side = "yes"
-            price = market.yes_ask
+            price = sizing.entry_limit_price or market.yes_ask
         else:  # SHORT
             side = "no"
-            price = market.no_ask
+            price = sizing.entry_limit_price or market.no_ask
 
         # Convert price to cents for Kalshi API
         price_cents = int(price * 100)
+        position_id = f"pos_{uuid.uuid4().hex[:12]}"
 
         # Execute based on mode
-        if self.mode == "paper":
+        if settings.trading_mode == "paper":
             result = self._execute_paper_trade(
-                signal, sizing, market, side, price, price_cents
+                signal, sizing, market, side, price, price_cents, position_id
             )
         else:
             result = self._execute_live_trade(
-                signal, sizing, market, side, price, price_cents
+                signal, sizing, market, side, price, price_cents, position_id
             )
 
         # Record trade in database
         if result.success:
-            self._record_trade(signal, sizing, market, result)
+            self._record_trade(signal, sizing, market, result, state.decision_path)
 
         return result
 
@@ -87,7 +88,8 @@ class ExecutionAgent:
         market,
         side: str,
         price: float,
-        price_cents: int
+        price_cents: int,
+        position_id: str,
     ) -> ExecutionResult:
         """Execute trade in paper trading mode (simulation)"""
 
@@ -114,6 +116,7 @@ class ExecutionAgent:
         return ExecutionResult(
             ticker=signal.ticker,
             success=True,
+            position_id=position_id,
             order_id=order_id,
             filled_quantity=filled_quantity,
             filled_price=filled_price,
@@ -128,7 +131,8 @@ class ExecutionAgent:
         market,
         side: str,
         price: float,
-        price_cents: int
+        price_cents: int,
+        position_id: str,
     ) -> ExecutionResult:
         """Execute trade in live trading mode"""
 
@@ -152,6 +156,7 @@ class ExecutionAgent:
                 return ExecutionResult(
                     ticker=signal.ticker,
                     success=False,
+                    position_id=position_id,
                     error_message="Failed to place order - API returned None"
                 )
 
@@ -159,6 +164,14 @@ class ExecutionAgent:
             filled_quantity = order.get("filled_quantity", 0)
             filled_price = order.get("price", 0) / 100.0  # Convert cents to dollars
             total_cost = filled_quantity * filled_price
+            if filled_quantity <= 0:
+                return ExecutionResult(
+                    ticker=signal.ticker,
+                    success=False,
+                    position_id=position_id,
+                    order_id=order.get("order_id"),
+                    error_message="Order placed but not filled; no position opened"
+                )
 
             logger.info(
                 f"[LIVE TRADE] Order placed: {filled_quantity} contracts @ ${filled_price:.2f}",
@@ -168,6 +181,7 @@ class ExecutionAgent:
             return ExecutionResult(
                 ticker=signal.ticker,
                 success=True,
+                position_id=position_id,
                 order_id=order.get("order_id"),
                 filled_quantity=filled_quantity,
                 filled_price=filled_price,
@@ -180,6 +194,7 @@ class ExecutionAgent:
             return ExecutionResult(
                 ticker=signal.ticker,
                 success=False,
+                position_id=position_id,
                 error_message=str(e)
             )
 
@@ -188,15 +203,13 @@ class ExecutionAgent:
         signal: TradingSignal,
         sizing: PositionSizing,
         market,
-        result: ExecutionResult
+        result: ExecutionResult,
+        decision_path: str,
     ):
         """Record trade in database"""
 
         try:
             session = get_session()
-
-            # Generate position ID
-            position_id = f"pos_{uuid.uuid4().hex[:12]}"
 
             trade = Trade(
                 timestamp=datetime.utcnow(),
@@ -213,9 +226,10 @@ class ExecutionAgent:
                 signal_confidence=signal.confidence,
                 entry_reason=signal.reasoning[:500] if signal.reasoning else "",
                 risk_score=100 - signal.confidence,
-                position_id=position_id,
+                position_id=result.position_id,
                 is_entry=True,
-                unrealized_pnl=0.0
+                unrealized_pnl=0.0,
+                decision_path=decision_path,
             )
 
             session.add(trade)

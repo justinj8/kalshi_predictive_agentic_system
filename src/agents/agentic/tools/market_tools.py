@@ -47,10 +47,13 @@ def get_market_orderbook(ticker: str) -> Dict[str, Any]:
         total = 0.0
         for level in side:
             try:
-                # Kalshi format: [price, size]
-                size = float(level[1])
+                # Kalshi format may be [price, size] or {"price": ..., "quantity": ...}.
+                if isinstance(level, dict):
+                    size = float(level.get("quantity", level.get("count", 0)) or 0)
+                else:
+                    size = float(level[1])
                 total += size
-            except (IndexError, TypeError, ValueError):
+            except (IndexError, KeyError, TypeError, ValueError):
                 continue
         return total
 

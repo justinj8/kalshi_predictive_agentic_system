@@ -5,6 +5,7 @@ from typing import Any, Dict
 
 from src.utils.logger import get_logger
 from src.utils.kelly_calculator import kelly_calculator
+from src.utils.kalshi_fees import calculate_fee_adjusted_ev
 
 logger = get_logger(__name__)
 
@@ -48,6 +49,18 @@ def simulate_outcome(
         capital=capital,
         side=side_u,
     )
+    maker_ev = calculate_fee_adjusted_ev(
+        side=side_u,
+        price=price,
+        win_probability=win_probability,
+        fee_type="maker",
+    )
+    taker_ev = calculate_fee_adjusted_ev(
+        side=side_u,
+        price=price,
+        win_probability=win_probability,
+        fee_type="taker",
+    )
 
     return {
         "ok": True,
@@ -57,5 +70,7 @@ def simulate_outcome(
         "ev_per_contract": round(ev_per_contract, 6),
         "variance_per_contract": round(var_per_contract, 6),
         "sharpe_proxy": round(ev_per_contract / max(var_per_contract ** 0.5, 1e-9), 3),
+        "maker_fee_adjusted_ev": maker_ev.__dict__,
+        "taker_fee_adjusted_ev": taker_ev.__dict__,
         "kelly": sizing,
     }

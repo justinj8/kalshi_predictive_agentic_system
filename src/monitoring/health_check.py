@@ -188,13 +188,13 @@ class HealthChecker:
             try:
                 with open("config/trading_policy.yaml", "r") as f:
                     policy = yaml.safe_load(f)
-                max_positions = policy.get("position_management", {}).get("max_concurrent_positions", 3)
+                max_positions = policy.get("risk_management", {}).get("max_concurrent_positions", 3)
             except Exception:
                 max_positions = 3  # Default fallback
             
             # Use get_portfolio_summary which exists in the PositionManager
             summary = position_manager.get_portfolio_summary()
-            position_count = summary.get("total_positions", 0)
+            position_count = summary.get("open_positions", 0)
             
             # Determine status based on capacity
             if position_count >= max_positions:

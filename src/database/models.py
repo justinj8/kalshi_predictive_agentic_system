@@ -4,7 +4,7 @@ Database models for tracking trades, positions, and performance
 from datetime import datetime
 from typing import Optional
 from contextlib import contextmanager
-from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, Boolean, Text, JSON, LargeBinary, Index
+from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, Boolean, Text, JSON, LargeBinary, Index, text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from config.settings import settings
@@ -285,11 +285,65 @@ class PerformanceMetrics(Base):
         return f"<PerformanceMetrics WinRate={self.win_rate:.1f}% PnL=${self.total_pnl:.2f}>"
 
 
+def normalize_database_url(url: str) -> str:
+    """Normalize Railway-style postgres URLs for SQLAlchemy."""
+    if url.startswith("postgres://"):
+        return "postgresql://" + url[len("postgres://"):]
+    return url
+
+
+def _column_exists(conn, table_name: str, column_name: str) -> bool:
+    """Check for a column using dialect-specific metadata queries."""
+    dialect = conn.dialect.name
+    if dialect == "sqlite":
+        rows = conn.execute(text(f"PRAGMA table_info({table_name})")).fetchall()
+        return any(row[1] == column_name for row in rows)
+
+    row = conn.execute(
+        text(
+            """
+            SELECT 1
+            FROM information_schema.columns
+            WHERE table_name = :table_name
+              AND column_name = :column_name
+            LIMIT 1
+            """
+        ),
+        {"table_name": table_name, "column_name": column_name},
+    ).first()
+    return row is not None
+
+
+def run_schema_migrations(engine):
+    """Apply small idempotent migrations for existing SQLite/Postgres databases.
+
+    This complements SQLAlchemy's create_all(), which creates new tables but
+    intentionally does not alter existing tables. Keep this list append-only.
+    """
+    migrations = {
+        "trades": [
+            ("decision_path", "VARCHAR(32) DEFAULT 'agentic_v1'"),
+        ],
+        "trading_sessions": [
+            ("decision_path", "VARCHAR(32) DEFAULT 'agentic_v1'"),
+        ],
+    }
+
+    with engine.begin() as conn:
+        for table_name, columns in migrations.items():
+            for column_name, ddl in columns:
+                if not _column_exists(conn, table_name, column_name):
+                    conn.execute(
+                        text(f"ALTER TABLE {table_name} ADD COLUMN {column_name} {ddl}")
+                    )
+
+
 # Database initialization
 def init_database():
     """Initialize database and create tables"""
-    engine = create_engine(settings.database_url)
+    engine = create_engine(normalize_database_url(settings.database_url))
     Base.metadata.create_all(engine)
+    run_schema_migrations(engine)
     return engine
 
 
@@ -302,7 +356,7 @@ def _get_engine():
     """Get or create the database engine (singleton)"""
     global _engine
     if _engine is None:
-        _engine = create_engine(settings.database_url)
+        _engine = create_engine(normalize_database_url(settings.database_url))
     return _engine
 
 

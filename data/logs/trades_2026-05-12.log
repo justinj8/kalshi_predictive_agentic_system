@@ -1,1 +1,8 @@
 2026-05-12 16:12:33 | INFO     | EDGE CONFIRMED: We estimate 70% vs polymarket at 50%. Edge: +20.0% - proceed with trade.
+2026-05-12 21:23:19 | INFO     | EDGE CONFIRMED: We estimate 70% vs polymarket at 50%. Edge: +20.0% - proceed with trade.
+2026-05-12 21:23:19 | INFO     | Executing LONG trade: 2 contracts of TEST-LINK
+2026-05-12 21:23:19 | INFO     | [PAPER TRADE] LONG: 2 YES contracts of TEST-LINK @ $0.50
+2026-05-12 21:23:19 | INFO     | [PAPER TRADE] Order filled: 2 contracts @ $0.50 = $1.00
+2026-05-12 21:23:19 | INFO     | Trade recorded in database: 1
+2026-05-12 21:23:19 | INFO     | No analysis capacity: Daily trade limit reached (1/1)
+2026-05-12 21:23:19 | ERROR    | Error fetching markets: HTTPSConnectionPool(host='api.elections.kalshi.com', port=443): Max retries exceeded with url: /trade-api/v2/markets?limit=600&status=open (Caused by NameResolutionError("HTTPSConnection(host='api.elections.kalshi.com', port=443): Failed to resolve 'api.elections.kalshi.com' ([Errno 8] nodename nor servname provided, or not known)"))

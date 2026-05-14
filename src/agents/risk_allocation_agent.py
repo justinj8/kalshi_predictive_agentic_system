@@ -10,6 +10,7 @@ from src.utils.kelly_calculator import kelly_calculator
 from src.utils.volatility_analyzer import volatility_analyzer
 from src.utils.market_microstructure import market_microstructure
 from src.utils.correlation_analyzer import correlation_analyzer
+from src.utils.kalshi_fees import calculate_fee_adjusted_ev
 from src.orchestrator.state_models import TradingSignal, PositionSizing, TradingState, MarketAnalysis
 from config.settings import settings
 
@@ -56,12 +57,20 @@ class RiskAllocationAgent:
         # Determine entry price and side
         if signal.signal == "LONG":
             # Buying YES
-            entry_price = market.yes_ask  # We pay the ask
+            quoted_ask = market.yes_ask
             side_str = "YES"
         else:  # SHORT
             # Buying NO
-            entry_price = market.no_ask  # We pay the ask
+            quoted_ask = market.no_ask
             side_str = "NO"
+
+        entry_order_type = "maker_limit" if settings.prefer_maker_orders else "taker_limit"
+        entry_price = self._calculate_entry_limit_price(
+            market_analysis,
+            signal.signal,
+            quoted_ask,
+            entry_order_type,
+        )
 
         # Use Kelly Criterion for position sizing
         # Convert confidence (0-100) to win probability (0-1)
@@ -75,6 +84,40 @@ class RiskAllocationAgent:
             f"Calibrated={calibrated_confidence:.0f}%, Win Probability={win_probability:.2%}, "
             f"Entry=${entry_price:.3f}, Capital=${state.current_balance:.2f}"
         )
+
+        fee_type = "maker" if entry_order_type == "maker_limit" else "taker"
+        fee_ev = calculate_fee_adjusted_ev(
+            side=side_str,
+            price=entry_price,
+            win_probability=win_probability,
+            fee_type=fee_type,
+        )
+        if fee_ev.net_ev_per_contract < settings.min_fee_adjusted_ev_per_contract:
+            logger.info(
+                f"Skipping size for {signal.ticker}: fee-adjusted EV "
+                f"${fee_ev.net_ev_per_contract:.4f}/contract below "
+                f"${settings.min_fee_adjusted_ev_per_contract:.4f} threshold"
+            )
+            return PositionSizing(
+                ticker=signal.ticker,
+                signal=signal.signal,
+                recommended_size=0,
+                risk_amount=0.0,
+                max_loss=0.0,
+                position_value=0.0,
+                stop_loss_price=0.0,
+                take_profit_price=0.0,
+                risk_reward_ratio=0.0,
+                reasoning=(
+                    "No position: fee-adjusted expected value is below the "
+                    "minimum threshold after Kalshi trading fees."
+                ),
+                estimated_fees=fee_ev.fee_per_contract,
+                fee_adjusted_ev_per_contract=fee_ev.net_ev_per_contract,
+                fee_adjusted_ev_pct=fee_ev.net_ev_pct_of_cost,
+                entry_order_type=entry_order_type,
+                entry_limit_price=entry_price,
+            )
 
         # Calculate Kelly optimal size
         kelly_result = kelly_calculator.calculate_position_size(
@@ -226,8 +269,17 @@ class RiskAllocationAgent:
                 state.current_balance,
                 risk_reward_ratio,
                 kelly_pct,
-                win_probability
-            )
+                win_probability,
+                fee_ev.fee_per_contract * quantity,
+                fee_ev.net_ev_per_contract,
+                fee_ev.net_ev_pct_of_cost,
+                entry_order_type,
+            ),
+            estimated_fees=fee_ev.fee_per_contract * quantity,
+            fee_adjusted_ev_per_contract=fee_ev.net_ev_per_contract,
+            fee_adjusted_ev_pct=fee_ev.net_ev_pct_of_cost,
+            entry_order_type=entry_order_type,
+            entry_limit_price=entry_price,
         )
 
         logger.info(
@@ -236,6 +288,29 @@ class RiskAllocationAgent:
         )
 
         return sizing
+
+    def _calculate_entry_limit_price(
+        self,
+        market_analysis: MarketAnalysis,
+        signal: str,
+        quoted_ask: float,
+        entry_order_type: str,
+    ) -> float:
+        """Choose maker-first limit price when configured."""
+        if entry_order_type != "maker_limit":
+            return quoted_ask
+
+        market = market_analysis.market
+        tick = max(0.01, settings.maker_price_improvement_cents / 100.0)
+        if signal == "LONG":
+            resting_bid = market.yes_bid
+        else:
+            resting_bid = market.no_bid
+
+        if resting_bid <= 0:
+            return quoted_ask
+
+        return max(0.01, min(0.99, min(quoted_ask, resting_bid + tick)))
 
     def _calculate_stop_loss(
         self,
@@ -290,7 +365,11 @@ class RiskAllocationAgent:
         balance: float,
         risk_reward: float,
         kelly_pct: float,
-        win_probability: float
+        win_probability: float,
+        estimated_fees: float,
+        fee_adjusted_ev_per_contract: float,
+        fee_adjusted_ev_pct: float,
+        entry_order_type: str
     ) -> str:
         """Create human-readable reasoning for position size"""
 
@@ -302,6 +381,9 @@ Position Sizing Analysis (Kelly Criterion):
 - Capital at Risk: ${risk_amount:.2f} ({(risk_amount/balance)*100:.1f}% of portfolio)
 - Portfolio Allocation: {(position_value/balance)*100:.1f}%
 - Risk/Reward Ratio: {risk_reward:.2f}:1
+- Entry Order Type: {entry_order_type}
+- Estimated Entry Fees: ${estimated_fees:.4f}
+- Fee-Adjusted EV: ${fee_adjusted_ev_per_contract:.4f}/contract ({fee_adjusted_ev_pct:.2f}% of cost)
 
 Kelly Criterion Details:
 - Win Probability: {win_probability:.1%}

@@ -223,6 +223,17 @@ class KalshiClientWrapper:
             self.client = None
             self.markets_api = None
 
+    def _mock_allowed(self) -> bool:
+        """Mock data is allowed only outside live trading."""
+        return settings.trading_mode != "live"
+
+    def _raise_if_live_without_api(self, operation: str):
+        if not self._mock_allowed():
+            raise RuntimeError(
+                f"Kalshi {operation} unavailable in live mode. "
+                "Refusing to use mock data."
+            )
+
     def get_all_markets(
         self,
         status: str = "open",
@@ -241,6 +252,7 @@ class KalshiClientWrapper:
         try:
             if self.markets_api is None:
                 # Return mock data for testing
+                self._raise_if_live_without_api("markets API")
                 logger.info("No Kalshi API connection - using mock markets")
                 return self._get_mock_markets()
 
@@ -286,11 +298,13 @@ class KalshiClientWrapper:
                     return markets
             
             # Fall back to mock data if no real markets
+            self._raise_if_live_without_api("markets API returned no liquid markets")
             logger.info("No liquid markets found from Kalshi API - using mock markets")
             return self._get_mock_markets()
 
         except Exception as e:
             logger.error(f"Error fetching markets: {e}")
+            self._raise_if_live_without_api("market fetch")
             return self._get_mock_markets()  # Fall back to mock data
 
     def get_market(self, ticker: str) -> Optional[Dict[str, Any]]:
@@ -306,16 +320,37 @@ class KalshiClientWrapper:
         try:
             if self.client is None:
                 # Return mock data
+                self._raise_if_live_without_api("market detail API")
                 return self._get_mock_market(ticker)
 
             response = self.markets_api.get_market(ticker=ticker)
             
             if hasattr(response, 'market'):
-                return response.market
-            return response.get("market")
+                market = response.market
+            else:
+                market = response.get("market")
+
+            if isinstance(market, dict):
+                return market
+
+            return {
+                "ticker": getattr(market, "ticker", ticker),
+                "title": getattr(market, "title", getattr(market, "subtitle", "")),
+                "category": getattr(market, "category", "other"),
+                "yes_bid": getattr(market, "yes_bid", 0) or 0,
+                "yes_ask": getattr(market, "yes_ask", 0) or 0,
+                "no_bid": getattr(market, "no_bid", 0) or 0,
+                "no_ask": getattr(market, "no_ask", 0) or 0,
+                "volume_24h": getattr(market, "volume_24h", getattr(market, "volume", 0)) or 0,
+                "open_interest": getattr(market, "open_interest", 0) or 0,
+                "close_date": getattr(market, "close_time", getattr(market, "expiration_time", "")),
+                "status": getattr(market, "status", "open"),
+            }
 
         except Exception as e:
             logger.error(f"Error fetching market {ticker}: {e}")
+            if not self._mock_allowed():
+                raise
             return None
 
     def get_orderbook(self, ticker: str) -> Optional[Dict[str, Any]]:
@@ -330,6 +365,7 @@ class KalshiClientWrapper:
         """
         try:
             if self.client is None:
+                self._raise_if_live_without_api("orderbook API")
                 return self._get_mock_orderbook(ticker)
 
             response = self.client.get_market_orderbook(ticker=ticker)
@@ -337,6 +373,8 @@ class KalshiClientWrapper:
 
         except Exception as e:
             logger.error(f"Error fetching orderbook for {ticker}: {e}")
+            if not self._mock_allowed():
+                raise
             return None
 
     def get_trades(self, ticker: str, limit: int = 100) -> List[Dict[str, Any]]:
@@ -352,6 +390,7 @@ class KalshiClientWrapper:
         """
         try:
             if self.client is None:
+                self._raise_if_live_without_api("trades API")
                 return self._get_mock_trades(ticker)
 
             response = self.client.get_trades(
@@ -362,6 +401,8 @@ class KalshiClientWrapper:
 
         except Exception as e:
             logger.error(f"Error fetching trades for {ticker}: {e}")
+            if not self._mock_allowed():
+                raise
             return []
 
     def place_order(
@@ -370,7 +411,8 @@ class KalshiClientWrapper:
         side: str,
         quantity: int,
         price: int,
-        order_type: str = "limit"
+        order_type: str = "limit",
+        action: str = "buy",
     ) -> Optional[Dict[str, Any]]:
         """
         Place an order on Kalshi
@@ -388,7 +430,7 @@ class KalshiClientWrapper:
         try:
             if settings.trading_mode == "paper":
                 logger.info(
-                    f"[PAPER TRADE] Would place {side.upper()} order: "
+                    f"[PAPER TRADE] Would place {action.upper()} {side.upper()} order: "
                     f"{quantity} contracts of {ticker} at ${price/100:.2f}"
                 )
                 return self._create_mock_order(ticker, side, quantity, price)
@@ -401,7 +443,7 @@ class KalshiClientWrapper:
                 ticker=ticker,
                 client_order_id=f"order_{int(time.time())}",
                 side=side,
-                action="buy",
+                action=action,
                 count=quantity,
                 type=order_type,
                 yes_price=price if side == "yes" else None,
@@ -422,6 +464,7 @@ class KalshiClientWrapper:
         """Get current portfolio positions"""
         try:
             if self.client is None:
+                self._raise_if_live_without_api("portfolio API")
                 return self._get_mock_portfolio()
 
             response = self.client.get_portfolio()
@@ -429,6 +472,8 @@ class KalshiClientWrapper:
 
         except Exception as e:
             logger.error(f"Error fetching portfolio: {e}")
+            if not self._mock_allowed():
+                raise
             return {"positions": [], "balance": 0}
 
     # Mock data methods for testing without API keys
@@ -634,4 +679,5 @@ class KalshiClientWrapper:
 
 
 # Global client instance
+KalshiClient = KalshiClientWrapper
 kalshi_client = KalshiClientWrapper()

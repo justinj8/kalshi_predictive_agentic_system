@@ -81,6 +81,11 @@ class PositionSizing(BaseModel):
     take_profit_price: float
     risk_reward_ratio: float
     reasoning: str
+    estimated_fees: float = 0.0
+    fee_adjusted_ev_per_contract: float = 0.0
+    fee_adjusted_ev_pct: float = 0.0
+    entry_order_type: Literal["maker_limit", "taker_limit"] = "maker_limit"
+    entry_limit_price: float = 0.0
 
 
 class PolicyDecision(BaseModel):
@@ -98,6 +103,7 @@ class ExecutionResult(BaseModel):
     """Result from Execution Agent"""
     ticker: str
     success: bool
+    position_id: Optional[str] = None
     order_id: Optional[str] = None
     filled_quantity: int = 0
     filled_price: float = 0.0
@@ -227,6 +233,7 @@ class TradingState(BaseModel):
 
     # Market scanning results
     all_markets: List[MarketData] = Field(default_factory=list)
+    filtered_markets: List[MarketData] = Field(default_factory=list)
     markets_scanned: int = 0
 
     # Top opportunities identified
@@ -272,6 +279,8 @@ class TradingState(BaseModel):
     trades_executed: int = 0
     trades_blocked: int = 0
     opportunities_found: int = 0
+    markets_analyzed: int = 0
+    llm_calls_used: int = 0
     bonds_executed: int = 0
     arbitrages_executed: int = 0
 

@@ -20,6 +20,8 @@ from src.agents.execution_agent import execution_agent
 from src.agents.position_manager import position_manager
 from src.agents.bonding_strategy_agent import bonding_agent
 from src.agents.arbitrage_detector import arbitrage_detector
+from src.utils.edge_decay_tracker import edge_decay_tracker
+from src.utils.external_odds_comparison import validate_edge_before_trading
 from src.database.models import TradingSession, DecisionAudit, get_session, get_db_session
 from config.settings import settings
 
@@ -228,6 +230,8 @@ class TradingOrchestrator:
                 "bonds_executed": get_state_attr(final_state, 'bonds_executed', 0),
                 "arbitrages_executed": get_state_attr(final_state, 'arbitrages_executed', 0),
                 "trades_blocked": get_state_attr(final_state, 'trades_blocked', 0),
+                "markets_analyzed": get_state_attr(final_state, 'markets_analyzed', 0),
+                "llm_calls_used": get_state_attr(final_state, 'llm_calls_used', 0),
                 "errors": get_state_attr(final_state, 'errors', []),
                 "warnings": get_state_attr(final_state, 'warnings', []),
                 # Include opportunity details for summary display
@@ -297,7 +301,7 @@ class TradingOrchestrator:
         # Convert opportunities to proper format
         bonding_opps = state.debug_info.get('bonding_opportunities', [])
         if bonding_opps:
-            from src.orchestrator.state_models import BondingOpportunity
+            from src.orchestrator.state_models import BondingOpportunity, MarketAnalysis
             state.bonding_opportunities = [
                 BondingOpportunity(
                     market=opp['market'],
@@ -312,6 +316,18 @@ class TradingOrchestrator:
                 )
                 for opp in bonding_opps
             ]
+
+            # Bonding candidates often fail the normal probability filter by
+            # design, so place them ahead of ordinary candidates for analysis.
+            existing = {opp.market.ticker for opp in state.top_opportunities}
+            bond_analyses = [
+                MarketAnalysis(market=opp.market)
+                for opp in state.bonding_opportunities
+                if opp.market.ticker not in existing
+            ]
+            if bond_analyses:
+                state.top_opportunities = bond_analyses + state.top_opportunities
+                state.opportunities_found = len(state.top_opportunities)
 
         return state
 
@@ -348,10 +364,21 @@ class TradingOrchestrator:
         """Select next opportunity to analyze"""
         logger.info("Node: Selecting Opportunity")
 
+        capacity_ok, capacity_reason = self._has_capacity_for_analysis(state)
+        if not capacity_ok:
+            logger.info(f"No analysis capacity: {capacity_reason}")
+            state.warnings.append(capacity_reason)
+            state.current_market = None
+            state.top_opportunities = []
+            return state
+
         # If top_opportunities is empty, populate it
-        if not state.top_opportunities and state.all_markets:
-            # Rank markets
-            top_markets = market_data_fetcher._rank_markets(state.all_markets, top_n=10)
+        if not state.top_opportunities and state.filtered_markets:
+            # Rank only markets that passed policy filters.
+            top_markets = market_data_fetcher._rank_markets(
+                state.filtered_markets,
+                top_n=settings.max_markets_per_cycle,
+            )
 
             # Create MarketAnalysis objects (without enrichment yet)
             from src.orchestrator.state_models import MarketAnalysis
@@ -397,13 +424,26 @@ class TradingOrchestrator:
         if not state.current_market:
             return state
 
+        capacity_ok, capacity_reason = self._has_capacity_for_analysis(state)
+        if not capacity_ok:
+            logger.info(f"Skipping signal generation: {capacity_reason}")
+            state.trading_signal = self._no_trade_signal(
+                state.current_market.market.ticker,
+                capacity_reason,
+            )
+            return state
+
+        state.markets_analyzed += 1
+
         if settings.agentic_decision_path:
             self._run_agentic_decision(state)
+            state.llm_calls_used += 5
             # Optional shadow run of legacy pipeline for comparison.
             if settings.shadow_legacy:
                 try:
                     legacy_signal = signal_agent.generate_signal(state.current_market, state)
                     state.legacy_signal_shadow = legacy_signal
+                    state.llm_calls_used += 1
                 except Exception as exc:
                     logger.warning(f"Legacy shadow signal failed: {exc}")
         else:
@@ -411,6 +451,9 @@ class TradingOrchestrator:
             state.decision_path = "legacy"
             signal = signal_agent.generate_signal(state.current_market, state)
             state.trading_signal = signal
+            state.llm_calls_used += 1
+
+        self._record_edge_for_signal(state)
 
         return state
 
@@ -601,6 +644,8 @@ class TradingOrchestrator:
                 state.current_market,
                 state,
             )
+            if ok:
+                ok, reason = self._edge_external_fee_gate(state)
             from src.orchestrator.state_models import PolicyDecision
             state.policy_decision = PolicyDecision(
                 ticker=state.trading_signal.ticker,
@@ -654,7 +699,8 @@ class TradingOrchestrator:
                     quantity=result.filled_quantity,
                     entry_price=result.filled_price,
                     stop_loss=state.position_sizing.stop_loss_price,
-                    take_profit=state.position_sizing.take_profit_price
+                    take_profit=state.position_sizing.take_profit_price,
+                    position_id=result.position_id,
                 )
 
                 # Update balance
@@ -711,6 +757,109 @@ class TradingOrchestrator:
 
         return "trade"
 
+    def _has_capacity_for_analysis(self, state: TradingState) -> tuple[bool, str]:
+        """Avoid LLM spend when deterministic caps already prevent trading."""
+        if state.daily_trades >= settings.max_daily_trades:
+            return False, f"Daily trade limit reached ({state.daily_trades}/{settings.max_daily_trades})"
+
+        max_positions = 5
+        try:
+            max_positions = int(
+                policy_agent.policy.get("risk_management", {}).get(
+                    "max_concurrent_positions", max_positions
+                )
+            )
+        except Exception:
+            pass
+        if state.open_positions >= max_positions:
+            return False, f"Maximum concurrent positions reached ({state.open_positions}/{max_positions})"
+
+        if state.markets_analyzed >= settings.max_markets_per_cycle:
+            return False, f"Market analysis budget reached ({state.markets_analyzed}/{settings.max_markets_per_cycle})"
+
+        if state.llm_calls_used >= settings.max_llm_calls_per_cycle:
+            return False, f"LLM call budget reached ({state.llm_calls_used}/{settings.max_llm_calls_per_cycle})"
+
+        return True, "capacity available"
+
+    def _record_edge_for_signal(self, state: TradingState) -> None:
+        """Record edge immediately after a directional signal for pre-execution decay checks."""
+        if not (state.current_market and state.trading_signal):
+            return
+        if state.trading_signal.signal == "NO_TRADE":
+            return
+
+        market = state.current_market.market
+        signal = state.trading_signal
+        side_price = market.yes_ask if signal.signal == "LONG" else market.no_ask
+
+        if state.judge_decision and state.judge_decision.calibrated_probability is not None:
+            fair_value = (
+                state.judge_decision.calibrated_probability
+                if signal.signal == "LONG"
+                else 1.0 - state.judge_decision.calibrated_probability
+            )
+        else:
+            fair_value = max(0.0, min(1.0, signal.confidence / 100.0))
+
+        edge_decay_tracker.record_edge(
+            ticker=signal.ticker,
+            signal=signal.signal,
+            our_fair_value=fair_value,
+            market_price=side_price,
+            confidence=signal.confidence,
+            reasoning=signal.market_edge,
+        )
+
+    def _edge_external_fee_gate(self, state: TradingState) -> tuple[bool, str]:
+        """Apply fee-adjusted EV, external consensus, and edge-decay gates."""
+        signal = state.trading_signal
+        sizing = state.position_sizing
+        market = state.current_market.market
+
+        if sizing.fee_adjusted_ev_per_contract < settings.min_fee_adjusted_ev_per_contract:
+            return (
+                False,
+                f"Fee-adjusted EV ${sizing.fee_adjusted_ev_per_contract:.4f}/contract "
+                f"below threshold ${settings.min_fee_adjusted_ev_per_contract:.4f}",
+            )
+
+        proceed, reason, _ = validate_edge_before_trading(
+            ticker=market.ticker,
+            title=market.title,
+            category=market.category,
+            our_confidence=signal.confidence,
+            our_signal=signal.signal,
+        )
+        if not proceed:
+            return False, reason
+
+        current_price = sizing.entry_limit_price or (
+            market.yes_ask if signal.signal == "LONG" else market.no_ask
+        )
+        persistence = edge_decay_tracker.check_edge_persistence(
+            signal.ticker,
+            current_price,
+        )
+        if not persistence.still_valid:
+            return False, persistence.explanation
+
+        if persistence.recommendation == "reduced_size":
+            original_size = sizing.recommended_size
+            sizing.recommended_size = max(1, sizing.recommended_size // 2)
+            sizing.position_value = sizing.recommended_size * (sizing.entry_limit_price or current_price)
+            sizing.estimated_fees = (
+                sizing.estimated_fees * sizing.recommended_size / original_size
+                if original_size > 0
+                else sizing.estimated_fees
+            )
+            logger.info(
+                f"Reduced position size for {signal.ticker}: "
+                f"{original_size} -> {sizing.recommended_size} contracts"
+            )
+
+        return True, "All deterministic, external, fee, and edge-decay gates passed"
+
     def _is_trade_approved(self, state: TradingState) -> str:
         """Check if policy approved the trade"""
         if not state.policy_decision:
@@ -729,8 +878,16 @@ class TradingOrchestrator:
     # Helper methods
     def _get_current_balance(self) -> float:
         """Get current account balance"""
-        # TODO: Get from database/API
-        return settings.starting_capital
+        try:
+            with get_db_session() as session:
+                from src.database.models import Trade
+                entries = session.query(Trade).filter(Trade.is_entry == True).all()
+                exits = session.query(Trade).filter(Trade.is_entry == False).all()
+                cash_spent = sum(t.total_cost or 0.0 for t in entries)
+                cash_received = sum(t.total_cost or 0.0 for t in exits)
+                return settings.starting_capital - cash_spent + cash_received
+        except Exception:
+            return settings.starting_capital
 
     def _get_open_positions_count(self) -> int:
         """Get number of open positions"""

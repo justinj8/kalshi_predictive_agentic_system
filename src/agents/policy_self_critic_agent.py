@@ -137,6 +137,14 @@ class PolicySelfCriticAgent:
         if sizing.recommended_size == 0:
             return False, "Position size is zero"
 
+        # Check fee-adjusted EV
+        if sizing.fee_adjusted_ev_per_contract < settings.min_fee_adjusted_ev_per_contract:
+            return (
+                False,
+                f"Fee-adjusted EV ${sizing.fee_adjusted_ev_per_contract:.4f}/contract "
+                f"below minimum ${settings.min_fee_adjusted_ev_per_contract:.4f}"
+            )
+
         # Check risk/reward ratio
         if sizing.risk_reward_ratio < 1.0:
             return False, f"Risk/reward ratio {sizing.risk_reward_ratio:.2f} is unfavorable (<1.0)"
@@ -144,6 +152,18 @@ class PolicySelfCriticAgent:
         # Check market liquidity
         if market_analysis.market.open_interest < self.policy["risk_management"]["min_market_liquidity"]:
             return False, "Insufficient market liquidity"
+
+        # Check spread before paying fees/slippage
+        spread = (
+            market_analysis.market.yes_ask - market_analysis.market.yes_bid
+            if signal.signal == "LONG"
+            else market_analysis.market.no_ask - market_analysis.market.no_bid
+        )
+        if spread * 100 > settings.order_max_spread_cents:
+            return (
+                False,
+                f"Spread too wide: {spread * 100:.1f}c > {settings.order_max_spread_cents}c"
+            )
 
         # Check if we have capacity for more trades
         if state.daily_trades >= self.policy["risk_management"]["max_daily_trades"]:

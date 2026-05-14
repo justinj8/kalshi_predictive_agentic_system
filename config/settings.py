@@ -72,7 +72,7 @@ class Settings(BaseSettings):
 
     # Agentic core feature flags
     agentic_decision_path: bool = True   # Use multi-agent core; False = legacy
-    shadow_legacy: bool = True           # Also run legacy in shadow mode for comparison
+    shadow_legacy: bool = False          # Also run legacy in shadow mode for comparison
     enable_web_search: bool = True       # Anthropic web_search server tool
     enable_debate: bool = True           # Bull/Bear/Red-Team parallel debate
     enable_memory: bool = True           # Memory + reflection loop
@@ -80,6 +80,8 @@ class Settings(BaseSettings):
     enable_cross_market_scout: bool = True
 
     # Agentic budgets
+    max_markets_per_cycle: int = 3
+    max_llm_calls_per_cycle: int = 18
     max_research_iterations: int = 8
     judge_thinking_budget_tokens: int = 10000
     research_max_tokens: int = 12000
@@ -94,6 +96,19 @@ class Settings(BaseSettings):
     max_daily_trades: int = 5
     max_daily_loss_percent: float = 15.0
     min_market_liquidity: float = 500.0
+
+    # Execution / EV gates
+    prefer_maker_orders: bool = True
+    maker_price_improvement_cents: int = 1
+    order_max_spread_cents: int = 4
+    kalshi_taker_fee_rate: float = 0.07
+    kalshi_maker_fee_rate: float = 0.0175
+    min_fee_adjusted_ev_per_contract: float = 0.005
+
+    # Dashboard
+    dashboard_username: str = "admin"
+    dashboard_password: str = "change-me"
+    dashboard_public_delay_minutes: int = 0
 
     # Computed properties
     @property

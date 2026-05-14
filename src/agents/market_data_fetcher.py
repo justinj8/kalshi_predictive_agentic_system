@@ -10,6 +10,7 @@ from src.utils.news_fetcher import news_fetcher, social_fetcher
 from src.utils.sentiment_analyzer import sentiment_analyzer
 from src.utils.logger import get_logger
 from src.orchestrator.state_models import MarketData, MarketAnalysis, NewsData, SocialData, TradingState
+from config.settings import settings
 
 logger = get_logger(__name__)
 
@@ -80,10 +81,18 @@ class MarketDataFetcher:
 
             # Filter markets based on policy
             filtered_markets = self._filter_markets(markets)
+            state.filtered_markets = filtered_markets
             logger.info(f"Filtered to {len(filtered_markets)} markets meeting policy criteria")
 
             # Rank and get top opportunities
-            top_markets = self._rank_markets(filtered_markets)
+            top_markets = self._rank_markets(
+                filtered_markets,
+                top_n=min(10, max(1, settings.max_markets_per_cycle)),
+            )
+            state.top_opportunities = [
+                MarketAnalysis(market=market)
+                for market in top_markets
+            ]
             state.opportunities_found = len(top_markets)
 
             logger.info(f"Identified {len(top_markets)} top opportunities")

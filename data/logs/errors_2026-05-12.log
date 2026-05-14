@@ -1,0 +1,6 @@
+2026-05-12 21:23:19 | ERROR    | src.utils.kalshi_client:get_all_markets:306 - Error fetching markets: Kalshi markets API unavailable in live mode. Refusing to use mock data.
+
+2026-05-12 21:23:19 | ERROR    | src.agents.data_qa_circuit_breaker:validate_and_check:62 - CIRCUIT BREAKER TRIGGERED: Market data is 360s old (stale)
+
+2026-05-12 21:23:19 | ERROR    | src.utils.kalshi_client:get_all_markets:306 - Error fetching markets: HTTPSConnectionPool(host='api.elections.kalshi.com', port=443): Max retries exceeded with url: /trade-api/v2/markets?limit=600&status=open (Caused by NameResolutionError("HTTPSConnection(host='api.elections.kalshi.com', port=443): Failed to resolve 'api.elections.kalshi.com' ([Errno 8] nodename nor servname provided, or not known)"))
+
