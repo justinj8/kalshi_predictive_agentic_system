@@ -31,25 +31,33 @@ interface Props {
 export function IntroSequence({ onDone }: Props) {
   const [phase, setPhase] = useState<0 | 1 | 2 | 3 | 4 | 5>(0);
   const { asset } = useIntroAsset();
+  const hasHero = asset.kind === "video" || asset.kind === "image";
 
   const onDoneRef = useRef(onDone);
   useEffect(() => {
     onDoneRef.current = onDone;
   }, [onDone]);
 
-  // Phase timeline. Runs once on mount.
+  // Phase timeline. Two flavours:
+  //   - hero asset present  -> contemplative: let the photo/video breathe,
+  //                            title comes in later, total ~8s.
+  //   - built 2.5D scene    -> kinetic launch beat, total ~6s.
+  // Runs once on mount.
   useEffect(() => {
+    const t = hasHero
+      ? { p1: 500, p2: 2600, p3: 4800, p4: 5900, p5: 7100, done: 7700 }
+      : { p1: 450, p2: 1900, p3: 3400, p4: 4500, p5: 5500, done: 6100 };
     const timers = [
-      setTimeout(() => setPhase(1), 450),
-      setTimeout(() => setPhase(2), 1900),
-      setTimeout(() => setPhase(3), 3400),
-      setTimeout(() => setPhase(4), 4500),
-      setTimeout(() => setPhase(5), 5500),
-      setTimeout(() => onDoneRef.current(), 6100),
+      setTimeout(() => setPhase(1), t.p1),
+      setTimeout(() => setPhase(2), t.p2),
+      setTimeout(() => setPhase(3), t.p3),
+      setTimeout(() => setPhase(4), t.p4),
+      setTimeout(() => setPhase(5), t.p5),
+      setTimeout(() => onDoneRef.current(), t.done),
     ];
     return () => timers.forEach(clearTimeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [hasHero]);
 
   // Click / Space / Esc / Enter skips straight to the dashboard.
   useEffect(() => {
@@ -62,14 +70,15 @@ export function IntroSequence({ onDone }: Props) {
   }, []);
 
   // Derived motion drivers.
-  const launching = phase >= 2;
+  const launching = phase >= 2 && !hasHero;
   const drive = phase >= 3 ? 1 : phase === 2 ? 0.55 : 0;
-  const intensity = phase >= 3 ? 1 : phase === 2 ? 0.7 : 0.06;
+  const intensity = hasHero ? 0 : phase >= 3 ? 1 : phase === 2 ? 0.7 : 0.06;
   const titleIn = phase >= 3;
   const vitalsIn = phase >= 4;
   const fading = phase >= 5;
 
-  // Subtle hand-held camera shake while the car is on the move.
+  // Subtle hand-held camera shake while the car is on the move (built scene
+  // only — a real photo/video already has its own camera language).
   const shake = useMemo(() => {
     if (!launching || fading) return { x: 0, y: 0 };
     return { x: [0, -3, 2, -2, 1, 0], y: [0, 2, -2, 1, -1, 0] };
@@ -86,16 +95,19 @@ export function IntroSequence({ onDone }: Props) {
         if (fading) onDoneRef.current();
       }}
     >
-      {/* ===== CAMERA RIG (everything that shakes / pushes in) ===== */}
+      {/* ===== CAMERA RIG (everything that shakes / pushes in)
+          The hero asset already animates from inside (Ken-Burns / video), so
+          here we apply only a very mild push-in. The 2.5D scene gets the
+          stronger launch push. ===== */}
       <motion.div
         className="absolute inset-0"
         animate={{
-          scale: launching ? 1.12 : 1.02,
+          scale: hasHero ? 1.04 : launching ? 1.12 : 1.02,
           x: shake.x,
           y: shake.y,
         }}
         transition={{
-          scale: { duration: 2.4, ease: [0.16, 1, 0.3, 1] },
+          scale: { duration: hasHero ? 7 : 2.4, ease: [0.16, 1, 0.3, 1] },
           x: { duration: 0.5, repeat: launching && !fading ? Infinity : 0 },
           y: { duration: 0.5, repeat: launching && !fading ? Infinity : 0 },
         }}
@@ -118,12 +130,18 @@ export function IntroSequence({ onDone }: Props) {
             />
           )}
           {asset.kind === "image" && (
+            // Slow cinematic Ken-Burns: push in and drift slightly right so
+            // the still feels alive, not frozen. Plays for the full intro.
             <motion.img
               src={asset.src}
               className="absolute inset-0 h-full w-full object-cover"
-              initial={{ scale: 1.0 }}
-              animate={{ scale: 1.14 }}
-              transition={{ duration: 6, ease: "linear" }}
+              initial={{ scale: 1.04, x: 0 }}
+              animate={{ scale: 1.18, x: "-3%" }}
+              transition={{ duration: 10, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                // a touch of soft cinematic contrast on the still
+                filter: "contrast(1.04) saturate(1.05)",
+              }}
             />
           )}
           {asset.kind === "none" && <IntroCircuit drive={drive} />}
@@ -174,46 +192,62 @@ export function IntroSequence({ onDone }: Props) {
           </motion.div>
         )}
 
-        {/* --- PARTICLE LAYER (smoke / sparks / streaks) --- */}
-        <IntroParticles intensity={intensity} carX={0.42} carY={0.78} />
+        {/* --- PARTICLE LAYER (only meaningful on the built 2.5D scene) --- */}
+        {!hasHero && (
+          <IntroParticles intensity={intensity} carX={0.42} carY={0.78} />
+        )}
 
-        {/* --- SPEED BLUR on the whip transition into the title --- */}
-        <motion.div
-          className="absolute inset-0 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: phase === 3 ? [0, 0.85, 0] : 0 }}
-          transition={{ duration: 0.7, times: [0, 0.4, 1] }}
-          style={{
-            background:
-              "repeating-linear-gradient(90deg, rgba(255,255,255,0.0) 0px, rgba(255,255,255,0.18) 2px, rgba(255,255,255,0.0) 7px)",
-          }}
-        />
+        {/* --- SPEED BLUR on the whip transition into the title (built scene
+            only — designed for the SVG launch beat) --- */}
+        {!hasHero && (
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: phase === 3 ? [0, 0.85, 0] : 0 }}
+            transition={{ duration: 0.7, times: [0, 0.4, 1] }}
+            style={{
+              background:
+                "repeating-linear-gradient(90deg, rgba(255,255,255,0.0) 0px, rgba(255,255,255,0.18) 2px, rgba(255,255,255,0.0) 7px)",
+            }}
+          />
+        )}
       </motion.div>
 
-      {/* ===== CINEMATIC GRADE ===== */}
-      {/* film grain */}
-      <div className="intro-grain absolute inset-0 pointer-events-none opacity-[0.07]" />
-      {/* naturalistic LUT-ish wash: cool shadows, warm highlight bloom */}
+      {/* ===== CINEMATIC GRADE =====
+          Asset-aware: when a real photo/video is playing we apply only a soft
+          cinematic touch (light grain + gentle vignette) so the source colour
+          shows through. The built 2.5D scene gets the heavier LUT wash that
+          adds depth to the vectors. */}
       <div
-        className="absolute inset-0 pointer-events-none mix-blend-soft-light"
-        style={{
-          background:
-            "radial-gradient(120% 90% at 70% 18%, rgba(255,236,200,0.28), rgba(255,236,200,0) 55%), linear-gradient(180deg, rgba(40,60,80,0.22), rgba(10,12,18,0.42))",
-        }}
+        className={`intro-grain absolute inset-0 pointer-events-none ${
+          hasHero ? "opacity-[0.05]" : "opacity-[0.07]"
+        }`}
       />
-      {/* vignette */}
+      {!hasHero && (
+        <div
+          className="absolute inset-0 pointer-events-none mix-blend-soft-light"
+          style={{
+            background:
+              "radial-gradient(120% 90% at 70% 18%, rgba(255,236,200,0.28), rgba(255,236,200,0) 55%), linear-gradient(180deg, rgba(40,60,80,0.22), rgba(10,12,18,0.42))",
+          }}
+        />
+      )}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            "radial-gradient(130% 100% at 50% 46%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.62) 100%)",
+          background: hasHero
+            ? "radial-gradient(140% 110% at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.42) 100%)"
+            : "radial-gradient(130% 100% at 50% 46%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.62) 100%)",
         }}
       />
-      {/* grade deepens toward the HUD handoff */}
+      {/* grade deepens toward the HUD handoff (stronger on the hero path so
+          the title reads cleanly over a busy photo) */}
       <motion.div
         className="absolute inset-0 pointer-events-none bg-ink-950"
         initial={{ opacity: 0 }}
-        animate={{ opacity: titleIn ? (fading ? 0.96 : 0.55) : 0 }}
+        animate={{
+          opacity: titleIn ? (fading ? 0.96 : hasHero ? 0.62 : 0.55) : 0,
+        }}
         transition={{ duration: 0.9, ease: "easeInOut" }}
       />
 
