@@ -1,8 +1,8 @@
-// Capture preview screenshots of the Kalshi Pit Wall at each intro phase
-// + final HUD. Used during development to verify the intro animation flows
-// end-to-end before pushing changes.
+// Capture preview screenshots of the Kalshi Pit Wall intro + HUD.
+// Verifies the cinematic launch sequence flows end-to-end before pushing.
 //
-// Run with:  node scripts/capture-preview.mjs
+// Run from dashboard/frontend with playwright installed:
+//   node ../scripts/capture-preview.mjs
 //
 // Outputs /tmp/pit-wall-preview/*.png.
 import { chromium } from "playwright";
@@ -21,31 +21,24 @@ const ctx = await browser.newContext({
 const page = await ctx.newPage();
 
 console.log("Navigating to", URL);
-await page.goto(URL, { waitUntil: "networkidle" });
+await page.goto(URL, { waitUntil: "domcontentloaded" });
 
-async function shot(name, waitMs) {
-  await page.waitForTimeout(waitMs);
+async function shot(name, atMs, startedAt) {
+  const wait = atMs - (Date.now() - startedAt);
+  if (wait > 0) await page.waitForTimeout(wait);
   const file = `${OUT}/${name}.png`;
   await page.screenshot({ path: file, fullPage: false });
-  console.log("  →", file);
+  console.log(`  → ${file}  (t≈${Date.now() - startedAt}ms)`);
 }
 
-// Time-aligned with IntroSequence phase boundaries
-//  phase 0: 0      ms (pre)
-//  phase 1: 350    ms (red horizon line + corners)
-//  phase 2: 1300   ms (ident lands)
-//  phase 3: 2300   ms (vitals row)
-//  phase 4: 3500   ms (fade out)
-//  done:    4200   ms (HUD on screen)
-//
-// We sample at 600ms, 1700ms, 2700ms, then again at 5500ms (clearly
-// post-intro) so we know the dashboard is taking over.
-
-await shot("01-phase1-horizon", 600);
-await shot("02-phase2-ident", 1100);
-await shot("03-phase3-vitals", 1000);
-await shot("04-hud-final", 2500);
+// Phase timeline (ms from mount): 1=450 establishing, 2=1900 launch,
+// 3=3400 title, 4=4500 vitals, 5=5500 fade, done=6100.
+const t0 = Date.now();
+await shot("01-establishing", 1100, t0); // wide circuit, Ferrari on the line
+await shot("02-launch", 2700, t0); // Ferrari mid-launch, smoke + streaks
+await shot("03-title", 3900, t0); // KALSHI · PIT WALL slams in
+await shot("04-vitals", 5000, t0); // telemetry vitals row
+await shot("05-hud", 7200, t0); // live HUD has taken over
 
 console.log("DONE");
-
 await browser.close();
