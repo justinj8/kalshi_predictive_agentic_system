@@ -6,6 +6,11 @@ interface Props {
   /** Where the car's rear contact patch is, in 0..1 screen coords. */
   carX: number;
   carY: number;
+  /**
+   * "streaks" -> only horizontal speed streaks (used over a real photo where
+   * there's no SVG car kicking up smoke/sparks). "full" -> the whole show.
+   */
+  mode?: "full" | "streaks";
 }
 
 interface P {
@@ -24,10 +29,15 @@ interface P {
  * Ferrari, occasional sparks off the floor, and horizontal speed streaks that
  * intensify with `intensity`. Pure canvas so it stays cheap at 60fps.
  */
-export function IntroParticles({ intensity, carX, carY }: Props) {
+export function IntroParticles({
+  intensity,
+  carX,
+  carY,
+  mode = "full",
+}: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const stateRef = useRef({ intensity, carX, carY });
-  stateRef.current = { intensity, carX, carY };
+  const stateRef = useRef({ intensity, carX, carY, mode });
+  stateRef.current = { intensity, carX, carY, mode };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -50,12 +60,13 @@ export function IntroParticles({ intensity, carX, carY }: Props) {
     window.addEventListener("resize", resize);
 
     function spawn(w: number, h: number) {
-      const { intensity: it, carX: cx, carY: cy } = stateRef.current;
+      const { intensity: it, carX: cx, carY: cy, mode: md } = stateRef.current;
       const px = cx * w;
       const py = cy * h;
+      const onlyStreaks = md === "streaks";
 
       // Tyre smoke + grit: more, faster, behind the car as intensity rises.
-      const smokeCount = Math.round(it * 4);
+      const smokeCount = onlyStreaks ? 0 : Math.round(it * 4);
       for (let i = 0; i < smokeCount; i++) {
         particles.push({
           x: px + (Math.random() - 0.5) * 30 * dpr,
@@ -68,8 +79,8 @@ export function IntroParticles({ intensity, carX, carY }: Props) {
           kind: "smoke",
         });
       }
-      // Sparks: rare, only at high intensity.
-      if (it > 0.55 && Math.random() < it * 0.5) {
+      // Sparks: rare, only at high intensity, never in streaks-only mode.
+      if (!onlyStreaks && it > 0.55 && Math.random() < it * 0.5) {
         particles.push({
           x: px + (Math.random() - 0.5) * 20 * dpr,
           y: py + 6 * dpr,

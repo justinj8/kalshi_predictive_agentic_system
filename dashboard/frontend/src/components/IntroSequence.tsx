@@ -77,12 +77,19 @@ export function IntroSequence({ onDone }: Props) {
   const vitalsIn = phase >= 4;
   const fading = phase >= 5;
 
-  // Subtle hand-held camera shake while the car is on the move (built scene
-  // only — a real photo/video already has its own camera language).
+  // Subtle hand-held camera shake. Built-scene shake only fires during the
+  // launch beat; hero-asset shake is gentler and runs throughout so the
+  // photo feels like a real handheld tracking shot, not a frozen still.
   const shake = useMemo(() => {
-    if (!launching || fading) return { x: 0, y: 0 };
-    return { x: [0, -3, 2, -2, 1, 0], y: [0, 2, -2, 1, -1, 0] };
-  }, [launching, fading]);
+    if (fading) return { x: 0, y: 0 };
+    if (hasHero && phase >= 1) {
+      return { x: [0, -1.5, 1, -1, 1.5, 0], y: [0, 1, -1, 0.5, -0.5, 0] };
+    }
+    if (launching) {
+      return { x: [0, -3, 2, -2, 1, 0], y: [0, 2, -2, 1, -1, 0] };
+    }
+    return { x: 0, y: 0 };
+  }, [launching, fading, hasHero, phase]);
 
   return (
     <motion.div
@@ -108,8 +115,14 @@ export function IntroSequence({ onDone }: Props) {
         }}
         transition={{
           scale: { duration: hasHero ? 7 : 2.4, ease: [0.16, 1, 0.3, 1] },
-          x: { duration: 0.5, repeat: launching && !fading ? Infinity : 0 },
-          y: { duration: 0.5, repeat: launching && !fading ? Infinity : 0 },
+          x: {
+            duration: hasHero ? 0.9 : 0.5,
+            repeat: !fading && ((hasHero && phase >= 1) || launching) ? Infinity : 0,
+          },
+          y: {
+            duration: hasHero ? 0.9 : 0.5,
+            repeat: !fading && ((hasHero && phase >= 1) || launching) ? Infinity : 0,
+          },
         }}
       >
         {/* --- HERO LAYER: real asset if present, else built circuit --- */}
@@ -130,17 +143,19 @@ export function IntroSequence({ onDone }: Props) {
             />
           )}
           {asset.kind === "image" && (
-            // Slow cinematic Ken-Burns: push in and drift slightly right so
-            // the still feels alive, not frozen. Plays for the full intro.
+            // Faked tracking shot: pan the image leftward while zooming in
+            // slightly. Combined with the streak overlay and handheld shake
+            // outside, this reads as the camera following the car as it
+            // drives — not just a frozen still on a Ken-Burns push.
             <motion.img
               src={asset.src}
               className="absolute inset-0 h-full w-full object-cover"
-              initial={{ scale: 1.04, x: 0 }}
-              animate={{ scale: 1.18, x: "-3%" }}
-              transition={{ duration: 10, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ scale: 1.06, x: "5%" }}
+              animate={{ scale: 1.20, x: "-9%" }}
+              transition={{ duration: 8.5, ease: "linear" }}
               style={{
                 // a touch of soft cinematic contrast on the still
-                filter: "contrast(1.04) saturate(1.05)",
+                filter: "contrast(1.05) saturate(1.06)",
               }}
             />
           )}
@@ -192,9 +207,21 @@ export function IntroSequence({ onDone }: Props) {
           </motion.div>
         )}
 
-        {/* --- PARTICLE LAYER (only meaningful on the built 2.5D scene) --- */}
+        {/* --- PARTICLE LAYER ---
+            Built scene: full smoke/spark/streak system driven by `intensity`.
+            Hero asset: streaks-only at a steady moderate level after the
+            photo establishes, to fake the rushing-past speed of a tracking
+            shot without polluting the photo with fake smoke. */}
         {!hasHero && (
           <IntroParticles intensity={intensity} carX={0.42} carY={0.78} />
+        )}
+        {hasHero && phase >= 1 && !fading && (
+          <IntroParticles
+            intensity={0.55}
+            carX={0.5}
+            carY={0.85}
+            mode="streaks"
+          />
         )}
 
         {/* --- SPEED BLUR on the whip transition into the title (built scene
